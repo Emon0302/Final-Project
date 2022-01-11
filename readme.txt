@@ -8,4 +8,4 @@ Table Name->
  1. res_category -> ser_category
  2. restaurant -> ser_name
  3. dishes -> pack_name
- 
+ ------------------------------
