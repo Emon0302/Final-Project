@@ -205,7 +205,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                   <ul id="sidebarnav">
+                    <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
@@ -215,26 +215,19 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
+                        
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="allusers.php">All Users</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
-								
-                               
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Store</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="allrestraunt.php">All Stores</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restraunt.php">Add Restaurant</a></li>
+								<li><a href="allrestraunt.php">All Services</a></li>
+								<li><a href="add_category.php">Add Service Category</a></li>
+                                <li><a href="add_restraunt.php">Add Service</a></li>
                                 
                             </ul>
                         </li>
-                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
+								<li><a href="all_menu.php">All Packages</a></li>
+								<li><a href="add_menu.php">Add Package</a></li>
                               
                                 
                             </ul>
@@ -243,6 +236,15 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_orders.php">All Orders</a></li>
 								  
+                            </ul>
+                        </li>
+
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="allusers.php">All Users</a></li>
+								<li><a href="add_users.php">Add Users</a></li>
+								
+                               
                             </ul>
                         </li>
                          
@@ -276,7 +278,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Add Restaurant</h4>
+                                <h4 class="m-b-0 text-white">Add Service</h4>
                             </div>
                             <div class="card-body">
                                 <form action='' method='post'  enctype="multipart/form-data">
@@ -286,97 +288,21 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Restaurant Name</label>
-                                                    <input type="text" name="res_name" class="form-control" placeholder="John doe">
+                                                    <label class="control-label">Service Name</label>
+                                                    <input type="text" name="res_name" class="form-control" placeholder="Write Your Services">
                                                    </div>
                                             </div>
-                                            <!--/span-->
+
                                             <div class="col-md-6">
-                                                <div class="form-group has-danger">
-                                                    <label class="control-label">Bussiness E-mail</label>
-                                                    <input type="text" name="email" class="form-control form-control-danger" placeholder="example@gmail.com">
-                                                    </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-->
-                                        <div class="row p-t-20">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Phone </label>
-                                                    <input type="text" name="phone" class="form-control" placeholder="1-(555)-555-5555">
-                                                   </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group has-danger">
-                                                    <label class="control-label">website URL</label>
-                                                    <input type="text" name="url" class="form-control form-control-danger" placeholder="http://example.com">
-                                                    </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Open Hours</label>
-                                                    <select name="o_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
-                                                     <option>--Select your Hours--</option>
-                                                        <option value="6am">6am</option>
-                                                        <option value="7am">7am</option> 
-														<option value="8am">8am</option>
-														<option value="9am">9am</option>
-														<option value="10am">10am</option>
-														<option value="11am">11am</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Close Hours</label>
-                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
-                                                     <option>--Select your Hours--</option>
-                                                        <option value="3pm">3pm</option>
-                                                        <option value="4pm">4pm</option> 
-														<option value="5pm">5pm</option>
-														<option value="6pm">6pm</option>
-														<option value="7pm">7pm</option>
-														<option value="8pm">8pm</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-											
-											 <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Open Days</label>
-                                                    <select name="o_days" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <option>--Select your Days--</option>
-                                                        <option value="mon-tue">mon-tue</option>
-                                                        <option value="mon-wed">mon-wed</option> 
-														<option value="mon-thu">mon-thu</option>
-														<option value="mon-fri">mon-fri</option>
-														<option value="mon-sat">mon-sat</option>
-														<option value="24hr-x7">24hr-x7</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-											
-											
-											<div class="col-md-6">
                                                 <div class="form-group has-danger">
                                                     <label class="control-label">Image</label>
                                                     <input type="file" name="file"  id="lastName" class="form-control form-control-danger" placeholder="12n">
                                                     </div>
                                             </div>
-                                            <!--/span-->
-											
-											
-											
-											 <div class="col-md-12">
+
+                                            <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="control-label">Select Category</label>
+                                                    <label class="control-label">Select Service Category</label>
 													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
                                                         <option>--Select Category--</option>
                                                  <?php $ssql ="select * from ser_category";
@@ -390,12 +316,89 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 													 </select>
                                                 </div>
                                             </div>
+                                            <!--/span-->
+                                            <!-- <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Bussiness E-mail</label>
+                                                    <input type="text" name="email" class="form-control form-control-danger" placeholder="example@gmail.com">
+                                                    </div>
+                                            </div> -->
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <!-- <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Phone </label>
+                                                    <input type="text" name="phone" class="form-control" placeholder="1-(555)-555-5555">
+                                                   </div>
+                                            </div> -->
+                                            <!--/span-->
+                                            <!-- <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">website URL</label>
+                                                    <input type="text" name="url" class="form-control form-control-danger" placeholder="http://example.com">
+                                                    </div>
+                                            </div> -->
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <!-- <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Open Hours</label>
+                                                    <select name="o_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
+                                                     <option>--Select your Hours--</option>
+                                                        <option value="6am">6am</option>
+                                                        <option value="7am">7am</option> 
+														<option value="8am">8am</option>
+														<option value="9am">9am</option>
+														<option value="10am">10am</option>
+														<option value="11am">11am</option>
+                                                    </select>
+                                                </div>
+                                            </div> -->
+                                            <!--/span-->
+                                             <!-- <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Close Hours</label>
+                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
+                                                     <option>--Select your Hours--</option>
+                                                        <option value="3pm">3pm</option>
+                                                        <option value="4pm">4pm</option> 
+														<option value="5pm">5pm</option>
+														<option value="6pm">6pm</option>
+														<option value="7pm">7pm</option>
+														<option value="8pm">8pm</option>
+                                                    </select>
+                                                </div>
+                                            </div> -->
 											
+											 <!-- <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Open Days</label>
+                                                    <select name="o_days" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                                        <option>--Select your Days--</option>
+                                                        <option value="mon-tue">mon-tue</option>
+                                                        <option value="mon-wed">mon-wed</option> 
+														<option value="mon-thu">mon-thu</option>
+														<option value="mon-fri">mon-fri</option>
+														<option value="mon-sat">mon-sat</option>
+														<option value="24hr-x7">24hr-x7</option>
+                                                    </select>
+                                                </div>
+                                            </div> -->
+											
+											
+											
+                                            <!--/span-->
+											
+			
 											
 											
                                         </div>
                                         <!--/row-->
-                                        <h3 class="box-title m-t-40">Store Address</h3>
+                                        <h3 class="box-title m-t-40">Service Details</h3>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-12 ">

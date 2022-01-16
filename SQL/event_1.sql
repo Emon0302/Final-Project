@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2022 at 05:39 PM
+-- Generation Time: Jan 11, 2022 at 04:55 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.0
 
@@ -166,23 +166,30 @@ CREATE TABLE `ser_name` (
   `rs_id` int(222) NOT NULL,
   `c_id` int(222) NOT NULL,
   `title` varchar(222) NOT NULL,
+  `email` varchar(222) NOT NULL,
+  `phone` varchar(222) NOT NULL,
+  `url` varchar(222) NOT NULL,
+  `o_hr` varchar(222) NOT NULL,
+  `c_hr` varchar(222) NOT NULL,
+  `o_days` varchar(222) NOT NULL,
   `address` text NOT NULL,
-  `image` text NOT NULL
+  `image` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ser_name`
 --
 
-INSERT INTO `ser_name` (`rs_id`, `c_id`, `title`, `address`, `image`) VALUES
-(48, 12, 'Food', '  Palace,   natwar jalandhar ', '61dc6b7ad0e2f.jpg'),
-(49, 5, 'The Great Kabab Factory', 'Radisson Blu Plaza Hotel, Delhi Airport, NH-8, New Delhi, 110037', '5ad74de005016.jpg'),
-(50, 6, 'Aarkay Vaishno Dhaba', 'Bhargav Nagar, Jalandhar - Nakodar Rd, Jalandhar, Punjab 144003', '5ad74e5310ae4.jpg'),
-(51, 7, 'Martini', '399 L Near Apple Showroom, Model Town,', '5ad74ebf1d103.jpg'),
-(52, 8, 'hudson', 'Opposite Lovely Sweets, Nakodar Road, Jalandhar, Punjab 144001', '5ad756f1429e3.jpg'),
-(53, 9, 'kriyana store', 'near kalu gali hotel india what everrrr.', '5ad79e7d01c5a.jpg'),
-(54, 11, '7Dayz', 'Ibrahim mention,K.B Aman Ali Road, Chawkbazar,Chittagong', '61dc696fe0317.png'),
-(55, 13, 'Flower', 'Ibrahim mension,K.B Aman Ali Road,Chawkbazar,Chittagong', '61dd7f5b6220b.png');
+INSERT INTO `ser_name` (`rs_id`, `c_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES
+(48, 12, 'Food', 'HariBurger@gmail.com', ' 090412 64676', 'HariBurger.com', '11am', '8pm', '24hr-x7', '  Palace,   natwar jalandhar ', '61dc6b7ad0e2f.jpg', '2022-01-10 17:23:06'),
+(49, 5, 'The Great Kabab Factory', 'kwbab@gmail.com', '011 2677 9070', 'kwbab.com', '6am', '5pm', 'mon-fri', 'Radisson Blu Plaza Hotel, Delhi Airport, NH-8, New Delhi, 110037', '5ad74de005016.jpg', '2018-04-18 13:53:36'),
+(50, 6, 'Aarkay Vaishno Dhaba', 'Vaishno@gmail.com', '090410 35147', 'Vaishno.com', '6am', '6pm', 'mon-sat', 'Bhargav Nagar, Jalandhar - Nakodar Rd, Jalandhar, Punjab 144003', '5ad74e5310ae4.jpg', '2018-04-18 13:55:31'),
+(51, 7, 'Martini', 'martin@gmail.com', '3454345654', 'martin.com', '8am', '4pm', 'mon-thu', '399 L Near Apple Showroom, Model Town,', '5ad74ebf1d103.jpg', '2018-04-18 13:57:19'),
+(52, 8, 'hudson', 'hud@gmail.com', '2345434567', 'hudson.com', '6am', '7pm', 'mon-fri', 'Opposite Lovely Sweets, Nakodar Road, Jalandhar, Punjab 144001', '5ad756f1429e3.jpg', '2018-04-18 14:32:17'),
+(53, 9, 'kriyana store', 'kari@gmail.com', '4512545784', 'kari.com', '7am', '7pm', 'mon-sat', 'near kalu gali hotel india what everrrr.', '5ad79e7d01c5a.jpg', '2018-04-18 19:37:33'),
+(54, 11, '7Dayz', 'emonpaul0302@gmail.com', '01813180218', 'www.7dayz.com', '10am', '8pm', '24hr-x7', 'Ibrahim mention,K.B Aman Ali Road, Chawkbazar,Chittagong', '61dc696fe0317.png', '2022-01-10 17:14:23'),
+(55, 13, 'Flower', 'flower@gmail.com', '01638575578', 'f.com', '6am', '3pm', '24hr-x7', 'Ibrahim mension,K.B Aman Ali Road,Chawkbazar,Chittagong', '61dd7f5b6220b.png', '2022-01-11 13:00:11');
 
 -- --------------------------------------------------------
 

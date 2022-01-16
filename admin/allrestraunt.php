@@ -106,7 +106,7 @@ session_start();
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                   <ul id="sidebarnav">
+                    <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
@@ -116,26 +116,19 @@ session_start();
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
+                        
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="allusers.php">All Users</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
-								
-                               
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Store</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="allrestraunt.php">All Stores</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restraunt.php">Add Restaurant</a></li>
+								<li><a href="allrestraunt.php">All Services</a></li>
+								<li><a href="add_category.php">Add Service Category</a></li>
+                                <li><a href="add_restraunt.php">Add Service</a></li>
                                 
                             </ul>
                         </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
+								<li><a href="all_menu.php">All Packages</a></li>
+								<li><a href="add_menu.php">Add Package</a></li>
                               
                                 
                             </ul>
@@ -144,6 +137,15 @@ session_start();
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_orders.php">All Orders</a></li>
 								  
+                            </ul>
+                        </li>
+
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="allusers.php">All Users</a></li>
+								<li><a href="add_users.php">Add Users</a></li>
+								
+                               
                             </ul>
                         </li>
                          
@@ -176,7 +178,7 @@ session_start();
 						
 						     <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">All stores data</h4>
+                                <h4 class="card-title">All Services data</h4>
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
 								
                                 <div class="table-responsive m-t-40">
@@ -184,16 +186,16 @@ session_start();
                                         <thead>
                                             <tr>
 											 <th>Cat</th>
-                                                <th>Store-Name</th>
-                                                <th>Email</th>
+                                                <th>Service-Name</th>
+                                                <!-- <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Url</th>
                                                 <th>Open Hrs</th>
                                                 <th>Close Hrs</th>
-												<th>Open Days</th>
+												<th>Open Days</th> -->
 												  <th>Address</th>
-												  <th>Store-Image</th>
-												  <th>Date</th>
+												  <th>Service-Image</th>
+												  <!-- <th>Date</th> -->
 												   <th>Action</th>
 												  
                                             </tr>
@@ -202,16 +204,16 @@ session_start();
                                             <tr>
 											 <th>Cat</th>
                                                 <th>Store-Name</th>
-                                                <th>Email</th>
+                                                <!-- <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Url</th>
 												
                                                 <th>Open Hrs</th>
                                                 <th>Close Hrs</th>
-												<th>Open Days</th>
+												<th>Open Days</th> -->
 												  <th>Address</th>
 												  <th>Store-Image</th>
-												  <th>Date</th>
+												  <!-- <th>Date</th> -->
 												   <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -237,14 +239,7 @@ session_start();
 																				
 																					echo ' <tr><td>'.$row['c_name'].'</td>
 																								<td>'.$rows['title'].'</td>
-																								<td>'.$rows['email'].'</td>
-																								<td>'.$rows['phone'].'</td>
-																								<td>'.$rows['url'].'</td>
 																								
-																								
-																								<td>'.$rows['o_hr'].'</td>
-																								<td>'.$rows['c_hr'].'</td>
-																								<td>'.$rows['o_days'].'</td>
 																								
 																								<td>'.$rows['address'].'</td>
 																								
@@ -252,7 +247,7 @@ session_start();
 																								<center><img src="Res_img/'.$rows['image'].'" class="img-responsive radius"  style="min-width:150px;min-height:100px;"/></center>
 																								</div></td>
 																								
-																								<td>'.$rows['date'].'</td>
+																								
 																									 <td><a href="delete_stores.php?res_del='.$rows['rs_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
 																									 <a href="update_restraunt.php?res_upd='.$rows['rs_id'].'" class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 																									</td></tr>';
@@ -301,9 +296,7 @@ session_start();
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
-            <!-- footer -->
-            <footer class="footer"> © 2018 All rights reserved. </footer>
-            <!-- End footer -->
+
         </div>
         <!-- End Page wrapper  -->
     </div>
