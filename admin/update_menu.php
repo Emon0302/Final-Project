@@ -326,7 +326,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                   <ul id="sidebarnav">
+                    <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
@@ -344,18 +344,18 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                                
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Store</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="allrestraunt.php">All Stores</a></li>
-								<li><a href="add_category.php">Add Category</a></li>
-                                <li><a href="add_restraunt.php">Add Restaurant</a></li>
+								<li><a href="allrestraunt.php">All Services</a></li>
+								<li><a href="add_category.php">Add Services Category</a></li>
+                                <li><a href="add_restraunt.php">Add Service</a></li>
                                 
                             </ul>
                         </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
+                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Menues</a></li>
-								<li><a href="add_menu.php">Add Menu</a></li>
+								<li><a href="all_menu.php">All Packages</a></li>
+								<li><a href="add_menu.php">Add Packages</a></li>
                               
                                 
                             </ul>
@@ -366,6 +366,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 								  
                             </ul>
                         </li>
+						
                          
                     </ul>
                 </nav>
@@ -402,7 +403,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Add Menu to Restaurant</h4>
+                                <h4 class="m-b-0 text-white">Add Packages to Service</h4>
                             </div>
                             <div class="card-body">
                                 <form action='' method='post'  enctype="multipart/form-data">
@@ -415,7 +416,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Dish Name</label>
+                                                    <label class="control-label">Package Name</label>
                                                     <input type="text" name="d_name" value="<?php echo $roww['title'];?>" class="form-control" placeholder="Morzirella">
                                                    </div>
                                             </div>
@@ -457,9 +458,9 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 											
 											 <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="control-label">Select Category</label>
+                                                    <label class="control-label">Select Service Category</label>
 													<select name="res_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <option>--Select Restaurant--</option>
+                                                        <option>--Select Services--</option>
                                                  <?php $ssql ="select * from ser_name";
 													$res=mysqli_query($db, $ssql); 
 													while($row=mysqli_fetch_array($res))  

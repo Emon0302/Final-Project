@@ -259,9 +259,7 @@ $item_total += ($item["price"]*$item["quantity"]); // calculating current price 
                             <h5>Address</h5>
                             <p>K.B Aman Ali Road, Chawkbazar, Chattogram</p>
                         </div>
-                        <!-- <div class="col-xs-12 col-sm-4 additional-info color-gray">
-                            <p>@copyright 2022</p>
-                        </div> -->
+                       
                     </div>
                 </div>
                 <!-- bottom footer ends -->

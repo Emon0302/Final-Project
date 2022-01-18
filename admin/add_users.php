@@ -358,9 +358,7 @@ if(isset($_POST['submit'] ))
                 <!-- End PAge Content -->
             <!-- </div>
             <!-- End Container fluid  >
-            <!-- footer >
-            <footer class="footer"> © 2018 All rights reserved. </footer>
-            <!-- End footer >
+    
         </div--> 
         <!-- End Page wrapper  -->
     </div>

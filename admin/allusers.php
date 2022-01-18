@@ -184,7 +184,7 @@ session_start();
                                                 <th>Last-Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
-												<th>Address</th>												
+												<th>Service-Details</th>												
 												 <th>Reg-Date</th>
 												  <th>Action</th>
 												 

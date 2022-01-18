@@ -184,7 +184,7 @@ session_start();
                                                 <th>Title</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
-												<th>Address</th>
+												<th>Service-Details</th>
 												<th>status</th>												
 												 <th>Reg-Date</th>
 												  <th>Action</th>

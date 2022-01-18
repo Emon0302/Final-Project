@@ -222,9 +222,7 @@ session_start(); //start temp session until logout/browser closed
                             <h5>Address</h5>
                             <p>K.B Aman Ali Road, Chawkbazar, Chattogram</p>
                         </div>
-                        <!-- <div class="col-xs-12 col-sm-4 additional-info color-gray">
-                            <p>@copyright 2022</p>
-                        </div> -->
+   
                     </div>
                 </div>
                 <!-- bottom footer ends -->

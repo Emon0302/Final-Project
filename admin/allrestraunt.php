@@ -193,7 +193,7 @@ session_start();
                                                 <th>Open Hrs</th>
                                                 <th>Close Hrs</th>
 												<th>Open Days</th> -->
-												  <th>Address</th>
+												  <th>Service Details</th>
 												  <th>Service-Image</th>
 												  <!-- <th>Date</th> -->
 												   <th>Action</th>
@@ -203,7 +203,7 @@ session_start();
                                         <tfoot>
                                             <tr>
 											 <th>Cat</th>
-                                                <th>Store-Name</th>
+                                                <th>Services-Name</th>
                                                 <!-- <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Url</th>
@@ -212,7 +212,7 @@ session_start();
                                                 <th>Close Hrs</th>
 												<th>Open Days</th> -->
 												  <th>Address</th>
-												  <th>Store-Image</th>
+												  <th>Services-Image</th>
 												  <!-- <th>Date</th> -->
 												   <th>Action</th>
                                             </tr>
