@@ -72,7 +72,7 @@ include_once 'product-action.php'; //including controller
 									     $rows=mysqli_fetch_array($ress);
 										  
 										  ?>
-            <section class="inner-page-hero bg-image" data-image-src="images/img/dish.jpeg">
+            <section class="inner-page-hero bg-image" data-image-src="images/event2.jpg">
                 <div class="profile">
                     <div class="container">
                         <div class="row">
@@ -113,7 +113,7 @@ include_once 'product-action.php'; //including controller
                         <div class="menu-widget" id="2">
                             <div class="widget-heading">
                                 <h3 class="widget-title text-dark">
-                              POPULAR ORDERS Delicious hot food! <a class="btn btn-link pull-right" data-toggle="collapse" href="#popular2" aria-expanded="true">
+                              Select Your Desired Package ! <a class="btn btn-link pull-right" data-toggle="collapse" href="#popular2" aria-expanded="true">
                               <i class="fa fa-angle-right pull-right"></i>
                               <i class="fa fa-angle-down pull-right"></i>
                               </a>
@@ -179,7 +179,7 @@ include_once 'product-action.php'; //including controller
                         <div class="widget widget-cart">
                                <div class="widget-heading">
                                    <h3 class="widget-title text-dark">
-                                Your Shopping Cart
+                                Your Cart
                              </h3>
                                                
                              

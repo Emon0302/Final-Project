@@ -199,7 +199,7 @@ only screen and (max-width: 760px),
         <div class="page-wrapper">
       
             <!-- start: Inner page hero -->
-            <div class="inner-page-hero bg-image" data-image-src="images/img/res.jpeg">
+            <div class="inner-page-hero bg-image" data-image-src="images/event2.jpg">
                 <div class="container"> </div>
                 <!-- end:Container -->
             </div>
