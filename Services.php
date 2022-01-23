@@ -62,7 +62,16 @@ session_start();
         <div class="page-wrapper">
             <!-- start: Inner page hero -->
             <div class="inner-page-hero bg-image" data-image-src="images/event2.jpg">
-                <div class="container"> </div>
+                <div class="container">
+                <div class="title text-xs-center m-b-30">
+                    <h2 style = "color:white">Select Your Desired Event</h2>
+                    <p style = "color:white" class="lead">The easiest way to search Event</p>
+                </div>
+            
+                
+                    
+            
+            </div>
                 <!-- end:Container -->
             </div>
             <div class="result-show">
