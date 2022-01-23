@@ -17,7 +17,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 		  
 		
 		
-		if(empty($_POST['c_name'])||empty($_POST['res_name'])||$_POST['email']==''||$_POST['phone']==''||$_POST['url']==''||$_POST['o_hr']==''||$_POST['c_hr']==''||$_POST['o_days']==''||$_POST['address']=='')
+		if(empty($_POST['d_name'])||empty($_POST['about'])||$_POST['price']==''||$_POST['res_name']=='')
 		{	
 											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -37,7 +37,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 								$extension = strtolower(end($extension));  
 								$fnew = uniqid().'.'.$extension;
    
-								$store = "Res_img/".basename($fnew);                      // the path to store the upload image
+								$store = "Res_img/dishes/".basename($fnew);                      // the path to store the upload image
 	
 					if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
 					{        
@@ -56,36 +56,21 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 										{
 												
 												
-												$res_name=$_POST['res_name'];
+												
 				                                 
-												$sql = "update ser_name set c_id='$_POST[c_name]', title='$res_name',email='$_POST[email]',phone='$_POST[phone]',url='$_POST[url]',o_hr='$_POST[o_hr]',c_hr='$_POST[c_hr]',o_days='$_POST[o_days]',address='$_POST[address]',image='$fnew' where rs_id='$_GET[res_upd]' ";  // store the submited data ino the database :images												mysqli_query($db, $sql); 
-													mysqli_query($db, $sql); 
+												$sql = "update pack_name set rs_id='$_POST[res_name]',title='$_POST[d_name]',slogan='$_POST[about]',price='$_POST[price]',img='$fnew' where d_id='$_GET[menu_upd]'";  // update the submited data ino the database :images
+												mysqli_query($db, $sql); 
 												move_uploaded_file($temp, $store);
 			  
 													$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Record Updated!</strong>.
+																<strong>Record</strong>Updated.
 															</div>';
                 
 	
 										}
 					}
-					elseif($extension == '')
-					{
-						$error = 	'<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>select image</strong>
-															</div>';
-					}
-					else{
-					
-											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>invalid extension!</strong>png, jpg, Gif are accepted.
-															</div>';
-						
-	   
-						}               
+					              
 	   
 	   
 	   }
@@ -326,7 +311,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                               <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -361,16 +346,16 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="allrestraunt.php">All Services</a></li>
+								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Services Category</a></li>
-                                <li><a href="add_restraunt.php">Add Service</a></li>
+                                <li><a href="add_service.php">Add Service</a></li>
                                 
                             </ul>
                         </li>
                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_menu.php">All Packages</a></li>
-								<li><a href="add_menu.php">Add Packages</a></li>
+								<li><a href="all_packages.php">All Packages</a></li>
+								<li><a href="add_packages.php">Add Packages</a></li>
                               
                                 
                             </ul>
@@ -417,41 +402,70 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 								
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
-                            
-                                <h4 class="m-b-0 ">Update Services</h4>
-                            
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Add Packages to Service</h4>
+                            </div>
                             <div class="card-body">
                                 <form action='' method='post'  enctype="multipart/form-data">
                                     <div class="form-body">
-                                       <?php $ssql ="select * from ser_name where rs_id='$_GET[res_upd]'";
-													$res=mysqli_query($db, $ssql); 
-													$row=mysqli_fetch_array($res);?>
+                                        <?php $qml ="select * from pack_name where d_id='$_GET[menu_upd]'";
+													$rest=mysqli_query($db, $qml); 
+													$roww=mysqli_fetch_array($rest);
+														?>
                                         <hr>
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Services Name</label>
-                                                    <input type="text" name="res_name" value="<?php echo $row['title'];  ?>" class="form-control" placeholder="John doe">
+                                                    <label class="control-label">Package Name</label>
+                                                    <input type="text" name="d_name" value="<?php echo $roww['title'];?>" class="form-control" placeholder="Morzirella">
                                                    </div>
                                             </div>
-                                        	<div class="col-md-6">
+                                            <!--/span-->
+                                            <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Image</label>
-                                                    <input type="file" name="file"  id="lastName"  class="form-control form-control-danger" placeholder="12n">
+                                                    <label class="control-label">About</label>
+                                                    <input type="text" name="about" value="<?php echo $roww['slogan'];?>" class="form-control form-control-danger" placeholder="slogan">
                                                     </div>
                                             </div>
-                        
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">price </label>
+                                                    <input type="text" name="price" value="<?php echo $roww['price'];?>"  class="form-control" placeholder="$">
+                                                   </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Image</label>
+                                                    <input type="file" name="file"  id="lastName" class="form-control form-control-danger" placeholder="12n">
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!--/row-->
+										
+                                            <!--/span-->
+                                        <div class="row">
+                                            
+											
+											
+											
+											
+											
 											
 											 <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Select Service Category</label>
-													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <option>--Select Category--</option>
-                                                 <?php $ssql ="select * from ser_category";
+													<select name="res_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                                        <option>--Select Services--</option>
+                                                 <?php $ssql ="select * from ser_name";
 													$res=mysqli_query($db, $ssql); 
-													while($rows=mysqli_fetch_array($res))  
+													while($row=mysqli_fetch_array($res))  
 													{
-                                                       echo' <option value="'.$rows['c_id'].'">'.$rows['c_name'].'</option>';;
+                                                       echo' <option value="'.$row['rs_id'].'">'.$row['title'].'</option>';;
 													}  
                                                  
 													?> 
@@ -461,21 +475,8 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 											
 											
 											
-											
-                                        </div> 
-                                        <!--/row-->
-                                        <h3 class="box-title m-t-40">Service Details</h3>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-12 ">
-                                                <div class="form-group">
-                                                    
-                                                    <textarea name="address" type="text" style="height:100px;" class="form-control" > <?php echo $row['address']; ?> </textarea>
-                                                </div>
-                                            </div>
                                         </div>
-                                      
-                                            <!--/span-->
+                                     
                                         </div>
                                     </div>
                                     <div class="form-actions">

@@ -35,7 +35,7 @@ session_start(); //start temp session until logout/browser closed
                     <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                         <ul class="nav navbar-nav">
                             <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                            <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Services<span class="sr-only"></span></a> </li>
+                            <li class="nav-item"> <a class="nav-link active" href="Services.php">Services<span class="sr-only"></span></a> </li>
                             
                            
 							<?php
@@ -100,9 +100,9 @@ session_start(); //start temp session until logout/browser closed
 								<div class="content">
 									<h5><a href="">Weddinng</a></h5>
 									<div class="product-name">'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorum impedit iure reiciendis ipsam et vitae aliquam dolores, voluptates eum quae facilis neque illum porro ipsa labore quibusdam voluptatem mollitia!</div>
-									<div class="price-btn-block"><a href="restaurants.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
-								</div>						
-					    </div>
+									<div class="price-btn-block"><a href="Services.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
+                                </div>
+                                </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-6 col-md-4 food-item">
@@ -111,7 +111,7 @@ session_start(); //start temp session until logout/browser closed
 								<div class="content">
 									<h5><a href="">Birthday</a></h5>
 									<div class="product-name">'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorum impedit iure reiciendis ipsam et vitae aliquam dolores, voluptates eum quae facilis neque illum porro ipsa labore quibusdam voluptatem mollitia!</div>
-									<div class="price-btn-block"><a href="restaurants.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
+									<div class="price-btn-block"><a href="Services.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
 								</div>						
 					    </div>
                     </div>
@@ -122,7 +122,7 @@ session_start(); //start temp session until logout/browser closed
 								<div class="content">
 									<h5><a href="">Party</a></h5>
 									<div class="product-name">'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorum impedit iure reiciendis ipsam et vitae aliquam dolores, voluptates eum quae facilis neque illum porro ipsa labore quibusdam voluptatem mollitia!</div>
-									<div class="price-btn-block"><a href="restaurants.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
+									<div class="price-btn-block"><a href="Services.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
 								</div>						
 					    </div>
                     </div>
@@ -177,11 +177,11 @@ session_start(); //start temp session until logout/browser closed
 														<div class="restaurant-wrap">
 															<div class="row">
 																<div class="col-xs-12 col-sm-3 col-md-12 col-lg-3 text-xs-center">
-																	<a class="restaurant-logo" href="dishes.php?res_id='.$rows['rs_id'].'" > <img src="admin/Res_img/'.$rows['image'].'" alt="restaurant logo"> </a>
+																	<a class="restaurant-logo" href="Packages.php?res_id='.$rows['rs_id'].'" > <img src="admin/Res_img/'.$rows['image'].'" alt="restaurant logo"> </a>
 																</div>
 																<!--end:col -->
 																<div class="col-xs-12 col-sm-9 col-md-12 col-lg-9">
-																	<h5><a href="dishes.php?res_id='.$rows['rs_id'].'" >'.$rows['title'].'</a></h5> <span>'.$rows['address'].'</span>
+																	<h5><a href="Packages.php?res_id='.$rows['rs_id'].'" >'.$rows['title'].'</a></h5> <span>'.$rows['address'].'</span>
 																</div>
 																<!-- end:col -->
 															</div>

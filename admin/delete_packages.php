@@ -6,6 +6,6 @@ session_start();
 
 // sending query
 mysqli_query($db,"DELETE FROM pack_name WHERE d_id = '".$_GET['menu_del']."'");
-header("location:all_menu.php");  
+header("location:all_packages.php");  
 
 ?>

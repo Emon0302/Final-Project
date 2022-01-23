@@ -39,7 +39,7 @@ include_once 'product-action.php'; //including controller
                     <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                         <ul class="nav navbar-nav">
                             <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                            <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Services<span class="sr-only"></span></a> </li>
+                            <li class="nav-item"> <a class="nav-link active" href="Services.php">Services<span class="sr-only"></span></a> </li>
                             
                            
 							<?php
@@ -136,7 +136,7 @@ include_once 'product-action.php'; //including controller
                                 <div class="food-item">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-lg-8">
-										<form method="post" action='dishes.php?res_id=<?php echo $_GET['res_id'];?>&action=add&id=<?php echo $product['d_id']; ?>'>
+										<form method="post" action='Packages.php?res_id=<?php echo $_GET['res_id'];?>&action=add&id=<?php echo $product['d_id']; ?>'>
                                             <div class="rest-logo pull-left">
                                                 <a class="restaurant-logo pull-left" href="#"><?php echo '<img src="admin/Res_img/dishes/'.$product['img'].'" alt="Food logo">'; ?></a>
                                             </div>
@@ -198,7 +198,7 @@ foreach ($_SESSION["cart_item"] as $item)  // fetch items define current into se
 ?>									
                                    
                                        <div class="title-row">
-                                       <?php echo $item["title"]; ?><a href="dishes.php?res_id=<?php echo $_GET['res_id']; ?>&action=remove&id=<?php echo $item["d_id"]; ?>" >
+                                       <?php echo $item["title"]; ?><a href="Packages.php?res_id=<?php echo $_GET['res_id']; ?>&action=remove&id=<?php echo $item["d_id"]; ?>" >
                                        <i class="fa fa-trash pull-right"></i></a>
                                        </div>
                                        

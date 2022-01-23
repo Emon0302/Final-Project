@@ -33,7 +33,7 @@ session_start();
                     <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                         <ul class="nav navbar-nav">
                             <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
-                            <li class="nav-item"> <a class="nav-link active" href="restaurants.php">Services<span class="sr-only"></span></a> </li>
+                            <li class="nav-item"> <a class="nav-link active" href="Services.php">Services<span class="sr-only"></span></a> </li>
                             
                            
 							<?php
@@ -89,11 +89,11 @@ session_start();
 
                                     echo ' <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
 															<div class="entry-logo">
-																<a class="img-fluid" href="dishes.php?res_id=' . $rows['rs_id'] . '" > <img src="admin/Res_img/' . $rows['image'] . '" alt="Food logo"></a>
+																<a class="img-fluid" href="Packages.php?res_id=' . $rows['rs_id'] . '" > <img src="admin/Res_img/' . $rows['image'] . '" alt="Food logo"></a>
 															</div>
 															<!-- end:Logo -->
 															<div class="entry-dscr">
-																<h5><a href="dishes.php?res_id=' . $rows['rs_id'] . '" >' . $rows['title'] . '</a></h5> <span>' . $rows['address'] . ' <a href="#">...</a></span>
+																<h5><a href="Packages.php?res_id=' . $rows['rs_id'] . '" >' . $rows['title'] . '</a></h5> <span>' . $rows['address'] . ' <a href="#">...</a></span>
 															
 															</div>
 															<!-- end:Entry description -->
@@ -103,7 +103,7 @@ session_start();
 																<div class="right-content bg-white">
 																	<div class="right-review">
 																		
-                                                                      <a href="dishes.php?res_id=' . $rows['rs_id'] . '" class="btn theme-btn-dash">View More</a> 
+                                                                      <a href="Packages.php?res_id=' . $rows['rs_id'] . '" class="btn theme-btn-dash">View More</a> 
                                                                     </div>
 																</div>
 																<!-- end:right info -->
