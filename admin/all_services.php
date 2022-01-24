@@ -43,17 +43,12 @@ session_start();
                 <div class="navbar-header">
                     <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
-<<<<<<< HEAD
                         <h4>Event Management</h4>   
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <!-- <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span> -->
-=======
-                        <h4>Event Management</h4>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
->>>>>>> 0b9f0ea261b0dcf9cdca32275ffc8d2f10a79cd2
+
                     </a>
                 </div>
                 <!-- End Logo -->
