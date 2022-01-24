@@ -103,10 +103,10 @@ if(isset($_POST['submit'] ))
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <h4>Event Management</h4>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -174,26 +174,19 @@ if(isset($_POST['submit'] ))
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="allusers.php">All Users</a></li>
-								<li><a href="add_users.php">Add Users</a></li>
-								
-                               
-                            </ul>
-                        </li>
+                        
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_services.php">All Services</a></li>
-								<li><a href="add_category.php">Add Services Category</a></li>
+								<li><a href="add_category.php">Add Service Category</a></li>
                                 <li><a href="add_service.php">Add Service</a></li>
                                 
                             </ul>
                         </li>
-                      <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
+                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_packages.php">All Packages</a></li>
-								<li><a href="add_packages.php">Add Packages</a></li>
+								<li><a href="add_packages.php">Add Package</a></li>
                               
                                 
                             </ul>
@@ -204,7 +197,15 @@ if(isset($_POST['submit'] ))
 								  
                             </ul>
                         </li>
-						
+
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false">  <span><i class="fa fa-user f-s-20 "></i></span><span class="hide-menu">Users</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="allusers.php">All Users</a></li>
+								<li><a href="add_users.php">Add Users</a></li>
+								
+                               
+                            </ul>
+                        </li>
                          
                     </ul>
                 </nav>
