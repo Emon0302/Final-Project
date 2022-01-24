@@ -140,24 +140,6 @@ session_start(); //start temp session until logout/browser closed
                 <div class="row">
                     <div class="col-sm-4">
                     <div class="col-sm-8">
-                        <!-- restaurants filter nav starts -->
-                        <div class="restaurants-filter pull-right">
-                            <nav class="primary pull-left">
-                                <ul>
-                                    <li><a href="#" class="selected" data-filter="*">all</a> </li>
-									<?php 
-									// display categories here
-									$res= mysqli_query($db,"select * from ser_category");
-									      while($row=mysqli_fetch_array($res))
-										  {
-											echo '<li><a href="#" data-filter=".'.$row['c_name'].'"> '.$row['c_name'].'</a> </li>';
-										  }
-									?>
-                                   
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- restaurants filter nav ends -->
                     </div>
                 </div>
                 <!-- restaurants listing starts -->
