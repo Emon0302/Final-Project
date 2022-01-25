@@ -194,7 +194,7 @@ session_start();
                                         </thead>
                                         <tfoot>
                                             <tr>
-											 <th>Restaurant</th>
+											 <th>Service-Name</th>
                                                 <th>Dish-Name</th>
                                                 <th>Slogan</th>
                                                 <th>Price</th>

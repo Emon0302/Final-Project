@@ -78,7 +78,7 @@ include_once 'product-action.php'; //including controller
                         <div class="row">
                             <div class="col-xs-12 col-sm-12  col-md-4 col-lg-4 profile-img">
                                 <div class="image-wrap">
-                                    <figure><?php echo '<img src="admin/Res_img/'.$rows['image'].'" alt="Restaurant logo">'; ?></figure>
+                                    <figure><?php echo '<img src="admin/Res_img/'.$rows['image'].'" alt="service logo">'; ?></figure>
                                 </div>
                             </div>
 							
@@ -121,7 +121,7 @@ include_once 'product-action.php'; //including controller
                                 <div class="clearfix"></div>
                             </div>
                             <div class="collapse in" id="popular2">
-						<?php  // display values and item of food/dishes
+						<?php  // display values and item of packages/dishes
 									$stmt = $db->prepare("select * from pack_name where rs_id='$_GET[res_id]'");
 									$stmt->execute();
 									$products = $stmt->get_result();
@@ -133,12 +133,12 @@ include_once 'product-action.php'; //including controller
 													
 													 
 													 ?>
-                                <div class="food-item">
+                                <div class="packages-item">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-lg-8">
 										<form method="post" action='Packages.php?res_id=<?php echo $_GET['res_id'];?>&action=add&id=<?php echo $product['d_id']; ?>'>
                                             <div class="rest-logo pull-left">
-                                                <a class="restaurant-logo pull-left" href="#"><?php echo '<img src="admin/Res_img/dishes/'.$product['img'].'" alt="Food logo">'; ?></a>
+                                                <a class="service-logo pull-left" href="#"><?php echo '<img src="admin/Res_img/dishes/'.$product['img'].'" alt="packages logo">'; ?></a>
                                             </div>
                                             <!-- end:Logo -->
                                             <div class="rest-descr">
@@ -157,7 +157,7 @@ include_once 'product-action.php'; //including controller
                                     </div>
                                     <!-- end:row -->
                                 </div>
-                                <!-- end:Food item -->
+                                <!-- end:packages item -->
 								
 								<?php
 									  }

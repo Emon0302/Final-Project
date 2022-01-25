@@ -83,14 +83,14 @@ session_start();
                 </div>
             </div>
             <!-- //results show -->
-            <section class="restaurants-page">
+            <section class="services-page">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-1 col-md-2 col-lg-2">
 
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-9">
-                        <div class="bg-gray restaurant-entry">
+                        <div class="bg-gray service-entry">
                             <div class="row">
                                 <?php $ress = mysqli_query($db, "select * from ser_name");
                                 while ($rows = mysqli_fetch_array($ress)) {
@@ -98,7 +98,7 @@ session_start();
 
                                     echo ' <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
 															<div class="entry-logo">
-																<a class="img-fluid" href="Packages.php?res_id=' . $rows['rs_id'] . '" > <img src="admin/Res_img/' . $rows['image'] . '" alt="Food logo"></a>
+																<a class="img-fluid" href="Packages.php?res_id=' . $rows['rs_id'] . '" > <img src="admin/Res_img/' . $rows['image'] . '" alt="packages logo"></a>
 															</div>
 															<!-- end:Logo -->
 															<div class="entry-dscr">
