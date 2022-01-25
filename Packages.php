@@ -109,8 +109,8 @@ include_once 'product-action.php'; //including controller
 
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                       
-                        <!-- end:Widget menu -->
-                        <div class="menu-widget" id="2">
+                        <!-- end:Widget package -->
+                        <div class="package-widget" id="2">
                             <div class="widget-heading">
                                 <h3 class="widget-title text-dark">
                               Select Your Desired Package ! <a class="btn btn-link pull-right" data-toggle="collapse" href="#popular2" aria-expanded="true">
@@ -170,7 +170,7 @@ include_once 'product-action.php'; //including controller
                             </div>
                             <!-- end:Collapse -->
                         </div>
-                        <!-- end:Widget menu -->
+                        <!-- end:Widget package -->
                        
                     </div>
                     <!-- end:Bar -->

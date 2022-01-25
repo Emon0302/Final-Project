@@ -187,7 +187,7 @@ hr {
 ============================*/
 
 .form-control-lg,
-.dropdown-menu,
+.dropdown-package,
 .btn,
 .btn-group-lg>.btn,
 .btn-lg,
@@ -372,7 +372,7 @@ hr {
 }
 
 .navbar {
-    background-image: url("../images/menu-bg.jpg");
+    background-image: url("../images/package-bg.jpg");
     padding: .95rem 1rem;
     border-radius: 0;
 }
@@ -404,12 +404,12 @@ hr {
     .navbar-nav .nav-item + .nav-item {
         margin-left: 0;
     }
-    .dropdown-menu {
+    .dropdown-package {
         position: relative;
         float: none;
         background-color: transparent;
     }
-    .dropdown-menu a {
+    .dropdown-package a {
         color: #fff
     }
 }
@@ -1570,7 +1570,7 @@ footer span {
     border-bottom: 1px solid #eaebeb;
 }
 
-.menu-widget .widget-heading {
+.package-widget .widget-heading {
     border-bottom: none
 }
 
@@ -1689,7 +1689,7 @@ a.more-link {
 
 /* Food items */
 
-.menu-widget,
+.package-widget,
 .widget {
     border: 1px solid #eaebeb;
     background: #fafaf8;
@@ -1752,53 +1752,53 @@ a.more-link {
     font-size: 18px;
 }
 
-.menu-widget .packages-item {
+.package-widget .packages-item {
     padding: 15px
 }
 
-.menu-widget .packages-item:first-of-type {
+.package-widget .packages-item:first-of-type {
     border-bottom: none
 }
 
-.menu-widget .packages-item .service-logo {
+.package-widget .packages-item .service-logo {
     max-width: 100px;
     height: auto;
     display: block;
 }
 
-.menu-widget .packages-item .service-logo img {
+.package-widget .packages-item .service-logo img {
     max-width: 100%;
     display: block
 }
 
-.menu-widget .packages-item:first-of-type {
+.package-widget .packages-item:first-of-type {
     border-top: 1px solid #eaebeb;
 }
 
-.menu-widget .packages-item:last-of-type {
+.package-widget .packages-item:last-of-type {
     border-bottom: transparent
 }
 
-.menu-widget .packages-item.white {
+.package-widget .packages-item.white {
     background-color: #fff
 }
 
-.menu-widget .packages-item .rest-descr {
+.package-widget .packages-item .rest-descr {
     padding-left: 115px;
     padding-top: 0;
 }
 
-.menu-widget .packages-item .rest-descr h6 a {
+.package-widget .packages-item .rest-descr h6 a {
     color: #25282b;
     font-size: 18px;
     font-weight: 600;
 }
 
-.menu-widget .packages-item .item-cart-info {
+.package-widget .packages-item .item-cart-info {
     padding-top: 20px
 }
 
-.menu-widget .packages-item .price {
+.package-widget .packages-item .price {
     font-weight: 600;
     color: #000;
     position: relative;
