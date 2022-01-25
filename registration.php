@@ -275,7 +275,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
     <script src="js/bootstrap-slider.min.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/headroom.js"></script>
-    <script src="js/foodpicky.min.js"></script>
+    <script src="js/packagespicky.min.js"></script>
 </body>
 
 </html>

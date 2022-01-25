@@ -1,7 +1,7 @@
 !--@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700|Give+You+Glory);
 
 /*------------------------------------------------------------------
-Theme Name: Foodpicky - Responsive Bootstrap Restaurants Directory template Online food ordering 
+Theme Name: Foodpicky - Responsive Bootstrap services Directory template Online food ordering 
 Version: 1.0
 Author: codenpixel.com  
 Contact: info@codenpixel.com
@@ -629,7 +629,7 @@ hr {
     background-size: 100%;
 }
 
-.food-item-wrap {
+.packages-item-wrap {
     border: 1px solid #eaebeb;
     border-radius: 2px;
     overflow: hidden;
@@ -637,13 +637,13 @@ hr {
     background: #fafaf8;
 }
 
-.food-item-wrap h5 a {
+.packages-item-wrap h5 a {
     color: #25282b;
     font-size: 21px;
     font-weight: 600;
 }
 
-.food-item-wrap .title h3 {
+.packages-item-wrap .title h3 {
     font-size: 16px;
     margin-bottom: 35px;
     color: #414551;
@@ -651,7 +651,7 @@ hr {
     font-weight: 300;
 }
 
-.food-item-wrap .price {
+.packages-item-wrap .price {
     font-size: 21px;
     font-weight: 700;
     color: #000;
@@ -659,100 +659,100 @@ hr {
     display: inline-block;
 }
 
-.food-item-wrap .product-name {
+.packages-item-wrap .product-name {
     margin-bottom: 20px;
 }
 
-.food-item-wrap .content {
+.packages-item-wrap .content {
     padding: 25px 15px 35px;
 }
 
-.food-item-wrap .restaurant-block {
+.packages-item-wrap .service-block {
     border-top: 1px solid #eaebeb;
     float: left;
     width: 100%;
 }
 
-.food-item-wrap .right-text {
+.packages-item-wrap .right-text {
     margin-left: 10px;
 }
 
-.food-item-wrap .right-text a {
+.packages-item-wrap .right-text a {
     display: block;
 }
 
-.food-item-wrap .left {
+.packages-item-wrap .left {
     float: left;
     padding: 8px 15px;
 }
 
-.food-item-wrap .left img {
+.packages-item-wrap .left img {
     padding-top: 3px;
 }
 
 @media (min-width: 320px) and (max-width: 568px) {
-    .food-item-wrap .left {
+    .packages-item-wrap .left {
         float: left;
         padding: 10px;
     }
-    .food-item .left img {
+    .packages-item .left img {
         width: 45px
     }
-    .food-item-wrap .right-text {
+    .packages-item-wrap .right-text {
         font-size: 13px;
     }
 }
 
-.food-item-wrap .right {
+.packages-item-wrap .right {
     padding: 10px 0;
 }
 
-.food-item-wrap .right-like-part {
+.packages-item-wrap .right-like-part {
     border-left: 1px solid #eaebeb;
     padding: 25px 15px;
     font-size: 13px;
 }
 
 @media (min-width: 280px) and (max-width: 580px) {
-    .food-item-wrap .right-like-part {
+    .packages-item-wrap .right-like-part {
         padding: 24px 10px;
         font-size: 10px;
     }
 }
 
-.food-item-wrap .right-like-part img {
+.packages-item-wrap .right-like-part img {
     vertical-align: middle;
     margin-right: 5px;
 }
 
-.food-item-wrap .right-text a {
+.packages-item-wrap .right-text a {
     color: #25282b;
     font-weight: 400;
 }
 
-.food-item-wrap .right-text span,
-.food-item-wrap .right-like-part,
-.food-item-wrap .right-like-part span {
+.packages-item-wrap .right-text span,
+.packages-item-wrap .right-like-part,
+.packages-item-wrap .right-like-part span {
     font-weight: 300;
     color: #748796;
 }
 
-.food-item-wrap .figure-wrap {
+.packages-item-wrap .figure-wrap {
     position: relative;
     height: 210px;
 }
 
-.food-item-wrap .food-item-wrap figure {
+.packages-item-wrap .packages-item-wrap figure {
     position: relative;
     overflow: hidden;
     margin-bottom: 15px;
 }
 
-.food-item-wrap .food-item-wrap figure img {
+.packages-item-wrap .packages-item-wrap figure img {
     width: 100%;
 }
 
-.food-item-wrap .figure-wrap:after {
+.packages-item-wrap .figure-wrap:after {
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -762,12 +762,12 @@ hr {
     height: 5px;
 }
 
-.food-item-wrap:hover h5>a,
-.food-item-wrap:hover .right-text>a {
+.packages-item-wrap:hover h5>a,
+.packages-item-wrap:hover .right-text>a {
     color: #f30;
 }
 
-.food-item-wrap .figure-text {
+.packages-item-wrap .figure-text {
     position: absolute;
     top: 0;
     padding: 13px 28px 18px 18px;
@@ -775,20 +775,20 @@ hr {
     height: 100%;
 }
 
-.food-item-wrap .figure-text .bottom {
+.packages-item-wrap .figure-text .bottom {
     position: absolute;
     bottom: 25px;
     float: left;
     width: 87%;
 }
 
-.food-item-wrap .review {
+.packages-item-wrap .review {
     margin-top: 5px;
     font-size: 10px;
     text-transform: uppercase;
 }
 
-.food-item-wrap .distance {
+.packages-item-wrap .distance {
     background: #f30;
     border-radius: 3px;
     color: #fff;
@@ -800,37 +800,37 @@ hr {
     left: 20px;
 }
 
-.food-item-wrap .rating i {
+.packages-item-wrap .rating i {
     color: #ffd953;
     font-size: 16px;
 }
 
-.food-item-wrap .rating .fa-star-o {
+.packages-item-wrap .rating .fa-star-o {
     font-size: 17px;
 }
 
-.food-item-wrap .rating {
+.packages-item-wrap .rating {
     position: absolute;
     bottom: 30px;
     left: 20px;
 }
 
-.food-item-wrap .review {
+.packages-item-wrap .review {
     right: 30px;
     position: absolute;
     bottom: 30px;
 }
 
-.food-item-wrap .review a {
+.packages-item-wrap .review a {
     color: #fff;
 }
 
-.food-item-wrap .left-sidebar,
-.food-item-wrap .right-sidebar {
+.packages-item-wrap .left-sidebar,
+.packages-item-wrap .right-sidebar {
     width: 300px;
 }
 
-.food-item-wrap .lf-ghost {
+.packages-item-wrap .lf-ghost {
     width: 395px!important;
     float: left;
 }
@@ -840,12 +840,12 @@ hr {
 }
 
 @media (min-width: 544px) and (max-width: 767px) {
-    .food-item-wrap .right-text {
+    .packages-item-wrap .right-text {
         margin: 5px 10px;
         font-size: 14px;
         line-height: 20px;
     }
-    .food-item-wrap .right-like-part {
+    .packages-item-wrap .right-like-part {
         width: 100%;
         padding: 5px 10px;
         background: #fff;
@@ -856,18 +856,18 @@ hr {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .food-item-wrap .restaurant-block {
+    .packages-item-wrap .service-block {
         text-align: center;
     }
-    .food-item-wrap .left {
+    .packages-item-wrap .left {
         float: none
     }
-    .food-item-wrap .pull-left {
+    .packages-item-wrap .pull-left {
         float: none
     }
-    .food-item-wrap .right-text span,
-    .food-item-wrap .right-like-part,
-    .food-item-wrap .right-like-part span {
+    .packages-item-wrap .right-text span,
+    .packages-item-wrap .right-like-part,
+    .packages-item-wrap .right-like-part span {
         width: 100%;
     }
     .right-like-part.pull-right {
@@ -876,20 +876,20 @@ hr {
         border-top: 1px solid #eaebeb;
         padding: 10px;
     }
-    .food-item-wrap .price-btn-block {
+    .packages-item-wrap .price-btn-block {
         text-align: center
     }
-    .food-item-wrap .price-btn-block .price {
+    .packages-item-wrap .price-btn-block .price {
         margin-bottom: 15px;
         display: block;
     }
-    .food-item-wrap .price-btn-block .btn {
+    .packages-item-wrap .price-btn-block .btn {
         float: none;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .food-item-wrap .left {
+    .packages-item-wrap .left {
         padding: 10px;
         font-size: 11px;
         line-height: 20px;
@@ -905,29 +905,29 @@ hr {
 * Modal 
 =============================================*/
 
-.cart-addon .food-item {
+.cart-addon .packages-item {
     margin-bottom: 20px;
     border-bottom: 1px solid #ededed;
     padding: 2px 0 15px;
 }
 
-.cart-addon .food-item:last-of-type {
+.cart-addon .packages-item:last-of-type {
     border-bottom: none
 }
 
-.cart-addon .food-item .item-img img {
+.cart-addon .packages-item .item-img img {
     max-width: 70px;
 }
 
-.cart-addon .food-item .rest-descr {
+.cart-addon .packages-item .rest-descr {
     margin-left: 80px;
 }
 
-.cart-addon .food-item h6 {
+.cart-addon .packages-item h6 {
     /* margin: 0 0 2px 0; */
 }
 
-.cart-addon .food-item h6 a {
+.cart-addon .packages-item h6 a {
     font-size: 16px;
     color: #4d4f56;
     display: block;
@@ -935,14 +935,14 @@ hr {
     line-height: 20px;
 }
 
-.cart-addon .food-item .price {
+.cart-addon .packages-item .price {
     font-weight: 600;
     margin-top: 15px;
     display: block;
     color: #25282b;
 }
 
-.cart-addon .food-item .form-control {
+.cart-addon .packages-item .form-control {
     margin-top: 8px;
 }
 
@@ -1124,31 +1124,31 @@ Steps
 
 /****** featured packages block *******/
 
-.featured-restaurants {
+.featured-services {
     padding: 100px 0 20px;
     position: relative;
 }
 
 @media (min-width: 280px) and (max-width: 580px) {
-    .featured-restaurants {
+    .featured-services {
         padding: 0px 0 0px;
         position: relative;
     }
-    .featured-restaurants .title-block {
+    .featured-services .title-block {
         margin-bottom: 15px;
     }
-    .featured-restaurants .title-block h4 {
+    .featured-services .title-block h4 {
         font-size: 21px
     }
 }
 
 @media (min-width: 280px) and (max-width: 580px) {
-    .featured-restaurants:before {
+    .featured-services:before {
         display: none
     }
 }
 
-.featured-restaurants .restaurant-wrap {
+.featured-services .service-wrap {
     border: 1px solid #eaebeb;
     border-radius: 3px;
     padding: 15px;
@@ -1157,115 +1157,115 @@ Steps
     width: 100%;
 }
 
-.featured-restaurants .restaurant-logo {
+.featured-services .service-logo {
     border-radius: 3px;
 }
 
-.featured-restaurants .restaurant-logo img {
+.featured-services .service-logo img {
     width: 95px;
     height: auto;
     border: 1px solid #eaebeb;
 }
 
 @media (min-width: 320px) and (max-width: 543px) {
-    .restaurant-wrap {
+    .service-wrap {
         /* text-align:center */
     }
-    .featured-restaurants .restaurant-logo img {
+    .featured-services .service-logo img {
         width: 85px;
         margin-bottom: 15px;
     }
 }
 
-.featured-restaurants .restaurant-wrap h5 {
+.featured-services .service-wrap h5 {
     margin-top: 5px;
     font-weight: 600;
 }
 
-.featured-restaurants .restaurant-wrap h5 a {
+.featured-services .service-wrap h5 a {
     color: #25282b;
 }
 
-.featured-restaurants .bottom-part {
+.featured-services .bottom-part {
     margin-top: 5px
 }
 
-.featured-restaurants .cost,
-.featured-restaurants .mins,
-.featured-restaurants .ratings {
+.featured-services .cost,
+.featured-services .mins,
+.featured-services .ratings {
     font-size: 12px;
     display: inline-block;
 }
 
-.featured-restaurants .cost,
-.featured-restaurants .mins {
+.featured-services .cost,
+.featured-services .mins {
     margin-right: 1rem;
 }
 
-.featured-restaurants .ratings span i {
+.featured-services .ratings span i {
     color: #f30;
 }
 
-.featured-restaurants .ratings .fa-star-o {}
+.featured-services .ratings .fa-star-o {}
 
-.restaurants-filter ul li {
+.services-filter ul li {
     display: inline-block;
     padding: 0 .5rem;
 }
 
-.featured-restaurants .restaurants-filter ul li a {
+.featured-services .services-filter ul li a {
     font-weight: 400;
     color: #414551;
     font-size: 16px;
     text-transform: capitalize;
 }
 
-.featured-restaurants .restaurants-filter ul li a:hover {
+.featured-services .services-filter ul li a:hover {
     color: #e8500e;
 }
 
 @media (min-width:320px) and (max-width:480px) {
-    .restaurants-filter {
+    .services-filter {
         float: none;
     }
-    .restaurants-filter ul li {
+    .services-filter ul li {
         padding: 0 0.5rem;
     }
 }
 
-.featured-restaurants .featured-restaurants h4 {
+.featured-services .featured-services h4 {
     margin-bottom: 45px;
 }
 
-.featured-restaurants .restaurant-listing {
+.featured-services .service-listing {
     margin-bottom: 50px;
     margin-top: 25px;
 }
 
-.featured-restaurants .single-restaurant {
+.featured-services .single-service {
     margin-bottom: 30px;
 }
 
-.add-restaurants {
+.add-services {
     background: #fafaf8;
     border: 1px solid #eaebeb;
     padding: 35px 10px 23px;
     border-radius: 2px;
 }
 
-.add-restaurants p strong {
+.add-services p strong {
     font-weight: 600;
     color: #f30;
 }
 
 @media (min-width: 320px) and (max-width: 543px) {
-    .featured-restaurants .restaurant-wrap {
+    .featured-services .service-wrap {
         margin-bottom: 10px;
     }
-    .add-restaurants {
+    .add-services {
         text-align: center
     }
-    .add-restaurants a.btn.theme-btn {
+    .add-services a.btn.theme-btn {
         display: block
     }
 }
@@ -1273,7 +1273,7 @@ Steps
 @media (min-width: 544px) and (max-width: 767px) {}
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .featured-restaurants .restaurant-wrap {
+    .featured-services .service-wrap {
         text-align: center
     }
 }
@@ -1752,53 +1752,53 @@ a.more-link {
     font-size: 18px;
 }
 
-.menu-widget .food-item {
+.menu-widget .packages-item {
     padding: 15px
 }
 
-.menu-widget .food-item:first-of-type {
+.menu-widget .packages-item:first-of-type {
     border-bottom: none
 }
 
-.menu-widget .food-item .restaurant-logo {
+.menu-widget .packages-item .service-logo {
     max-width: 100px;
     height: auto;
     display: block;
 }
 
-.menu-widget .food-item .restaurant-logo img {
+.menu-widget .packages-item .service-logo img {
     max-width: 100%;
     display: block
 }
 
-.menu-widget .food-item:first-of-type {
+.menu-widget .packages-item:first-of-type {
     border-top: 1px solid #eaebeb;
 }
 
-.menu-widget .food-item:last-of-type {
+.menu-widget .packages-item:last-of-type {
     border-bottom: transparent
 }
 
-.menu-widget .food-item.white {
+.menu-widget .packages-item.white {
     background-color: #fff
 }
 
-.menu-widget .food-item .rest-descr {
+.menu-widget .packages-item .rest-descr {
     padding-left: 115px;
     padding-top: 0;
 }
 
-.menu-widget .food-item .rest-descr h6 a {
+.menu-widget .packages-item .rest-descr h6 a {
     color: #25282b;
     font-size: 18px;
     font-weight: 600;
 }
 
-.menu-widget .food-item .item-cart-info {
+.menu-widget .packages-item .item-cart-info {
     padding-top: 20px
 }
 
-.menu-widget .food-item .price {
+.menu-widget .packages-item .price {
     font-weight: 600;
     color: #000;
     position: relative;
@@ -1868,13 +1868,13 @@ a[aria-expanded=false] .fa-angle-down {
 *
 ==============================*/
 
-.restaurant-entry {
+.service-entry {
     border: 1px solid #eaebeb;
     border-radius: 2px;
     margin-bottom: 20px;
 }
 
-.restaurant-entry .entry-logo {
+.service-entry .entry-logo {
     float: left;
     width: 110px;
     height: auto;
@@ -1885,40 +1885,40 @@ a[aria-expanded=false] .fa-angle-down {
     overflow: hidden
 }
 
-.restaurant-entry .entry-logo img {
+.service-entry .entry-logo img {
     max-width: 100%;
     display: block
 }
 
-.restaurant-entry .entry-dscr {
+.service-entry .entry-dscr {
     padding-left: 145px;
     margin-top: 15px;
 }
 
-.restaurant-entry .entry-dscr h5 a {
+.service-entry .entry-dscr h5 a {
     color: #414551;
     font-weight: 500;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.restaurant-entry .entry-dscr ul li {
+.service-entry .entry-dscr ul li {
     font-size: 12px;
     margin-top: 7px;
 }
 
-.restaurant-entry .right-review {
+.service-entry .right-review {
     padding: 15px 10px;
     border-left: 1px solid #eaebeb;
     min-height: 145px;
 }
 
-.restaurant-entry .right-review p {
+.service-entry .right-review p {
     color: #414551;
     font-weight: 500;
     margin: 0 0 10px;
 }
 
-.restaurant-entry .right-review .rating-block {
+.service-entry .right-review .rating-block {
     color: #f30;
     background: transparent;
     border: none;
@@ -1926,16 +1926,16 @@ a[aria-expanded=false] .fa-angle-down {
 }
 
 @media (min-width: 320px) and (max-width: 991px) {
-    .restaurant-entry .entry-logo {
+    .service-entry .entry-logo {
         float: none;
         text-align: center;
         margin: 10px auto;
     }
-    .restaurant-entry .entry-dscr {
+    .service-entry .entry-dscr {
         padding: 0 15px;
         text-align: center;
     }
-    .restaurant-entry .right-review {
+    .service-entry .right-review {
         padding: 15px 10px;
         border-left: transparent;
         border-top: 1px solid #eaebeb

@@ -94,8 +94,8 @@ session_start(); //start temp session until logout/browser closed
                 </div>
                 <div class="row">
 												
-                    <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-						<div class="food-item-wrap">
+                    <div class="col-xs-12 col-sm-6 col-md-4 packages-item">
+						<div class="packages-item-wrap">
 							<div class="figure-wrap bg-image" data-image-src="images/wedding2.jpg"></div>
 								<div class="content">
 									<h5><a href="">Weddinng</a></h5>
@@ -105,8 +105,8 @@ session_start(); //start temp session until logout/browser closed
                                 </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-						<div class="food-item-wrap">
+                    <div class="col-xs-12 col-sm-6 col-md-4 packages-item">
+						<div class="packages-item-wrap">
 							<div class="figure-wrap bg-image" data-image-src="images/birthday2.jpg"></div>
 								<div class="content">
 									<h5><a href="">Birthday</a></h5>
@@ -116,8 +116,8 @@ session_start(); //start temp session until logout/browser closed
 					    </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-						<div class="food-item-wrap">
+                    <div class="col-xs-12 col-sm-6 col-md-4 packages-item">
+						<div class="packages-item-wrap">
 							<div class="figure-wrap bg-image" data-image-src="images/party2.jpg"></div>
 								<div class="content">
 									<h5><a href="">Party</a></h5>
@@ -131,13 +131,16 @@ session_start(); //start temp session until logout/browser closed
 
 
         </section>
-        <!-- Featured restaurants starts -->
-        <section class="featured-restaurants">
+        <!-- Featured services starts -->
+        <section class="featured-services">
             <div class="container">
                 <div class="title text-xs-center m-b-30">
                     <h2>Select Your Desired Package</h2>
                 </div>
+              
+                <!-- services listing starts -->
                 <div class="row">
+                    <div class="service-listing">
                     <div class="col-sm-4">
                     <div class="col-sm-8">
                     </div>
@@ -155,11 +158,11 @@ session_start(); //start temp session until logout/browser closed
 													$query= mysqli_query($db,"select * from ser_category where c_id='".$rows['c_id']."' ");
 													 $rowss=mysqli_fetch_array($query);
 						
-													 echo ' <div class="col-xs-12 col-sm-12 col-md-6 single-restaurant all '.$rowss['c_name'].'">
-														<div class="restaurant-wrap">
+													 echo ' <div class="col-xs-12 col-sm-12 col-md-6 single-service all '.$rowss['c_name'].'">
+														<div class="service-wrap">
 															<div class="row">
 																<div class="col-xs-12 col-sm-3 col-md-12 col-lg-3 text-xs-center">
-																	<a class="restaurant-logo" href="Packages.php?res_id='.$rows['rs_id'].'" > <img src="admin/Res_img/'.$rows['image'].'" alt="restaurant logo"> </a>
+																	<a class="service-logo" href="Packages.php?res_id='.$rows['rs_id'].'" > <img src="admin/Res_img/'.$rows['image'].'" alt="service logo"> </a>
 																</div>
 																<!--end:col -->
 																<div class="col-xs-12 col-sm-9 col-md-12 col-lg-9">
@@ -169,7 +172,7 @@ session_start(); //start temp session until logout/browser closed
 															</div>
 															<!-- end:row -->
 														</div>
-														<!--end:restaurant wrap -->
+														<!--end:service wrap -->
 													</div>';
 										  }
 						
@@ -181,11 +184,11 @@ session_start(); //start temp session until logout/browser closed
 					
                     </div>
                 </div>
-                <!-- restaurants listing ends -->
+                <!-- services listing ends -->
                
             </div>
         </section>
-        <!-- Featured restaurants ends -->
+        <!-- Featured services ends -->
 
         <!-- start: FOOTER -->
         <footer class="footer">
