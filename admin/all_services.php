@@ -41,12 +41,14 @@ session_start();
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
-                        <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <h4>Event Management</h4>   
+                        <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        <!-- <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span> -->
+
                     </a>
                 </div>
                 <!-- End Logo -->

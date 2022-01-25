@@ -140,7 +140,17 @@ session_start(); //start temp session until logout/browser closed
               
                 <!-- services listing starts -->
                 <div class="row">
+<<<<<<< HEAD
                     <div class="service-listing">
+=======
+                    <div class="col-sm-4">
+                    <div class="col-sm-8">
+                    </div>
+                </div>
+                <!-- restaurants listing starts -->
+                <div class="row">
+                    <div class="restaurant-listing">
+>>>>>>> 8ca2d2cd2987fa0578b4a35a679f41f943147b29
                         
 						
 						<?php  //fetching records from table and filter using html data-filter tag
