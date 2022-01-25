@@ -21,3 +21,5 @@ File Name Changes->
  8.add_menu.php = add_packages.php
  9.delete_store.php=delete_services.php
 -----------------------------------------
+
+u_id, username, f_name, l-name, email, phone, password, address, status, date
