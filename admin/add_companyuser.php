@@ -250,25 +250,19 @@ if(isset($_POST['submit1'] ))
                 <!-- Start Page Content -->
                      <div class="row">
                      
-          <span style="color:#f71a0a;"><?php echo $message; ?></span>
-            <span style="color:green;"><?php echo $success; ?></span>
+          
           
                    
                    
 					
-					 <div class="container-fluid">
-                <!-- Start Page Content -->
-                  
-									
-									<?php  
-									        echo $error;
-									        echo $success; 
-                                            ?>
+
 									
 									
 								
 								
 					    <div class="col-lg-12">
+                        <span style="color:red"><?php echo $message; ?></span>
+                        <span style="color:green"><?php echo $success; ?></span>
                         <div class="card card-outline-primary">
                        
                                     <div class="info">
@@ -284,7 +278,7 @@ if(isset($_POST['submit1'] ))
                                     <div class="card-body">
                                     <div class="form-body">
                                     <!-- <div class="thumbnail"><img src="images/manager.png"></div> -->
-                                        <form class="form-group" action="add_admin.php" method="post">
+                                        <form class="form-group" action="add_companyuser.php" method="post">
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
