@@ -6,6 +6,12 @@
 session_start();
 error_reporting(0);
 include("../connection/connect.php");
+if(empty($_SESSION["adm_id"]))
+{
+	header('location:index.php');
+}
+else
+{
 
 if(isset($_POST['submit'] ))
 {
@@ -353,3 +359,6 @@ if(isset($_POST['submit'] ))
 </body>
 
 </html>
+<?php
+}
+?>
