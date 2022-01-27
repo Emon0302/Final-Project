@@ -124,6 +124,7 @@ session_start();
 								<li><a href="add_category.php">Add Service Category</a></li>
                                 <li><a href="add_service.php">Add Service</a></li>
                                 
+                                
                             </ul>
                         </li>
                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
@@ -145,6 +146,7 @@ session_start();
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="allusers.php">All Users</a></li>
 								<li><a href="add_users.php">Add Users</a></li>
+                                <li><a href="add_companyuser.php">Add Company User</a></li>
 								
                                
                             </ul>

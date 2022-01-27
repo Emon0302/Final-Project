@@ -282,6 +282,7 @@ if(isset($_POST['submit'] ))
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="allusers.php">All Users</a></li>
 								<li><a href="add_users.php">Add Users</a></li>
+                                <li><a href="add_companyuser.php">Add Company User</a></li>
 								
                                
                             </ul>
