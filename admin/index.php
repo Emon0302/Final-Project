@@ -4,6 +4,8 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
+
+
 if(isset($_POST['submit']))
 {
 	$username = $_POST['username'];
