@@ -1,16 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <?php
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
+
 if(empty($_SESSION["adm_id"]))
 {
 	header('location:index.php');
 }
 else
 {
+
+if(isset($_POST['submit1'] ))
+{
+     if(empty($_POST['cr_user']) ||
+   	    empty($_POST['cr_email'])|| 
+		empty($_POST['cr_pass']) ||  
+		empty($_POST['cr_cpass']) ||
+		empty($_POST['code']))
+		{
+			$message = "ALL fields must be fill";
+		}
+	else
+	{
+		
+	
+	$check_username= mysqli_query($db, "SELECT username FROM admin where username = '".$_POST['cr_user']."' ");
+	
+	$check_email = mysqli_query($db, "SELECT email FROM admin where email = '".$_POST['cr_email']."' ");
+	
+	  $check_code = mysqli_query($db, "SELECT adm_id FROM admin where code = '".$_POST['code']."' ");
+
+	
+	if($_POST['cr_pass'] != $_POST['cr_cpass']){
+       	$message = "Password not match";
+    }
+	
+    elseif (!filter_var($_POST['cr_email'], FILTER_VALIDATE_EMAIL)) // Validate email address
+    {
+       	$message = "Invalid email address please type a valid email!";
+    }
+	elseif(mysqli_num_rows($check_username) > 0)
+     {
+    	$message = 'username Already exists!';
+     }
+	elseif(mysqli_num_rows($check_email) > 0)
+     {
+    	$message = 'Email Already exists!';
+     }
+	 if(mysqli_num_rows($check_code) > 0)           // if code already exist 
+             {
+                   $message = "Unique Code Already Redeem!";
+             }
+	else{
+       $result = mysqli_query($db,"SELECT id FROM admin_codes WHERE codes =  '".$_POST['code']."'");  //query to select the id of the valid code enter by user! 
+					  
+                     if(mysqli_num_rows($result) == 0)     //if code is not valid
+						 {
+                            // row not found, do stuff...
+			                 $message = "invalid code!";
+                         } 
+                      
+                      else                                 //if code is valid 
+					     {
+	
+								$mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['code']."')";
+								mysqli_query($db, $mql);
+									$success = "Company User Added successfully!";
+						 }
+        }
+	}
+
+}
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,6 +95,16 @@ else
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<meta charset="UTF-8">
+  <title>Flat Login Form</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body class="fix-header">
@@ -42,13 +116,13 @@ else
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-        <div class="header">
+         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
-                        <h4>Event Management</h4>    
+                        <h4>Event Management</h4>   
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -95,7 +169,7 @@ else
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                   <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -148,7 +222,6 @@ else
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="allusers.php">All Users</a></li>
 								<li><a href="add_users.php">Add Users</a></li>
-                                <li><a href="add_companyuser.php">Add Company User</a></li>
 								
                                
                             </ul>
@@ -167,87 +240,104 @@ else
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-primary">Dashboard</h3> </div>
+                    
                
             </div>
+        
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
             <div class="container-fluid">
                 <!-- Start Page Content -->
                      <div class="row">
+                     
+          <span style="color:#f71a0a;"><?php echo $message; ?></span>
+            <span style="color:green;"><?php echo $success; ?></span>
+          
                    
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from ser_name";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Services</p>
-                                </div>
+                   
+					
+					 <div class="container-fluid">
+                <!-- Start Page Content -->
+                  
+									
+									<?php  
+									        echo $error;
+									        echo $success; 
+                                            ?>
+									
+									
+								
+								
+					    <div class="col-lg-12">
+                        <div class="card card-outline-primary">
+                       
+                                    <div class="info">
+   
+                                    <div class="card card-outline-primary">
+                                    
+                                    <div class="card-header">
+                                        
+                                <h4 class="m-b-0 text-white">Add Company Users</h4>
                             </div>
-                        </div>
+                                    
+                                    </div>
+                                    <div class="card-body">
+                                    <div class="form-body">
+                                    <!-- <div class="thumbnail"><img src="images/manager.png"></div> -->
+                                        <form class="form-group" action="add_admin.php" method="post">
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Username</label>
+                                                    <input type="text" name="cr_user" class="form-control" placeholder="username">
+                                                   </div>
+                                            </div>
+                                        <!-- <input type="text" placeholder="username" name="cr_user"> -->
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="text" name="cr_email" class="form-control" placeholder="email address">
+                                                   </div>
+                                            </div>
+                                        
+                                        <!-- <input type="text" placeholder="email address"  name="cr_email"> -->
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Password</label>
+                                                    <input type="password" name="cr_pass" class="form-control" placeholder="password">
+                                                   </div>
+                                            </div>
+                                        <!-- <input type="password" placeholder="password"  name="cr_pass"> -->
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Confirm Password</label>
+                                                    <input type="password" name="cr_cpass" class="form-control" placeholder="Confirm password">
+                                                   </div>
+                                            </div>
+                                        <!-- <input type="password" placeholder="Confirm password"  name="cr_cpass"> -->
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Unique Code</label>
+                                                    <input type="password" name="code" class="form-control" placeholder="Unique">
+                                                   </div>
+                                            </div>
+                                        <!-- <input type="password" placeholder="Unique-Code"  name="code"> -->
+                                        <div class="col-md-6">
+
+                                        </div>
+                                        <div class="form-actions">
+                                        <input type="submit" name="submit1" class="btn btn-success" value="create"> 
+                                        <a href="dashboard.php" class="btn btn-inverse">Cancel</a>
+                                        </div>
+                                        <!-- <input type="submit"  name="submit1" value="Create" > -->
+                                    </form>
+                                    
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
                     </div>
-					
-					 <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-cutlery f-s-40" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from pack_name";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Packages</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-user f-s-40 color-danger"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from users";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">User</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle"> 
-                                    <span><i class="fa fa-shopping-cart f-s-40" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from users_orders";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Orders</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					
 					
 					
 					
@@ -262,9 +352,10 @@ else
 					
                 </div>
                 <!-- End PAge Content -->
-            </div>
-            <!-- End Container fluid  -->
-        </div>
+            <!-- </div>
+            <!-- End Container fluid  >
+    
+        </div--> 
         <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->
@@ -288,3 +379,4 @@ else
 <?php
 }
 ?>
+
