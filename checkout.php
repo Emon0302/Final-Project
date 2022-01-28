@@ -93,11 +93,13 @@ else{
         
 			
                 <div class="container">
-                 
-					   <span style="color:green;">
+                <div class="title text-xs-center m-b-30">
+					  <h4> <span style="color:green;">
 								<?php echo $success; ?>
 										</span>
+                      </h4>
 					
+                </div>
                 </div>
             
 			
@@ -148,7 +150,7 @@ else{
                                             <li>
                                                 <label class="custom-control custom-radio  m-b-20">
                                                     <input name="mod" id="radioStacked1" checked value="COD" type="radio" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Payment on delivery</span>
-                                                    <br> <span>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span> </label>
+                                                   
                                             </li>
                                         
                                         </ul>
