@@ -18,7 +18,7 @@ if(isset($_POST['submit1'] ))
    	    empty($_POST['cr_email'])|| 
 		empty($_POST['cr_pass']) ||  
 		empty($_POST['cr_cpass']) ||
-		empty($_POST['code']))
+		empty($_POST['role']))
 		{
 			$message = "ALL fields must be fill";
 		}
@@ -30,7 +30,7 @@ if(isset($_POST['submit1'] ))
 	
 	$check_email = mysqli_query($db, "SELECT email FROM admin where email = '".$_POST['cr_email']."' ");
 	
-	  $check_code = mysqli_query($db, "SELECT adm_id FROM admin where code = '".$_POST['code']."' ");
+	  $check_code = mysqli_query($db, "SELECT role FROM admin where role = '".$_POST['role']."' ");
 
 	
 	if($_POST['cr_pass'] != $_POST['cr_cpass']){
@@ -49,12 +49,12 @@ if(isset($_POST['submit1'] ))
      {
     	$message = 'Email Already exists!';
      }
-	 if(mysqli_num_rows($check_code) > 0)           // if code already exist 
-             {
-                   $message = "Unique Code Already Redeem!";
-             }
+	//  if(mysqli_num_rows($check_code) > 0)           // if code already exist 
+    //          {
+    //                $message = "Unique Code Already Redeem!";
+    //          }
 	else{
-       $result = mysqli_query($db,"SELECT id FROM admin_codes WHERE codes =  '".$_POST['code']."'");  //query to select the id of the valid code enter by user! 
+       $result = mysqli_query($db,"SELECT role FROM admin WHERE role =  '".$_POST['role']."'");  //query to select the id of the valid code enter by user! 
 					  
                      if(mysqli_num_rows($result) == 0)     //if code is not valid
 						 {
@@ -65,7 +65,7 @@ if(isset($_POST['submit1'] ))
                       else                                 //if code is valid 
 					     {
 	
-								$mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['code']."')";
+								$mql = "INSERT INTO admin (username,password,email,role) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['role']."')";
 								mysqli_query($db, $mql);
 									$success = "Company User Added successfully!";
 						 }
@@ -310,10 +310,16 @@ if(isset($_POST['submit1'] ))
                                                    </div>
                                             </div>
                                         <!-- <input type="password" placeholder="Confirm password"  name="cr_cpass"> -->
-                                        <div class="col-md-6">
+                                       
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Unique Code</label>
-                                                    <input type="password" name="code" class="form-control" placeholder="Unique">
+                                                    <select class="form-control" name="role" id="role">
+                                                        <option value="Admin">Admin</option>
+                                                        <option value="User">Company User</option>
+                                                        <option value="Dealer">Dealer</option>
+                                                    </select>
+                                                
                                                    </div>
                                             </div>
                                         <!-- <input type="password" placeholder="Unique-Code"  name="code"> -->
