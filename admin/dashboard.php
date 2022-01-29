@@ -4,6 +4,7 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
+
 if(empty($_SESSION["adm_id"]))
 {
 	header('location:index.php');
@@ -120,8 +121,21 @@ else
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-                        
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
+
+                        <?php
+                        if($_SESSION['role'] == "User"){
+                            echo'
+                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_orders.php">All Orders</a></li>
+								  
+                            </ul>
+                        </li>
+                            ';
+                        }
+                        else{
+                            echo'
+                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Service Category</a></li>
@@ -153,6 +167,13 @@ else
                                
                             </ul>
                         </li>
+                            
+                            ';
+                        }
+                        
+                        ?>
+                        
+                       
                          
                     </ul>
                 </nav>
