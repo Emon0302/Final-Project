@@ -20,6 +20,7 @@ if(isset($_POST['submit']))
 	                        if(is_array($row))
 								{
                                     	$_SESSION["adm_id"] = $row['adm_id'];
+										$_SESSION["role"] = $row['role'];
 										 header("refresh:1;url=dashboard.php");
 	                            } 
 							else
