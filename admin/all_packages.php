@@ -8,6 +8,10 @@ if(empty($_SESSION["adm_id"]))
 {
 	header('location:index.php');
 }
+elseif($_SESSION['role'] == "User")
+{
+	header('location:index.php');
+}
 else
 {
 
