@@ -26,7 +26,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 		  
 		
 		
-		if(empty($_POST['c_name'])||empty($_POST['res_name'])||$_POST['email']==''||$_POST['phone']==''||$_POST['url']==''||$_POST['o_hr']==''||$_POST['c_hr']==''||$_POST['o_days']==''||$_POST['address']=='')
+		if(empty($_POST['c_name'])||empty($_POST['res_name'])||$_POST['address']=='')
 		{	
 											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
