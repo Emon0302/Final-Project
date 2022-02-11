@@ -26,7 +26,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 		  
 		
 		
-		if(empty($_POST['c_name'])||empty($_POST['res_name'])||$_POST['email']==''||$_POST['phone']==''||$_POST['url']==''||$_POST['o_hr']==''||$_POST['c_hr']==''||$_POST['o_days']==''||$_POST['address']=='')
+		if(empty($_POST['c_name'])||empty($_POST['res_name'])||$_POST['address']=='')
 		{	
 											$error = 	'<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -67,7 +67,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 												
 												$res_name=$_POST['res_name'];
 				                                 
-												$sql = "update ser_name set c_id='$_POST[c_name]', title='$res_name',email='$_POST[email]',phone='$_POST[phone]',url='$_POST[url]',o_hr='$_POST[o_hr]',c_hr='$_POST[c_hr]',o_days='$_POST[o_days]',address='$_POST[address]',image='$fnew' where rs_id='$_GET[res_upd]' ";  // store the submited data ino the database :images												mysqli_query($db, $sql); 
+												$sql = "update ser_name set c_id='$_POST[c_name]', title='$res_name',address='$_POST[address]',image='$fnew' where rs_id='$_GET[res_upd]' ";  // store the submited data ino the database :images												mysqli_query($db, $sql); 
 													mysqli_query($db, $sql); 
 												move_uploaded_file($temp, $store);
 			  

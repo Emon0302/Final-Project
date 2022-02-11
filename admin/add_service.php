@@ -67,7 +67,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 												
 												$res_name=$_POST['res_name'];
 				                                 
-												$sql = "INSERT INTO ser_name(c_id,title,email,phone,url,o_hr,c_hr,o_days,address,image) VALUE('".$_POST['c_name']."','".$res_name."','".$_POST['email']."','".$_POST['phone']."','".$_POST['url']."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['o_days']."','".$_POST['address']."','".$fnew."')";  // store the submited data ino the database :images
+												$sql = "INSERT INTO ser_name(c_id,title,address,image) VALUE('".$_POST['c_name']."','".$res_name."','".$_POST['address']."','".$fnew."')";  // store the submited data ino the database :images
 												mysqli_query($db, $sql); 
 												move_uploaded_file($temp, $store);
 			  
