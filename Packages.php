@@ -149,7 +149,7 @@ include_once 'product-action.php'; //including controller
                                         </div>
                                         <!-- end:col -->
                                         <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> 
-										<span class="price pull-left" >$<?php echo $product['price']; ?></span>
+										<span class="price pull-left" >৳<?php echo $product['price']; ?></span>
 										  <input class="b-r-0" type="text" name="quantity"  style="margin-left:30px;" value="1" size="2" />
 										  <input type="submit" class="btn theme-btn" style="margin-left:40px;" value="Add to cart" />
 										</div>
@@ -204,7 +204,7 @@ foreach ($_SESSION["cart_item"] as $item)  // fetch items define current into se
                                        
                                        <div class="form-group row no-gutter">
                                            <div class="col-xs-8">
-                                                <input type="text" class="form-control b-r-0" value=<?php echo "$".$item["price"]; ?> readonly id="exampleSelect1">
+                                                <input type="text" class="form-control b-r-0" value=<?php echo "৳".$item["price"]; ?> readonly id="exampleSelect1">
                                                   
                                            </div>
                                            <div class="col-xs-4">
@@ -227,7 +227,7 @@ $item_total += ($item["price"]*$item["quantity"]); // calculating current price 
                                <div class="widget-body">
                                    <div class="price-wrap text-xs-center">
                                        <p>TOTAL</p>
-                                       <h3 class="value"><strong><?php echo "$".$item_total; ?></strong></h3>
+                                       <h3 class="value"><strong><?php echo "৳".$item_total; ?></strong></h3>
                                        <p>Free Shipping</p>
                                        <a href="checkout.php?res_id=<?php echo $_GET['res_id'];?>&action=check"  class="btn theme-btn btn-lg">Checkout</a>
                                    </div>

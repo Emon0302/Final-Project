@@ -211,7 +211,8 @@ else
                                                 <th>Title</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
-												<th>Service-Details</th>
+                                                <th>Event-Ship</th>
+												<th>Address</th>
 												<th>status</th>												
 												 <th>Reg-Date</th>
 												  <th>Action</th>
@@ -240,7 +241,8 @@ else
 																					           <td>'.$rows['username'].'</td>
 																								<td>'.$rows['title'].'</td>
 																								<td>'.$rows['quantity'].'</td>
-																								<td>$'.$rows['price'].'</td>
+																								<td>৳'.$rows['price'].'</td>
+                                                                                                <td>'.$rows['ship'].'</td>
 																								<td>'.$rows['address'].'</td>';
 																								?>
 																								<?php 

@@ -315,9 +315,10 @@ if(isset($_POST['submit1'] ))
                                             </div>
                                         <!-- <input type="password" placeholder="Confirm password"  name="cr_cpass"> -->
                                        
-                                            <div class="col-md-6">
+                                            
+                                        <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Unique Code</label>
+                                                    <label class="control-label">User</label>
                                                     <select class="form-control" name="role" id="role">
                                                         <option value="Admin">Admin</option>
                                                         <option value="User">Company User</option>

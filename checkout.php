@@ -20,7 +20,7 @@ else{
 													if($_POST['submit'])
 													{
 						
-													$SQL="insert into users_orders(u_id,title,quantity,price) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."')";
+													$SQL="insert into users_orders(u_id,title,quantity,price,ship) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["ship"]."')";
 						
 														mysqli_query($db,$SQL);
 														
@@ -126,7 +126,7 @@ else{
 											   
                                                     <tr>
                                                         <td>Cart Subtotal</td>
-                                                        <td> <?php echo "$".$item_total; ?></td>
+                                                        <td> <?php echo "৳".$item_total; ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Shipping &amp; Handling</td>
@@ -134,7 +134,7 @@ else{
                                                     </tr>
                                                     <tr>
                                                         <td class="text-color"><strong>Total</strong></td>
-                                                        <td class="text-color"><strong> <?php echo "$".$item_total; ?></strong></td>
+                                                        <td class="text-color"><strong> <?php echo "৳".$item_total; ?></strong></td>
                                                     </tr>
                                                 </tbody>
 												
@@ -154,6 +154,17 @@ else{
                                             </li>
                                         
                                         </ul>
+                                        <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><strong>Event Ship</strong></label>
+                                                    <select class="form-control" name="ship" id="ship">
+                                                        <option value="Morning">Morning</option>
+                                                        <option value="Evening">Evening</option>
+                                                        <option value="Night">Night</option>
+                                                    </select>
+                                                
+                                                   </div>
+                                            </div>
                                         <p class="text-xs-center"> <input type="submit" onclick="return confirm('Are you sure?');" name="submit"  class="btn btn-outline-success btn-block" value="Order now"> </p>
                                     </div>
 									</form>
