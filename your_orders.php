@@ -234,6 +234,10 @@ only screen and (max-width: 760px),
 							  <th>Item</th>
 							  <th>Quantity</th>
 							  <th>price</th>
+							  <th>Event Shift</th>
+							  <th>Open Event</th>
+							  <th>Close Event</th>
+							  <th>Event Date</th>
 							   <th>status</th>
 							     <th>Date</th>
 								   <th>Action</th>
@@ -260,7 +264,11 @@ only screen and (max-width: 760px),
 												<tr>	
 														 <td data-column="Item"> <?php echo $row['title']; ?></td>
 														  <td data-column="Quantity"> <?php echo $row['quantity']; ?></td>
-														  <td data-column="price">$<?php echo $row['price']; ?></td>
+														  <td data-column="price">৳<?php echo $row['price']; ?></td>
+														  <td data-column="shift"><?php echo $row['shift']; ?></td>
+														  <td data-column="o_hr"><?php echo $row['o_hr']; ?></td>
+														  <td data-column="c_hr"><?php echo $row['c_hr']; ?></td>
+														  <td data-column="edate"><?php echo $row['edate']; ?></td>
 														   <td data-column="status"> 
 														   <?php 
 																			$status=$row['status'];

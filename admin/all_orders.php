@@ -211,7 +211,10 @@ else
                                                 <th>Title</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
-                                                <th>Event-Ship</th>
+                                                <th>Event-Shift</th>
+                                                <th>Open-Event</th>
+                                                <th>Close-Event</th>
+                                                <th>Event-Date</th>
 												<th>Address</th>
 												<th>status</th>												
 												 <th>Reg-Date</th>
@@ -242,7 +245,10 @@ else
 																								<td>'.$rows['title'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
-                                                                                                <td>'.$rows['ship'].'</td>
+                                                                                                <td>'.$rows['shift'].'</td>
+                                                                                                <td>'.$rows['o_hr'].'</td>
+                                                                                                <td>'.$rows['c_hr'].'</td>
+                                                                                                <td>'.$rows['edate'].'</td>
 																								<td>'.$rows['address'].'</td>';
 																								?>
 																								<?php 

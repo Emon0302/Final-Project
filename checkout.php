@@ -20,7 +20,7 @@ else{
 													if($_POST['submit'])
 													{
 						
-													$SQL="insert into users_orders(u_id,title,quantity,price,ship) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["ship"]."')";
+													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."')";
 						
 														mysqli_query($db,$SQL);
 														
@@ -156,14 +156,75 @@ else{
                                         </ul>
                                         <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label class="control-label"><strong>Event Ship</strong></label>
-                                                    <select class="form-control" name="ship" id="ship">
+                                                    <label class="control-label"><strong>Event Shift</strong></label>
+                                                    <select class="form-control" name="shift" id="shift">
                                                         <option value="Morning">Morning</option>
                                                         <option value="Evening">Evening</option>
                                                         <option value="Night">Night</option>
                                                     </select>
                                                 
                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label"><strong>Open Hours</strong></label>
+                                                    <select name="o_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
+                                                     <option>--Select your Hours--</option>
+                                                        <option value="6am">6am</option>
+                                                        <option value="7am">7am</option> 
+														<option value="8am">8am</option>
+														<option value="9am">9am</option>
+														<option value="10am">10am</option>
+														<option value="11am">11am</option>
+                                                        <option value="12am">12pm</option>
+                                                        <option value="1pm">1pm</option>
+                                                        <option value="2pm">2pm</option>
+                                                        <option value="3pm">3pm</option>
+                                                        <option value="4pm">4pm</option> 
+														<option value="5pm">5pm</option>
+														<option value="6pm">6pm</option>
+														<option value="7pm">7pm</option>
+														<option value="8pm">8pm</option>
+                                                        <option value="9pm">9pm</option>
+                                                        <option value="10pm">10pm</option>
+                                                        <option value="11pm">11pm</option>
+                                                        <option value="12pm">12pm</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label"><strong>Close Hours</strong></label>
+                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
+                                                     <option>--Select your Hours--</option>
+                                                     <option value="6am">6am</option>
+                                                        <option value="7am">7am</option> 
+														<option value="8am">8am</option>
+														<option value="9am">9am</option>
+														<option value="10am">10am</option>
+														<option value="11am">11am</option>
+                                                        <option value="12am">12pm</option>
+                                                        <option value="1pm">1pm</option>
+                                                        <option value="2pm">2pm</option>
+                                                        <option value="3pm">3pm</option>
+                                                        <option value="4pm">4pm</option> 
+														<option value="5pm">5pm</option>
+														<option value="6pm">6pm</option>
+														<option value="7pm">7pm</option>
+														<option value="8pm">8pm</option>
+                                                        <option value="9pm">9pm</option>
+                                                        <option value="10pm">10pm</option>
+                                                        <option value="11pm">11pm</option>
+                                                        <option value="12pm">12pm</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group mb-3">
+                                                    <label for=""><strong>Select your Event Date</strong></label>
+                                                    <input type="date" name="edate" class="form-control">
+                                                </div>
                                             </div>
                                         <p class="text-xs-center"> <input type="submit" onclick="return confirm('Are you sure?');" name="submit"  class="btn btn-outline-success btn-block" value="Order now"> </p>
                                     </div>
