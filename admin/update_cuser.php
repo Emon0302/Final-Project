@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include("../connection/connect.php");
-error_reporting(0);
-session_start();
 
+
+session_start();
+error_reporting(0);
+include("../connection/connect.php");
 if(empty($_SESSION["adm_id"]))
+{
+	header('location:index.php');
+}
+elseif($_SESSION['role'] == "User")
 {
 	header('location:index.php');
 }
 else
 {
+
+if(isset($_POST['submit'] ))
+{
+    if(empty($_POST['username']) ||
+		empty($_POST['password'])||
+        empty($_POST['email'])||
+		empty($_POST['role']))
+		{
+			$error = '<div class="alert alert-danger alert-dismissible fade show">
+																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+																<strong>All fields Required!</strong>
+															</div>';
+		}
+	else
+	{
+		
+
+	
+	
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
+    {
+       	$error = '<div class="alert alert-danger alert-dismissible fade show">
+																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+																<strong>invalid email!</strong>
+															</div>';
+    }
+	
+	else{
+       
+	
+	$mql = "update admin set username='$_POST[username]',email='$_POST[email]',role='$_POST[role]' where adm_id='$_GET[user_upd]' ";
+	mysqli_query($db, $mql);
+			$success = 	'<div class="alert alert-success alert-dismissible fade show">
+																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+																<strong>User Updated!</strong></div>';
+	
+    }
+	}
+
+}
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -43,17 +89,16 @@ else
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-        <div class="header">
+         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="dashboard.php">
+                    <a class="navbar-brand" href="http://localhost/project/admin/dashboard.php">
                         <!-- Logo icon -->
-                        <h4>Event Management</h4>    
-                        <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
+                        <h4>Event Management</h4>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <!-- <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span> -->
+                        
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -121,21 +166,8 @@ else
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-
-                        <?php
-                        if($_SESSION['role'] == "User"){
-                            echo'
-                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_orders.php">All Orders</a></li>
-								  
-                            </ul>
-                        </li>
-                            ';
-                        }
-                        else{
-                            echo'
-                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
+                        
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Service Category</a></li>
@@ -162,19 +194,11 @@ else
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="allusers.php">All Users</a></li>
 								<li><a href="add_users.php">Add Users</a></li>
-                                <li><a href="allcompanyuser.php">All Company Users</a></li>
                                 <li><a href="add_companyuser.php">Add Company User</a></li>
 								
                                
                             </ul>
                         </li>
-                            
-                            ';
-                        }
-                        
-                        ?>
-                        
-                       
                          
                     </ul>
                 </nav>
@@ -197,79 +221,76 @@ else
                 <!-- Start Page Content -->
                      <div class="row">
                    
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from ser_name";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Services</p>
-                                </div>
+                   
+					
+					 <div class="container-fluid">
+                <!-- Start Page Content -->
+                  
+									
+									
+									
+									
+								
+								
+					    <div class="col-lg-12">
+                        <div class="card card-outline-primary">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Update Users</h4>
+                            </div>
+                            <div class="card-body">
+							  <?php $ssql ="select * from admin where adm_id='$_GET[user_upd]'";
+													$res=mysqli_query($db, $ssql); 
+													$newrow=mysqli_fetch_array($res);?>
+                                <form action='' method='post'  >
+                                    <div class="form-body">
+                                      
+                                        <hr>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Username</label>
+                                                    <input type="text" name="uname" class="form-control" value="<?php  echo $newrow['username']; ?>" placeholder="username">
+                                                   </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <!--/row-->
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="text" name="email" class="form-control form-control-danger"  value="<?php  echo $newrow['email'];  ?>" placeholder="example@gmail.com">
+                                                    </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+										
+                                        
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Role</label>
+                                                    <select class="form-control form-control-danger" name="role">
+                                                        <option value="<?php  echo $newrow['role'];  ?>">Admin</option>
+                                                        <option value="<?php  echo $newrow['role'];  ?>">Company User</option>
+                                                        <option value="<?php  echo $newrow['role'];  ?>">Dealer</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            
+                                      
+                                            <!--/span-->
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <input type="submit" name="submit" class="btn btn-success" value="save"> 
+                                        <a href="dashboard.php" class="btn btn-inverse">Cancel</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-					
-					 <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-cutlery f-s-40" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from pack_name";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Packages</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-user f-s-40 color-danger"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from users";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle"> 
-                                    <span><i class="fa fa-shopping-cart f-s-40" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from users_orders";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Orders</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					
 					
 					
 					
@@ -286,6 +307,7 @@ else
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
+          
         </div>
         <!-- End Page wrapper  -->
     </div>
