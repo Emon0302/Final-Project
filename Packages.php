@@ -121,7 +121,9 @@ include_once 'product-action.php'; //including controller
                                 <div class="clearfix"></div>
                             </div>
                             <div class="collapse in" id="popular2">
-						<?php  // display values and item of packages/dishes
+                            
+                        
+                        <?php  // display values and item of packages/dishes
 									$stmt = $db->prepare("select * from pack_name where rs_id='$_GET[res_id]'");
 									$stmt->execute();
 									$products = $stmt->get_result();
@@ -133,6 +135,7 @@ include_once 'product-action.php'; //including controller
 													
 													 
 													 ?>
+                                                     
                                 <div class="packages-item">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-lg-8">

@@ -110,7 +110,7 @@ if(isset($_POST['submit'] ))
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="http://localhost/project/admin/dashboard.php">
                         <!-- Logo icon -->
                         <h4>Event Management</h4>
                         <!--End Logo icon -->

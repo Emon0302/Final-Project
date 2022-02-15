@@ -20,7 +20,6 @@ else
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Dashboard-Online Event Management</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +60,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="http://localhost/project/admin/dashboard.php">
                         <!-- Logo icon -->
                         <h4>Event Management</h4>
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
@@ -258,7 +257,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 											</tr>
 											<tr>
 													<td><strong>Price:</strong></td>
-												    <td><center>$<?php echo $rows['price']; ?></center></td>
+												    <td><center>৳<?php echo $rows['price']; ?></center></td>
 													   
 												   																							
 											</tr>

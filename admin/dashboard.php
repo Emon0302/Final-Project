@@ -244,7 +244,7 @@ else
 													$rws=mysqli_num_rows($result);
 													
 													echo $rws;?></h2>
-                                    <p class="m-b-0">User</p>
+                                    <p class="m-b-0">Customer</p>
                                 </div>
                             </div>
                         </div>
