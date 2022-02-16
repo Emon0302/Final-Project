@@ -252,6 +252,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="allusers.php">All Users</a></li>
 								<li><a href="add_users.php">Add Users</a></li>
+                                <li><a href="allcompanyuser.php">All Company Users</a></li>
                                 <li><a href="add_companyuser.php">Add Company User</a></li>
 								
                                
