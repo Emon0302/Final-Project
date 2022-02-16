@@ -53,10 +53,7 @@ if(isset($_POST['submit1'] ))
      {
     	$message = 'Email Already exists!';
      }
-	//  if(mysqli_num_rows($check_code) > 0)           // if code already exist 
-    //          {
-    //                $message = "Unique Code Already Redeem!";
-    //          }
+	
 	else{
        $result = mysqli_query($db,"SELECT role FROM admin WHERE role =  '".$_POST['role']."'");  //query to select the id of the valid code enter by user! 
 					  

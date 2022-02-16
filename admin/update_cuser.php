@@ -20,7 +20,6 @@ else
 if(isset($_POST['submit'] ))
 {
     if(empty($_POST['username']) ||
-		empty($_POST['password'])||
         empty($_POST['email'])||
 		empty($_POST['role']))
 		{
@@ -31,28 +30,18 @@ if(isset($_POST['submit'] ))
 		}
 	else
 	{
-		
-
-	
-	
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
-    {
-       	$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>invalid email!</strong>
-															</div>';
-    }
-	
-	else{
        
 	
-	$mql = "update admin set username='$_POST[username]',email='$_POST[email]',role='$_POST[role]' where adm_id='$_GET[user_upd]' ";
-	mysqli_query($db, $mql);
-			$success = 	'<div class="alert alert-success alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>User Updated!</strong></div>';
+        $mql = "update admin set username='$_POST[username]',email='$_POST[email]',role='$_POST[role]' where adm_id='$_GET[user_upd]'";  // update the submited data ino the database :images
+        mysqli_query($db, $mql); 
+        move_uploaded_file($temp, $store);
+
+            $success = 	'<div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Record</strong>Updated.
+                    </div>';
 	
-    }
+    
 	}
 
 }
@@ -249,7 +238,7 @@ if(isset($_POST['submit'] ))
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Username</label>
-                                                    <input type="text" name="uname" class="form-control" value="<?php  echo $newrow['username']; ?>" placeholder="username">
+                                                    <input type="text" name="username" class="form-control" value="<?php  echo $newrow['username']; ?>" placeholder="username">
                                                    </div>
                                             </div>
                                             
@@ -269,7 +258,7 @@ if(isset($_POST['submit'] ))
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Role</label>
-                                                    <select class="form-control form-control-danger" name="role">
+                                                    <select class="form-control form-control-danger" name="role" id="role">
                                                         <option value="<?php  echo $newrow['role'];  ?>">Admin</option>
                                                         <option value="<?php  echo $newrow['role'];  ?>">Company User</option>
                                                         <option value="<?php  echo $newrow['role'];  ?>">Dealer</option>
