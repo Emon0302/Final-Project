@@ -32,7 +32,7 @@ if(isset($_POST['submit'] ))
 	{
        
 	
-        $mql = "update admin set username='$_POST[username]',email='$_POST[email]',role='$_POST[role]' where adm_id='$_GET[user_upd]'";  // update the submited data ino the database :images
+        $mql = "update admin set username='$_POST[username]',email='$_POST[email]'zwhere adm_id='$_GET[user_upd]'";  // update the submited data ino the database :images
         mysqli_query($db, $mql); 
         move_uploaded_file($temp, $store);
 

@@ -238,9 +238,10 @@ only screen and (max-width: 760px),
 							  <th>Open Event</th>
 							  <th>Close Event</th>
 							  <th>Event Date</th>
-							   <th>status</th>
-							     <th>Date</th>
-								   <th>Action</th>
+							  <th>Event Type</th>
+							  <th>status</th>
+						      <th>Date</th>
+							  <th>Action</th>
 							  
 							</tr>
 						  </thead>
@@ -269,6 +270,7 @@ only screen and (max-width: 760px),
 														  <td data-column="o_hr"><?php echo $row['o_hr']; ?></td>
 														  <td data-column="c_hr"><?php echo $row['c_hr']; ?></td>
 														  <td data-column="edate"><?php echo $row['edate']; ?></td>
+														  <td data-column="type"><?php echo $row['type']; ?></td>
 														   <td data-column="status"> 
 														   <?php 
 																			$status=$row['status'];

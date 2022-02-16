@@ -84,53 +84,6 @@ session_start(); //start temp session until logout/browser closed
             <!--end:Hero inner -->
         </section>
         <!-- banner part ends -->
-
-        <!-- Select your desired event -->
-        <section class="popular">
-            <div class="container">
-                <div class="title text-xs-center m-b-30">
-                    <h2>Select Your Desired Event</h2>
-                    <p class="lead">The easiest way to search Event</p>
-                </div>
-                <div class="row">
-												
-                    <div class="col-xs-12 col-sm-6 col-md-4 packages-item">
-						<div class="packages-item-wrap">
-							<div class="figure-wrap bg-image" data-image-src="images/wedding2.jpg"></div>
-								<div class="content">
-									<h5><a href="">Weddinng</a></h5>
-									<div class="product-name">'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorum impedit iure reiciendis ipsam et vitae aliquam dolores, voluptates eum quae facilis neque illum porro ipsa labore quibusdam voluptatem mollitia!</div>
-									<div class="price-btn-block"><a href="Services.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
-                                </div>
-                                </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 packages-item">
-						<div class="packages-item-wrap">
-							<div class="figure-wrap bg-image" data-image-src="images/birthday2.jpg"></div>
-								<div class="content">
-									<h5><a href="">Birthday</a></h5>
-									<div class="product-name">'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorum impedit iure reiciendis ipsam et vitae aliquam dolores, voluptates eum quae facilis neque illum porro ipsa labore quibusdam voluptatem mollitia!</div>
-									<div class="price-btn-block"><a href="Services.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
-								</div>						
-					    </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 packages-item">
-						<div class="packages-item-wrap">
-							<div class="figure-wrap bg-image" data-image-src="images/party2.jpg"></div>
-								<div class="content">
-									<h5><a href="">Party</a></h5>
-									<div class="product-name">'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorum impedit iure reiciendis ipsam et vitae aliquam dolores, voluptates eum quae facilis neque illum porro ipsa labore quibusdam voluptatem mollitia!</div>
-									<div class="price-btn-block"><a href="Services.php" class="btn theme-btn-dash pull-left">Book Now</a> </div>
-								</div>						
-					    </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </section>
         <!-- Featured services starts -->
         <section class="featured-services">
             <div class="container">

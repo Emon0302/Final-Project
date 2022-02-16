@@ -20,7 +20,7 @@ else{
 													if($_POST['submit'])
 													{
 						
-													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."')";
+													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate,type) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."','".$_POST['type']."')";
 						
 														mysqli_query($db,$SQL);
 														
@@ -166,7 +166,7 @@ else{
                                                    </div>
                                             </div>
                                             <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Open Hours</strong></label>
                                                     <select name="o_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
@@ -220,11 +220,22 @@ else{
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label for=""><strong>Select your Event Date</strong></label>
                                                     <input type="date" name="edate" class="form-control">
                                                 </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><strong>Event Type</strong></label>
+                                                    <select class="form-control" name="type" id="type">
+                                                        <option value="Wedding">Wedding</option>
+                                                        <option value="Birthday">Birthday</option>
+                                                        <option value="Party">Party</option>
+                                                    </select>
+                                                
+                                                   </div>
                                             </div>
                                         <p class="text-xs-center"> <input type="submit" onclick="return confirm('Are you sure?');" name="submit"  class="btn btn-outline-success btn-block" value="Order now"> </p>
                                     </div>

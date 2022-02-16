@@ -216,10 +216,11 @@ else
                                                 <th>Open-Event</th>
                                                 <th>Close-Event</th>
                                                 <th>Event-Date</th>
+                                                <th>Event-Type</th>
 												<th>Address</th>
 												<th>status</th>												
-												 <th>Reg-Date</th>
-												  <th>Action</th>
+												<th>Reg-Date</th>
+												<th>Action</th>
 												 
                                             </tr>
                                         </thead>
@@ -250,6 +251,7 @@ else
                                                                                                 <td>'.$rows['o_hr'].'</td>
                                                                                                 <td>'.$rows['c_hr'].'</td>
                                                                                                 <td>'.$rows['edate'].'</td>
+                                                                                                <td>'.$rows['type'].'</td>
 																								<td>'.$rows['address'].'</td>';
 																								?>
 																								<?php 
