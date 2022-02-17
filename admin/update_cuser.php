@@ -20,8 +20,7 @@ else
 if(isset($_POST['submit'] ))
 {
     if(empty($_POST['username']) ||
-        empty($_POST['email'])||
-		empty($_POST['role']))
+        empty($_POST['email']))
 		{
 			$error = '<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -32,9 +31,10 @@ if(isset($_POST['submit'] ))
 	{
        
 	
-        $mql = "update admin set username='$_POST[username]',email='$_POST[email]'zwhere adm_id='$_GET[user_upd]'";  // update the submited data ino the database :images
+        $mql = "update admin set username='$_POST[username]',email='$_POST[email]' where adm_id='$_GET[user_upd]'";  // update the submited data ino the database :images
         mysqli_query($db, $mql); 
         move_uploaded_file($temp, $store);
+        header("location:allcompanyuser.php");
 
             $success = 	'<div class="alert alert-success alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -253,24 +253,6 @@ if(isset($_POST['submit'] ))
                                             </div>
                                             <!--/span-->
                                         </div>
-                                        <!--/row-->
-										
-                                        
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Role</label>
-                                                    <select class="form-control form-control-danger" name="role" id="role">
-                                                        <option value="<?php  echo $newrow['role'];  ?>">Admin</option>
-                                                        <option value="<?php  echo $newrow['role'];  ?>">Company User</option>
-                                                        <option value="<?php  echo $newrow['role'];  ?>">Dealer</option>
-                                                    </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            
-                                      
-                                            <!--/span-->
                                         </div>
                                     </div>
                                     <div class="form-actions">
