@@ -243,11 +243,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 											<tr>
 												<td><strong>Title:</strong></td>
 												    <td><center><?php echo $rows['title']; ?></center></td>
-													   <!-- <td><center>
-													   <a href="javascript:void(0);" onClick="popUpWindow('userprofile.php?newform_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
-														<button type="button" class="btn btn-primary">View User Detials</button></a>
-											
-													   </center></td> -->
+													  
 												   																								
 											</tr>	
 											<tr>
@@ -309,12 +305,11 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 											</tr>
                                             <tr>
                                                  <td><center>
-													<a href="javascript:void(0);" onClick="popUpWindow('userprofile.php?newform_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
-													<button type="button" class="btn btn-primary">View User Detials</button></a>
+												
                                                      </center></td> 
 													   
                                                  <td><center>
-													<a href="javascript:void(0);" onClick="popUpWindow('order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
+													<a href="order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
 													<button type="button" class="btn btn-primary">Take Action</button></a>
 													 </center></td>
                                             </tr>

@@ -153,7 +153,24 @@ include_once 'product-action.php'; //including controller
                                         <!-- end:col -->
                                         <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> 
 										<span class="price pull-left" >৳<?php echo $product['price']; ?></span>
-										  <input class="b-r-0" type="text" name="quantity"  style="margin-left:30px;" value="1" size="2" />
+                                        <?php
+                                               $stmt2 = $db->prepare("SELECT * FROM ser_name WHERE rs_id='$_GET[res_id]'");
+                                                $stmt2->execute();
+                                                $data = $stmt2->get_result();
+                                               foreach ($data as $row) {
+                                                  if($row['title'] != "Music"){
+                                                      ?>
+                                                     <input class="b-r-0" type="text" name="quantity"  style="margin-left:30px;" value="1" size="2" />
+                                                      <?php
+                                                  } if($row['title'] == "Music"){?>
+                                                    <input class="b-r-0" type="hidden" name="quantity"  style="margin-left:30px;" value="1"/>
+                                                    <?php
+                                                  }
+                                               }
+                                               ?>
+                                       
+										  
+
 										  <input type="submit" class="btn theme-btn" style="margin-left:40px;" value="Add to cart" />
 										</div>
 										</form>

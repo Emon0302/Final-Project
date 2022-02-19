@@ -14,8 +14,7 @@ else
   {
 $form_id=$_GET['form_id'];
 $status=$_POST['status'];
-$remark=$_POST['remark'];
-$query=mysqli_query($db,"insert into remark(frm_id,status,remark) values('$form_id','$status','$remark')");
+$query=mysqli_query($db,"insert into remark(frm_id,status) values('$form_id','$status')");
 $sql=mysqli_query($db,"update users_orders set status='$status' where o_id='$form_id'");
 
 echo "<script>alert('form details updated successfully');</script>";
@@ -144,28 +143,21 @@ td, th {
       <td><b>form Number</b></td>
       <td><?php echo htmlentities($_GET['form_id']); ?></td>
     </tr>
-	<tr>
-      <td  >&nbsp;</td>
 
-      <td >&nbsp;</td>
-    </tr>
    
     <tr >
       <td><b>Status</b></td>
       <td><select name="status" required="required" >
       <option value="">Select Status</option>
-      <option value="in process">In Process</option>
-    <option value="closed">Closed</option>
+      <option value="in process">Paid & In Process</option>
+    <option value="closed">Completed</option>
 	 <option value="rejected">rejected</option>
         
       </select></td>
     </tr>
 
 
-      <tr >
-      <td><b>Remark</b></td>
-      <td><textarea name="remark" cols="50" rows="10" required="required"></textarea></td>
-    </tr>
+     
     
 
 
