@@ -277,18 +277,18 @@ only screen and (max-width: 760px),
 																			if($status=="" or $status=="NULL")
 																			{
 																			?>
-																			<button type="button" class="btn btn-info" style="font-weight:bold;">Dispatch</button>
+																			<button type="button" class="btn btn-info" style="font-weight:bold;">Pending</button>
 																		   <?php 
 																			  }
 																			   if($status=="in process")
 																			 { ?>
-																				<button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>On a Way!</button>
+																				<button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button>
 																			<?php
 																				}
 																			if($status=="closed")
 																				{
 																			?>
-																			 <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Delivered</button> 
+																			 <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button> 
 																			<?php 
 																			} 
 																			?>

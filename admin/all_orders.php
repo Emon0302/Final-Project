@@ -259,7 +259,7 @@ else
 																			if($status=="" or $status=="NULL")
 																			{
 																			?>
-																			<td> <button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-bars"  aria-hidden="true" >Dispatch</button></td>
+																			<td> <button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-bars"  aria-hidden="true" >Pending</button></td>
 																		   <?php 
 																			  }
 																			   if($status=="in process")

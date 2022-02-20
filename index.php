@@ -69,7 +69,7 @@ session_start(); //start temp session until logout/browser closed
                     <h1>Full service Agency</h1>
                     <h1>We do it all</h1>
                     <h5 class="font-white space-xs">Find Services and Packages</h5>
-                    <div class="banner-form">
+                    <!-- <div class="banner-form">
                         <form class="form-inline">
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputAmount">Find Services....</label>
@@ -78,7 +78,7 @@ session_start(); //start temp session until logout/browser closed
                             </div>
                             <button onclick="location.href='Services.php'" type="button" class="btn theme-btn btn-lg">Search Services</button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!--end:Hero inner -->
