@@ -158,6 +158,7 @@ else
 								<li><a href="add_users.php">Add Users</a></li>
                                 <li><a href="allcompanyuser.php">All Company Users</a></li>
                                 <li><a href="add_companyuser.php">Add Company User</a></li>
+                                <li><a href="add_dealercat.php">Add Dealer Category</a></li>
 								
                                
                             </ul>
