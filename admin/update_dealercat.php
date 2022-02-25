@@ -17,7 +17,7 @@ else
 
 if(isset($_POST['submit'] ))
 {
-    if(empty($_POST['c_name']))
+    if(empty($_POST['dc_name']))
 		{
 			$error = '<div class="alert alert-danger alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -32,7 +32,7 @@ if(isset($_POST['submit'] ))
 	
        
 	
-	$mql = "update ser_category set c_name ='$_POST[c_name]' where c_id='$_GET[cat_upd]'";
+	$mql = "update dealer_cat set dc_name ='$_POST[dc_name]' where dc_id='$_GET[cat_upd]'";
 	mysqli_query($db, $mql);
 			$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -294,6 +294,7 @@ if(isset($_POST['submit'] ))
 								<li><a href="add_users.php">Add Users</a></li>
                                 <li><a href="allcompanyuser.php">All Company Users</a></li>
                                 <li><a href="add_companyuser.php">Add Company User</a></li>
+                                <li><a href="add_dealercat.php">Add Dealer Category</a></li>
 								
                                
                             </ul>
@@ -366,12 +367,12 @@ if(isset($_POST['submit'] ))
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Update Service Category</h4>
+                                <h4 class="m-b-0 text-white">Update Dealer Category</h4>
                             </div>
                             <div class="card-body">
                                 <form action='' method='post' >
                                     <div class="form-body">
-                                        <?php $ssql ="select * from ser_category where c_id='$_GET[cat_upd]'";
+                                        <?php $ssql ="select * from dealer_cat where dc_id='$_GET[cat_upd]'";
 													$res=mysqli_query($db, $ssql); 
 													$row=mysqli_fetch_array($res);?>
                                         <hr>
@@ -379,7 +380,7 @@ if(isset($_POST['submit'] ))
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Category</label>
-                                                    <input type="text" name="c_name" value="<?php echo $row['c_name'];  ?>" class="form-control" placeholder="Category Name">
+                                                    <input type="text" name="dc_name" value="<?php echo $row['dc_name'];  ?>" class="form-control" placeholder="Dealer Category Name">
                                                    </div>
                                             </div>
                                             <!--/span-->
