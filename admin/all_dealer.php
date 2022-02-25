@@ -188,7 +188,7 @@ else
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">All Registered users</h4>
+                                <h4 class="card-title">All Registered Dealers</h4>
                              
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -200,7 +200,7 @@ else
                                                 <th>Last-Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
-												<th>Service-Details</th>												
+												<th>Address</th>												
 												
 												  <th>Action</th>
 												 
