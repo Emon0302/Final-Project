@@ -81,7 +81,7 @@ if(isset($_POST['submit'] ))
 	else{
        
 	
-        $sql = "INSERT INTO dealer(dc_id,username,f_name,l_name,email,password,phone,address) VALUE('".$_POST['dc_name']."','".$_POST['username']."','".$_POST['f_name']."','".$_POST['l_name']."','".$_POST['email']."','".md5($_POST['password'])."','".$_POST['phone']."','".$_POST['address']."')";  // store the submited data ino the database :images
+        $sql = "INSERT INTO dealer(dc_name,username,f_name,l_name,email,password,phone,address) VALUE('".$_POST['dc_name']."','".$_POST['username']."','".$_POST['f_name']."','".$_POST['l_name']."','".$_POST['email']."','".md5($_POST['password'])."','".$_POST['phone']."','".$_POST['address']."')";  // store the submited data ino the database :images
         mysqli_query($db, $sql); 
 			$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -343,7 +343,7 @@ if(isset($_POST['submit'] ))
 													$res=mysqli_query($db, $ssql); 
 													while($row=mysqli_fetch_array($res))  
 													{
-                                                       echo' <option value="'.$row['dc_id'].'">'.$row['dc_name'].'</option>';;
+                                                       echo' <option value="'.$row['dc_name'].'">'.$row['dc_name'].'</option>';;
 													}  
                                                  
 													?> 

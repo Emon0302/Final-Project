@@ -194,6 +194,7 @@ else
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Dealer Category</th>
                                                 <th>Username</th>
                                                 <th>First-Name</th>
                                                 <th>Last-Name</th>
@@ -223,7 +224,8 @@ else
 																					
 																				
 																				
-																					echo ' <tr><td>'.$rows['username'].'</td>
+																					echo ' <tr><td>'.$rows['dc_name'].'</td>
+                                                                                                <td>'.$rows['username'].'</td>
 																								<td>'.$rows['f_name'].'</td>
 																								<td>'.$rows['l_name'].'</td>
 																								<td>'.$rows['email'].'</td>
