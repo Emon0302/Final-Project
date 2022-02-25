@@ -231,6 +231,8 @@ if(isset($_POST['submit'] ))
 								<li><a href="add_users.php">Add Users</a></li>
                                 <li><a href="allcompanyuser.php">All Company Users</a></li>
                                 <li><a href="add_companyuser.php">Add Company User</a></li>
+                                <li><a href="all_dealer.php">All Dealer</a></li>
+                                <li><a href="add_dealer.php">Add Dealer</a></li>
                                 <li><a href="add_dealercat.php">Add Dealer Category</a></li>
 								
                                

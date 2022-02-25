@@ -15,45 +15,6 @@ elseif($_SESSION['role'] == "User")
 else
 {
 
-
-if(isset($_POST['submit'] ))
-{
-    if(empty($_POST['dc_name']))
-		{
-			$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>field Required!</strong>
-															</div>';
-		}
-	else
-	{
-		
-	$check_cat= mysqli_query($db, "SELECT dc_name FROM dealer_cat where dc_name = '".$_POST['dc_name']."' ");
-
-	
-	
-	if(mysqli_num_rows($check_cat) > 0)
-     {
-    	$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Dealer Category already exist!</strong>
-															</div>';
-     }
-	else{
-       
-	
-	$mql = "INSERT INTO dealer_cat(dc_name) VALUES('".$_POST['dc_name']."')";
-	mysqli_query($db, $mql);
-			$success = 	'<div class="alert alert-success alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Congrass!</strong> New Dealer Category Added Successfully.</br></div>';
-	
-    }
-	}
-
-}
-
-
 ?>
 <head>
     <meta charset="utf-8">
@@ -77,7 +38,7 @@ if(isset($_POST['submit'] ))
 <![endif]-->
 </head>
 
-<body class="fix-header">
+<body class="fix-header fix-sidebar">
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
@@ -86,7 +47,7 @@ if(isset($_POST['submit'] ))
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-        <div class="header">
+         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
@@ -210,7 +171,7 @@ if(isset($_POST['submit'] ))
         </div>
         <!-- End Left Sidebar  -->
         <!-- Page wrapper  -->
-        <div class="page-wrapper" style="height:1200px;">
+        <div class="page-wrapper">
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
@@ -221,70 +182,25 @@ if(isset($_POST['submit'] ))
             <!-- Container fluid  -->
             <div class="container-fluid">
                 <!-- Start Page Content -->
-                     
-					
-					
-					  <div class="row">
-                   
-                   
-					
-					 <div class="container-fluid">
-                <!-- Start Page Content -->
-                  
-									
-									<?php  
-									        echo $error;
-									        echo $success; ?>
-									
-									
-								
-								
-					    <div class="col-lg-12">
-                        <div class="card card-outline-primary">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">Add Dealer Category</h4>
-                            </div>
-                            <div class="card-body">
-                                <form action='' method='post' >
-                                    <div class="form-body">
-                                       
-                                        <hr>
-                                        <div class="row p-t-20">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="control-label">Category</label>
-                                                    <input type="text" name="dc_name" class="form-control" placeholder="Dealer Category Name">
-                                                   </div>
-                                            </div>
-                                            <!--/span-->
-                                            
-                                    </div>
-                                    <div class="form-actions">
-                                        <input type="submit" name="submit" class="btn btn-success" value="save"> 
-                                        <a href="dashboard.php" class="btn btn-inverse">Cancel</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-					
-                </div>
-					
-					   <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
                         
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Listed Dealer Categories</h4>
+                                <h4 class="card-title">All Registered users</h4>
                              
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>ID#</th>
-                                                <th>Dealer Category Name</th>
-                                                <th>Date</th>
-                                              
+                                                <th>Username</th>
+                                                <th>First-Name</th>
+                                                <th>Last-Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+												<th>Service-Details</th>												
+												
 												  <th>Action</th>
 												 
                                             </tr>
@@ -293,12 +209,12 @@ if(isset($_POST['submit'] ))
                                            
 											
 											<?php
-												$sql="SELECT * FROM dealer_cat order by dc_id desc";
+												$sql="SELECT * FROM dealer order by de_id desc";
 												$query=mysqli_query($db,$sql);
 												
 													if(!mysqli_num_rows($query) > 0 )
 														{
-															echo '<td colspan="7"><center>No Dealer Categories-Data!</center></td>';
+															echo '<td colspan="7"><center>No User-Data!</center></td>';
 														}
 													else
 														{				
@@ -307,12 +223,15 @@ if(isset($_POST['submit'] ))
 																					
 																				
 																				
-																					echo ' <tr><td>'.$rows['dc_id'].'</td>
-																								<td>'.$rows['dc_name'].'</td>
-																								<td>'.$rows['date'].'</td>
+																					echo ' <tr><td>'.$rows['username'].'</td>
+																								<td>'.$rows['f_name'].'</td>
+																								<td>'.$rows['l_name'].'</td>
+																								<td>'.$rows['email'].'</td>
+																								<td>'.$rows['phone'].'</td>
+																								<td>'.$rows['address'].'</td>																								
 																								
-																									 <td><a href="delete_dealercat.php?cat_del='.$rows['dc_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
-																									 <a href="update_dealercat.php?cat_upd='.$rows['dc_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
+																									 <td><a href="delete_users.php?user_del='.$rows['u_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+																									 <a href="update_users.php?user_upd='.$rows['u_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 																									</td></tr>';
 																					 
 																						
@@ -331,17 +250,18 @@ if(isset($_POST['submit'] ))
                             </div>
                         </div>
 						 </div>
-					
-					
-					
-					
-					
-					
-					
+                      
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
+			
+			
+			
+			
 
         </div>
         <!-- End Page wrapper  -->
@@ -361,6 +281,16 @@ if(isset($_POST['submit'] ))
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
 
+
+    <script src="js/lib/datatables/datatables.min.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="js/lib/datatables/datatables-init.js"></script>
 </body>
 
 </html>
