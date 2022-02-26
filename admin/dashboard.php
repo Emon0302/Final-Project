@@ -5,7 +5,7 @@ include("../connection/connect.php");
 error_reporting(0);
 session_start();
 
-if(empty($_SESSION["adm_id"]))
+if(empty($_SESSION["adm_id"]||$_SESSION["de_id"]))
 {
 	header('location:index.php');
 }
@@ -94,11 +94,26 @@ else
                         <!-- Profile -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
+                            <?php
+                        if($_SESSION['de_id']){
+                            echo'
+                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                <ul class="dropdown-user">
+                                    <li><a href="logout2.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                            ';
+                            }
+                            else{
+                                echo'
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
+                            ';
+                            }
+                            ?>
                         </li>
                     </ul>
                 </div>

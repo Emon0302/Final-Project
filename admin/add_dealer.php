@@ -85,7 +85,7 @@ if(isset($_POST['submit'] ))
         mysqli_query($db, $sql); 
 			$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Congrass!</strong> New User Added Successfully.</br></div>';
+																<strong>Congrass!</strong> New Dealer Added Successfully.</br></div>';
 	
     }
 	}
