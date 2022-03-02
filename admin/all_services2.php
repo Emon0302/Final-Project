@@ -240,9 +240,9 @@ else
                                                 <th>Open Hrs</th>
                                                 <th>Close Hrs</th>
 												<th>Open Days</th> -->
-												  <th>Service Details</th>
+												  <th>About</th>
 												  <th>Price</th>
-												  <th>Service-Image</th>
+												  <th>Image</th>
 												  <!-- <th>Date</th> -->
 												   <th>Action</th>
 												  
@@ -250,7 +250,8 @@ else
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Services-Name</th>
+                                            <th>Services-Name</th>
+                                                
                                                 <!-- <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Url</th>
@@ -258,9 +259,9 @@ else
                                                 <th>Open Hrs</th>
                                                 <th>Close Hrs</th>
 												<th>Open Days</th> -->
-												  <th>Service Details</th>
+												  <th>About</th>
 												  <th>Price</th>
-												  <th>Services-Image</th>
+												  <th>Image</th>
 												  <!-- <th>Date</th> -->
 												   <th>Action</th>
                                             </tr>
@@ -269,7 +270,7 @@ else
 										
                                            
                                                	<?php
-												$sql="SELECT * FROM de_ser order by ds_id desc";
+												$sql="SELECT * FROM dealer_ser order by ds_id desc";
 												$query=mysqli_query($db,$sql);
 												
 													if(!mysqli_num_rows($query) > 0 )
@@ -281,12 +282,12 @@ else
 																	while($rows=mysqli_fetch_array($query))
 																		{
 																					
-																				$mql="SELECT * FROM dealer_cat where dc_id='".$rows['dc_id']."'";
+																				$mql="SELECT * FROM dealer_ser where ds_name='".$rows['ds_name']."'";
 																					$res=mysqli_query($db,$mql);
 																					$row=mysqli_fetch_array($res);
 																				
 																					echo ' <tr><td>'.$row['ds_name'].'</td>
-																								<td>'.$rows['ds_details'].'</td>
+																								<td>'.$rows['about'].'</td>
 																								
 																								
 																								<td>'.$rows['price'].'</td>

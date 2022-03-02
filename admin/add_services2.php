@@ -42,7 +42,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 								$extension = strtolower(end($extension));  
 								$fnew = uniqid().'.'.$extension;
    
-								$store = "Res_img/dishes/".basename($fnew);                      // the path to store the upload image
+								$store = "Res_img/".basename($fnew);                      // the path to store the upload image
 	
 					if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
 					{        
