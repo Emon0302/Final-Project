@@ -1,0 +1,19 @@
+
+customer:-
+1)do payment.
+
+admin:-
+1)Contact dealers and place order to organize something
+2)Will pay to the dealer
+3)Will assign company user to manage a certain event
+
+company user:-
+1)Receive Invoice
+2)Pay to Dealer
+
+dealer:-
+1)Will view orders from Admin
+2)Accept/Reject order
+3)View Histories/previous orders
+4)Receive and view all the payments
+5)Send invoice to the Admin/Company User
