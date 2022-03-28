@@ -207,7 +207,7 @@ else
 																<div class="right-content bg-white">
 																	<div class="right-review">
 																		
-                                                                      <a href="admins_order.php?de_id=' . $rows['de_id'] . '" class="btn theme-btn-dash">Order now</a> 
+                                                                      <a href="dealer/create.php?de_id=' . $rows['de_id'] . '" class="btn theme-btn-dash">Order now</a> 
                                                                     </div>
 																</div>
 																<!-- end:right info -->
