@@ -1,4 +1,5 @@
 <?php
+$root="http://localhost/project/";
 error_reporting(0);
 session_start();
 if(empty($_SESSION["adm_id"]))
@@ -42,7 +43,7 @@ $d_order = $stmt->fetch();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>CRUD</title>
+    <title>Add Dealer Order</title>
   </head>
   <body>
   <section>
@@ -173,6 +174,7 @@ $d_order = $stmt->fetch();
                    
                    
                     <button type="submit" class="btn btn-dark">Submit</button>
+                    <a href=<?=$root;?>admin/dashboard.php class="btn btn-inverse">Cancel</a>
 
                     </form>
                 </div>

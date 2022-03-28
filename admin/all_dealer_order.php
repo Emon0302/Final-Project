@@ -4,13 +4,14 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-
-if(empty($_SESSION["adm_id"]||$_SESSION["de_id"]))
+if(empty($_SESSION["adm_id"]))
 {
 	header('location:index.php');
 }
+
 else
 {
+
 ?>
 <head>
     <meta charset="utf-8">
@@ -32,9 +33,10 @@ else
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 
-<body class="fix-header">
+<body class="fix-header fix-sidebar">
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
@@ -43,13 +45,13 @@ else
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-        <div class="header">
+         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
-                        <h4>Event Management</h4>    
+                        <h4>Event Management</h4>   
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -94,26 +96,11 @@ else
                         <!-- Profile -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
-                            <?php
-                        if($_SESSION['de_id']){
-                            echo'
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="logout2.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                   <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
-                            ';
-                            }
-                            else{
-                                echo'
-                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
-                                <ul class="dropdown-user">
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
-                                </ul>
-                            </div>
-                            ';
-                            }
-                            ?>
                         </li>
                     </ul>
                 </div>
@@ -136,7 +123,7 @@ else
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-
+                        
                         <?php
                         if($_SESSION['role'] == "User"){
                             echo'
@@ -148,23 +135,6 @@ else
                         </li>
                             ';
                         }
-                        elseif($_SESSION['de_id']){
-                        echo'
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_services.php">All Services</a></li>
-                                <li><a href="add_service.php">Add Service</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_orders.php">All Orders</a></li>
-								  
-                            </ul>
-                        </li>
-                        ';
-                        }
                         else{
                             echo'
                             <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
@@ -172,7 +142,6 @@ else
 								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Service Category</a></li>
                                 <li><a href="add_service.php">Add Service</a></li>
-                                <li><a href="all_dealer_service.php">All Dealer Services</a></li>
                                 
                             </ul>
                         </li>
@@ -187,7 +156,6 @@ else
 						 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_orders.php">All Orders</a></li>
-                                <li><a href="all_dealer_order.php">All Dealer Orders</a></li>
 								  
                             </ul>
                         </li>
@@ -200,8 +168,7 @@ else
                                 <li><a href="add_companyuser.php">Add Company User</a></li>
                                 <li><a href="all_dealer.php">All Dealer</a></li>
                                 <li><a href="add_dealer.php">Add Dealer</a></li>
-                                <li><a href="add_dealercat.php">Add Dealer Category</a></li>
-								
+								<li><a href="add_dealercat.php">Add Dealer Category</a></li>
                                
                             </ul>
                         </li>
@@ -210,8 +177,7 @@ else
                         }
                         
                         ?>
-                        
-                       
+                     
                          
                     </ul>
                 </nav>
@@ -221,7 +187,7 @@ else
         </div>
         <!-- End Left Sidebar  -->
         <!-- Page wrapper  -->
-        <div class="page-wrapper" style="height:1200px;">
+        <div class="page-wrapper">
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
@@ -232,97 +198,127 @@ else
             <!-- Container fluid  -->
             <div class="container-fluid">
                 <!-- Start Page Content -->
-                     <div class="row">
-                   
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from ser_name";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Services</p>
+                <div class="row">
+                    <div class="col-12">
+                        
+                       
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">All user Orders</h4>
+                             
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Quantity</th>
+                                                <th>price</th>
+                                                <th>Event-Shift</th>
+                                                <th>Open-Event</th>
+                                                <th>Close-Event</th>
+                                                <th>Event-Date</th>
+                                                <th>Event-Type</th>
+												<th>Reg-Date</th>
+												<th>status</th>
+												 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+											
+											<?php
+												$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id ";
+												$query=mysqli_query($db,$sql);
+												
+													if(!mysqli_num_rows($query) > 0 )
+														{
+															echo '<td colspan="10"><center>No Orders-Data!</center></td>';
+														}
+													else
+														{				
+																	while($rows=mysqli_fetch_array($query))
+																		{
+																																							
+																				?>
+																				<?php
+																					echo ' <tr>
+																					           <td>'.$rows['username'].'</td>
+																								<td>'.$rows['quantity'].'</td>
+																								<td>৳'.$rows['price'].'</td>
+                                                                                                <td>'.$rows['shift'].'</td>
+                                                                                                <td>'.$rows['o_hr'].'</td>
+                                                                                                <td>'.$rows['c_hr'].'</td>
+                                                                                                <td>'.$rows['edate'].'</td>
+                                                                                                <td>'.$rows['type'].'</td>
+																								<td>'.$rows['date'].'</td>';
+																								?>
+																								<?php 
+																			$status=$rows['status'];
+																			if($status=="" or $status=="NULL")
+																			{
+																			?>
+																			<td> <button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-bars"  aria-hidden="true" >Pending</button></td>
+																		   <?php 
+																			  }
+																			   if($status=="in process")
+																			 { ?>
+																			<td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></td> 
+																			<?php
+																				}
+																			if($status=="closed")
+																				{
+																			?>
+																			<td> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></td> 
+																			<?php 
+																			} 
+																			?>
+																			<?php
+																			if($status=="rejected")
+																				{
+																			?>
+																			<td> <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>cancelled</button></td> 
+																			<?php 
+																			} 
+																			?>
+																						<?php																									
+																							// echo '	<td>'.$rows['date'].'</td>';
+																							?>
+																									 <td>
+																									 <a href="delete_dealer_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+																								<?php
+																								// echo '<a href="view_order.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
+																								// 	</td>
+																								// 	</tr>';
+																					 
+																						
+																						
+																		}	
+														}
+												
+											
+											?>
+                                             
+                                            
+                                           
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
-					
-					 <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-cutlery f-s-40" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from pack_name";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Packages</p>
-                                </div>
+						 </div>
+                      
                             </div>
                         </div>
                     </div>
-					
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-user f-s-40 color-danger"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from users";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Customer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle"> 
-                                    <span><i class="fa fa-shopping-cart f-s-40" aria-hidden="true"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2><?php $sql="select * from users_orders";
-												$result=mysqli_query($db,$sql); 
-													$rws=mysqli_num_rows($result);
-													
-													echo $rws;?></h2>
-                                    <p class="m-b-0">Orders</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
                 </div>
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
+			
+			
+			
+			
+
         </div>
         <!-- End Page wrapper  -->
     </div>
@@ -341,6 +337,16 @@ else
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
 
+
+    <script src="js/lib/datatables/datatables.min.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="js/lib/datatables/datatables-init.js"></script>
 </body>
 
 </html>

@@ -9,8 +9,6 @@ $_o_hr=$_POST['o_hr'];
 $_c_hr=$_POST['c_hr'];
 $_edate=$_POST['edate'];
 $_type=$_POST['type'];
-$_status=$_POST['status'];
-$_date=$_POST['date'];
 
 //echo $_title;
 
@@ -25,7 +23,7 @@ $conn = new PDO("mysql:host=$servername;dbname=event", $username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$query='INSERT INTO `admin_order` (`de_id`,`username`,`quantity`,`price`,`shift`,`o_hr`,`c_hr`,`edate`,`type`,`status`,`date`) VALUES (:de_id,:username,:quantity,:price,:shift,:o_hr,:c_hr,:edate,:type,:status,:date)';
+$query='INSERT INTO `admin_order` (`de_id`,`username`,`quantity`,`price`,`shift`,`o_hr`,`c_hr`,`edate`,`type`) VALUES (:de_id,:username,:quantity,:price,:shift,:o_hr,:c_hr,:edate,:type)';
 $stmt=$conn->prepare($query);
 $stmt->bindParam(':de_id',$_id);
 $stmt->bindParam(':username',$_username);
@@ -36,8 +34,6 @@ $stmt->bindParam(':o_hr',$_o_hr);
 $stmt->bindParam(':c_hr',$_c_hr);
 $stmt->bindParam(':edate',$_edate);
 $stmt->bindParam(':type',$_type);
-$stmt->bindParam(':status',$_status);
-$stmt->bindParam(':date',$_date);
 
 $result=$stmt->execute();
 // var_dump($result);

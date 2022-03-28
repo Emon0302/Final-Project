@@ -12,14 +12,6 @@ $query="SELECT * FROM `admin_order`WHERE `o_id`=$get";
 $stmt=$conn->prepare($query);
 $result=$stmt->execute();
 $d_order= $stmt->fetch();
-//echo '<pre>';
-//print_r($banners);
-//echo '</pre>';
-////var_dump($banners);
-
-// foreach ($banners as $banner):
-
-//     endforeach;
 
 ?>
 <!doctype html>
