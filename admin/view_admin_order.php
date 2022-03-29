@@ -4,7 +4,7 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-if(empty($_SESSION["adm_id"]))
+if(empty($_SESSION["de_id"]))
 {
 	header('location:index.php');
 }
@@ -148,13 +148,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                         }
                         elseif($_SESSION['de_id']){
                         echo'
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_services.php">All Services</a></li>
-                                <li><a href="add_service.php">Add Service</a></li>
-                                
-                            </ul>
-                        </li>
+                        
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="admin_order.php">All Orders</a></li>
@@ -243,7 +237,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                        
                                         <tbody>
                                            <?php
-											$sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
+											$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id where o_id='".$_GET['user_upd']."'";
 												$query=mysqli_query($db,$sql);
 												$rows=mysqli_fetch_array($query);
 												
@@ -262,12 +256,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 												  
 																																					
 											</tr>	
-											<tr>
-												<td><strong>Title:</strong></td>
-												    <td><center><?php echo $rows['title']; ?></center></td>
-													  
-												   																								
-											</tr>	
+											
 											<tr>
 													<td><strong>Quantity:</strong></td>
 												    <td><center><?php echo $rows['quantity']; ?></center></td>
@@ -331,7 +320,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                                      </center></td> 
 													   
                                                  <td><center>
-													<a href="order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
+													<a href="admin_order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
 													<button type="button" class="btn btn-primary">Take Action</button></a>
 													 </center></td>
                                             </tr>
@@ -394,3 +383,11 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 <?php
 }
 ?>
+
+<!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_services.php">All Services</a></li>
+                                <li><a href="add_service.php">Add Service</a></li>
+                                
+                            </ul>
+                        </li> -->

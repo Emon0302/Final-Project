@@ -4,10 +4,11 @@
 include("../connection/connect.php");
 error_reporting(0);
 session_start();
-if(empty($_SESSION["adm_id"]))
+if(empty($_SESSION["de_id"]))
 {
 	header('location:index.php');
 }
+
 else
 {
 
@@ -26,25 +27,13 @@ else
     <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<script language="javascript" type="text/javascript">
-var popUpWin=0;
-function popUpWindow(URLStr, left, top, width, height)
-{
- if(popUpWin)
-{
-if(!popUpWin.closed) popUpWin.close();
-}
-popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+600+',height='+600+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
-}
 
-</script>
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -56,13 +45,13 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-        <div class="header">
+         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="http://localhost/project/admin/dashboard.php">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
-                        <h4>Event Management</h4>
+                        <h4>Event Management</h4>   
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -109,7 +98,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                   <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -148,13 +137,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                         }
                         elseif($_SESSION['de_id']){
                         echo'
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_services.php">All Services</a></li>
-                                <li><a href="add_service.php">Add Service</a></li>
-                                
-                            </ul>
-                        </li>
+                        
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="admin_order.php">All Orders</a></li>
@@ -224,7 +207,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-primary">Dashboard</h3> </div>
-                
+               
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
@@ -236,81 +219,72 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">View user Orders</h4>
+                                <h4 class="card-title">All user Orders</h4>
                              
-                                <div class="table-responsive m-t-20">
+                                <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
-                                       
+                                        <thead>
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Quantity</th>
+                                                <th>price</th>
+                                                <th>Event-Shift</th>
+                                                <th>Open-Event</th>
+                                                <th>Close-Event</th>
+                                                <th>Event-Date</th>
+                                                <th>Event-Type</th>
+												<th>Reg-Date</th>
+												<th>Status</th>
+                                                <th>Action</th>
+												 
+                                            </tr>
+                                        </thead>
                                         <tbody>
-                                           <?php
-											$sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
-												$query=mysqli_query($db,$sql);
-												$rows=mysqli_fetch_array($query);
-												
-												
-																		
-												?>
+                                           
 											
-											<tr>
-													<td><strong>username:</strong></td>
-												     <td><center><?php echo $rows['username']; ?></center></td>
-													  <!-- <td><center>
-													   <a href="javascript:void(0);" onClick="popUpWindow('order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
-															 <button type="button" class="btn btn-primary">Take Action</button></a>
-															 </center>
-											 </td> -->
-												  
-																																					
-											</tr>	
-											<tr>
-												<td><strong>Title:</strong></td>
-												    <td><center><?php echo $rows['title']; ?></center></td>
-													  
-												   																								
-											</tr>	
-											<tr>
-													<td><strong>Quantity:</strong></td>
-												    <td><center><?php echo $rows['quantity']; ?></center></td>
-													  
-												   																							
-											</tr>
-											<tr>
-													<td><strong>Price:</strong></td>
-												    <td><center>৳<?php echo $rows['price']; ?></center></td>
-													   
-												   																							
-											</tr>
-											<tr>
-													<td><strong>Address:</strong></td>
-												    <td><center><?php echo $rows['address']; ?></center></td>
-													  
-												   																							
-											</tr>
-											<tr>
-													<td><strong>Date:</strong></td>
-												     <td><center><?php echo $rows['date']; ?></center></td>
-													  
-												   																							
-											</tr>
-											<tr>
-													<td><strong>status:</strong></td>
-													<?php 
+											<?php
+												$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id ";
+												$query=mysqli_query($db,$sql);
+												
+													if(!mysqli_num_rows($query) > 0 )
+														{
+															echo '<td colspan="10"><center>No Orders-Data!</center></td>';
+														}
+													else
+														{				
+																	while($rows=mysqli_fetch_array($query))
+																		{
+																																							
+																				?>
+																				<?php
+																					echo ' <tr>
+																					           <td>'.$rows['username'].'</td>
+																								<td>'.$rows['quantity'].'</td>
+																								<td>৳'.$rows['price'].'</td>
+                                                                                                <td>'.$rows['shift'].'</td>
+                                                                                                <td>'.$rows['o_hr'].'</td>
+                                                                                                <td>'.$rows['c_hr'].'</td>
+                                                                                                <td>'.$rows['edate'].'</td>
+                                                                                                <td>'.$rows['type'].'</td>
+																								<td>'.$rows['date'].'</td>';
+																								?>
+																								<?php 
 																			$status=$rows['status'];
 																			if($status=="" or $status=="NULL")
 																			{
 																			?>
-																			<td> <center><button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-bars"  aria-hidden="true" >Pending</button></center></td>
+																			<td> <button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-bars"  aria-hidden="true" >Pending</button></td>
 																		   <?php 
 																			  }
 																			   if($status=="in process")
 																			 { ?>
-																			<td>   <center><button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></center></td> 
+																			<td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></td> 
 																			<?php
 																				}
 																			if($status=="closed")
 																				{
 																			?>
-																			<td>  <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></center></td> 
+																			<td> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></td> 
 																			<?php 
 																			} 
 																			?>
@@ -318,28 +292,29 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 																			if($status=="rejected")
 																				{
 																			?>
-																			<td>  <center><button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>rejected</button> </center></td> 
+																			<td> <button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>cancelled</button></td> 
 																			<?php 
 																			} 
 																			?>
-													  
-												   																							
-											</tr>
-                                            <tr>
-                                                 <td><center>
-												
-                                                     </center></td> 
-													   
-                                                 <td><center>
-													<a href="order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
-													<button type="button" class="btn btn-primary">Take Action</button></a>
-													 </center></td>
-                                            </tr>
-											
-																				
-																															
+																						<?php																									
+																							// echo '	<td>'.$rows['date'].'</td>';
+																							?>
+																									 <td>
+																									 <!-- <a href="delete_dealer_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> -->
+                                                                                                     <a href="dealer/Inv/invoice.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-receipt" style="font-size:16px"></i></a>  
+																								<?php
+																								echo '<a href="view_admin_order.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
+																									</td>
+																									</tr>';
+																					 
 																						
-									
+																						
+																		}	
+														}
+												
+											
+											?>
+                                             
                                             
                                            
                                         </tbody>
@@ -359,7 +334,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 			
 			
 			
-		
+			
+
         </div>
         <!-- End Page wrapper  -->
     </div>
@@ -394,3 +370,11 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 <?php
 }
 ?>
+
+<!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_services.php">All Services</a></li>
+                                <li><a href="add_service.php">Add Service</a></li>
+                                
+                            </ul>
+                        </li> -->

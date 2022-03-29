@@ -150,16 +150,10 @@ else
                         }
                         elseif($_SESSION['de_id']){
                         echo'
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
-                            <ul aria-expanded="false" class="collapse">
-								<li><a href="all_services.php">All Services</a></li>
-                                <li><a href="add_service.php">Add Service</a></li>
-                                
-                            </ul>
-                        </li>
+                        
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
                             <ul aria-expanded="false" class="collapse">
-								<li><a href="all_orders.php">All Orders</a></li>
+								<li><a href="admin_order.php">All Orders</a></li>
 								  
                             </ul>
                         </li>
@@ -347,3 +341,11 @@ else
 <?php
 }
 ?>
+
+<!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_services.php">All Services</a></li>
+                                <li><a href="add_service.php">Add Service</a></li>
+                                
+                            </ul>
+                        </li> -->
