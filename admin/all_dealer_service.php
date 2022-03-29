@@ -30,7 +30,12 @@ else
     <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css1/style.css" rel="stylesheet">
+
+    <link href="css1/bootstrap.min.css" rel="stylesheet">
+    <link href="css1/font-awesome.min.css" rel="stylesheet">
+    <link href="css1/animsition.min.css" rel="stylesheet">
+    <link href="css1/animate.css" rel="stylesheet">
+    <link href="css1/style1.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -54,7 +59,7 @@ else
                 <div class="navbar-header">
                     <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
-                        <h4>Event Management</h4>   
+                        <h4 class="h4">Event Management</h4>   
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -197,7 +202,7 @@ else
                                   
 															
 															<div class="entry-dscr">
-																<h5><a href="admin_order.php?de_id=' . $rows['de_id'] . '" >' . $rows['dc_name'] . '</a></h5> <span>' . $rows['username'] . ' </span>
+																<h5><a href="dealer/create.php?de_id=' . $rows['de_id'] . '" >' . $rows['dc_name'] . '</a></h5> <span>' . $rows['username'] . ' </span>
 															
 															</div>
 															<!-- end:Entry description -->
@@ -265,17 +270,6 @@ else
     <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script src="js/lib/datatables/datatables-init.js"></script>
-
-
-
-    <script src="js1/jquery.min.js"></script>
-    <script src="js1/tether.min.js"></script>
-    <script src="js1/bootstrap.min.js"></script>
-    <script src="js1/animsition.min.js"></script>
-    <script src="js1/bootstrap-slider.min.js"></script>
-    <script src="js1/jquery.isotope.min.js"></script>
-    <script src="js1/headroom.js"></script>
-    <script src="js1/foodpicky.min.js"></script>
 </body>
 
 </html>
