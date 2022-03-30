@@ -1,5 +1,6 @@
 <?php
-$root="http://localhost/project/";
+
+include("../connection/connect.php");
 error_reporting(0);
 session_start();
 if(empty($_SESSION["adm_id"]))
@@ -12,6 +13,8 @@ elseif($_SESSION['role'] == "User")
 }
 else{
 $get = $_GET['de_id'];
+// $get1 =$_GET['dc_name'];
+// echo $get1;
 // Connect to database
 $servername = "localhost";
 $username = "root";
@@ -43,7 +46,7 @@ $d_order = $stmt->fetch();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Add Dealer Order</title>
+    <title>CRUD</title>
   </head>
   <body>
   <section>
@@ -69,17 +72,33 @@ $d_order = $stmt->fetch();
                          
                     </div>
                     </div>
-                   
-                    
-                   
                     <div class="mb-2 row">   
                     <div class="form-group">                  
-                        <label for="quantity" class="col-sm-2 col-form-label fw-bold">Quantity :</label>
+                        <label for="quantity" class="col-sm-2 col-form-label fw-bold">Package :</label>
                         
-                         <input type="number" min="0" class="form-control" id="quantity" name="quantity" value="">
+                         <input type="text" min="0" class="form-control" id="package_detail" name="package_detail" value="">
                          </div>
                     
                     </div>
+                    <?php
+                    if ($d_order1['dc_name']!= "Music"){
+                      echo'  <div class="mb-2 row">   
+                        <div class="form-group">                  
+                            <label for="quantity" class="col-sm-2 col-form-label fw-bold">Quantity :</label>
+                            
+                             <input type="number" min="0" class="form-control" id="quantity" name="quantity" value="">
+                             </div>
+                        
+                        </div>';
+                }else{
+                    echo'                             <input type="hidden" min="0" class="form-control" id="quantity" name="quantity" value="1">
+                    ';
+                }
+
+                   
+                   
+                    
+                    ?>
                     <div class="mb-2 row">  
                     <div class="form-group">                   
                         <label for="price" class="col-sm-2 col-form-label fw-bold">price :</label>
@@ -99,7 +118,7 @@ $d_order = $stmt->fetch();
                                                 
                                                    </div>
                                             </div>
-                                           
+                                            
                                             <div class="mb-3 row">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Starting Hours</strong></label>
@@ -174,7 +193,6 @@ $d_order = $stmt->fetch();
                    
                    
                     <button type="submit" class="btn btn-dark">Submit</button>
-                    <a href=<?=$root;?>admin/dashboard.php class="btn btn-inverse">Cancel</a>
 
                     </form>
                 </div>
