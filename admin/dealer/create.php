@@ -72,6 +72,22 @@ $d_order = $stmt->fetch();
                          
                     </div>
                     </div>
+                    <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Select Company User</label>
+													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Company User" tabindex="1">
+                                                        <option>--Select Company User--</option>
+                                                 <?php $ssql ="select * from admin where role='User'";
+													$res=mysqli_query($db, $ssql); 
+													while($row=mysqli_fetch_array($res))  
+													{
+                                                       echo' <option value="'.$row['username'].'">'.$row['username'].'</option>';;
+													}  
+                                                 
+													?> 
+													 </select>
+                                                </div>
+                                            </div>
                     <div class="mb-2 row">   
                     <div class="form-group">                  
                         <label for="quantity" class="col-sm-2 col-form-label fw-bold">Package :</label>
@@ -192,6 +208,7 @@ $d_order = $stmt->fetch();
                    
                    
                     <button type="submit" class="btn btn-dark">Submit</button>
+                    <a href="http://localhost/project/admin/all_dealer_service.php" class="btn btn-inverse">Cancel</a>
 
                     </form>
                 </div>

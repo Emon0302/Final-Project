@@ -225,7 +225,8 @@ else
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Username</th>
+                                                <th>Dealer Name</th>
+                                                <th>Company User</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
                                                 <th>Event-Shift</th>
@@ -259,6 +260,7 @@ else
 																				<?php
 																					echo ' <tr>
 																					           <td>'.$rows['username'].'</td>
+                                                                                               <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
                                                                                                 <td>'.$rows['shift'].'</td>

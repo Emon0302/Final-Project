@@ -4,6 +4,7 @@ $web='http://localhost/project/admin';
 $_id=$_POST['de_id'];
 $package_detail=$_POST['package_detail'];
 $_username=$_POST['username'];
+$c_name=$_POST['c_name'];
 $_quantity=$_POST['quantity'];
 $_price=$_POST['price'];
 $_shift=$_POST['shift'];
@@ -26,11 +27,12 @@ $conn = new PDO("mysql:host=$servername;dbname=event", $username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$query='INSERT INTO `admin_order` (`de_id`,`package`,`username`,`quantity`,`price`,`shift`,`o_hr`,`c_hr`,`edate`,`type`) VALUES (:de_id,:package,:username,:quantity,:price,:shift,:o_hr,:c_hr,:edate,:type)';
+$query='INSERT INTO `admin_order` (`de_id`,`package`,`username`,`c_name`,`quantity`,`price`,`shift`,`o_hr`,`c_hr`,`edate`,`type`) VALUES (:de_id,:package,:username,:c_name,:quantity,:price,:shift,:o_hr,:c_hr,:edate,:type)';
 $stmt=$conn->prepare($query);
 $stmt->bindParam(':de_id',$_id);
 $stmt->bindParam(':package',$package_detail);
 $stmt->bindParam(':username',$_username);
+$stmt->bindParam(':c_name',$c_name);
 $stmt->bindParam(':quantity',$_quantity);
 $stmt->bindParam(':price',$_price);
 $stmt->bindParam(':shift',$_shift);
