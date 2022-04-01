@@ -322,6 +322,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                                  <td><center>
 													<a href="admin_order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
 													<button type="button" class="btn btn-primary">Take Action</button></a>
+                                                    <a href="admin_order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
+													<button type="button" class="btn btn-primary">Take Action</button></a>
 													 </center></td>
                                             </tr>
 											

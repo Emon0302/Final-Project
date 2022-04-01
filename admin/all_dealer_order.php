@@ -204,7 +204,7 @@ else
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">All user Orders</h4>
+                                <h4 class="card-title">All Dealer Orders</h4>
                              
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -213,13 +213,16 @@ else
                                                 <th>Dealer Name</th>
                                                 <th>Company User Name</th>
                                                 <th>Quantity</th>
-                                                <th>price</th>
+                                                <th>Price</th>
+                                                <th>Total</th>
                                                 <th>Event-Shift</th>
                                                 <th>Open-Event</th>
                                                 <th>Close-Event</th>
                                                 <th>Event-Date</th>
                                                 <th>Event-Type</th>
 												<th>Reg-Date</th>
+                                                <th>Payment Method</th>
+												<th>Transaction ID</th>
 												<th>Status</th>
                                                 <th>Action</th>
 												 
@@ -248,12 +251,15 @@ else
                                                                                                <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
+																								<td>৳'.$rows['total'].'</td>
                                                                                                 <td>'.$rows['shift'].'</td>
                                                                                                 <td>'.$rows['o_hr'].'</td>
                                                                                                 <td>'.$rows['c_hr'].'</td>
                                                                                                 <td>'.$rows['edate'].'</td>
                                                                                                 <td>'.$rows['type'].'</td>
-																								<td>'.$rows['date'].'</td>';
+																								<td>'.$rows['date'].'</td>;
+																								<td>'.$rows['payment'].'</td>;
+																								<td>'.$rows['t_id'].'</td>';
 																								?>
 																								<?php 
 																			$status=$rows['status'];
@@ -287,8 +293,10 @@ else
 																							// echo '	<td>'.$rows['date'].'</td>';
 																							?>
 																									 <td>
-																									 <a href="delete_dealer_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
-                                                                                                     <a href="dealer/Inv/invoice.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-receipt" style="font-size:16px"></i></a>  
+																									 <a href="delete_dealer_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure to delet this order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
+                                                                                                     <a href="dealer/Inv/invoice.php?o_id=<?php echo $rows['o_id'];?>" onclick="return confirm('Do you want to see this order\'s invoice?');"class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-receipt" style="font-size:16px"></i></a>  
+                                                                                                     <a href="dealer/payment.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-settings" style="font-size:16px"></i></a>  
+
 																								<?php
 																								// echo '<a href="view_order.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 																								// 	</td>
