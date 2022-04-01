@@ -257,9 +257,9 @@ else
                                                                                                 <td>'.$rows['c_hr'].'</td>
                                                                                                 <td>'.$rows['edate'].'</td>
                                                                                                 <td>'.$rows['type'].'</td>
-																								<td>'.$rows['date'].'</td>;
-																								<td>'.$rows['payment'].'</td>;
-																								<td>'.$rows['t_id'].'</td>';
+																								<td>'.$rows['date'].'</td>
+																								<td>'.$rows['payment'].'</td>
+																								<td>'.$rows['t_id'].'</td>'
 																								?>
 																								<?php 
 																			$status=$rows['status'];
