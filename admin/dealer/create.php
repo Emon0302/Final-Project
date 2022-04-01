@@ -91,8 +91,7 @@ $d_order = $stmt->fetch();
                         
                         </div>';
                 }else{
-                    echo'                             <input type="hidden" min="0" class="form-control" id="quantity" name="quantity" value="1">
-                    ';
+                    echo'<input type="hidden" min="0" class="form-control" id="quantity" name="quantity" value="1">';
                 }
 
                    
