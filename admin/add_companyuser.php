@@ -322,9 +322,7 @@ if(isset($_POST['submit1'] ))
                                                     <label class="control-label">User</label>
                                                     <select class="form-control" name="role" id="role">
                                                         <option value="Admin">Admin</option>
-                                                        <option value="User">Company User</option>
-                                                        <option value="Dealer">Dealer</option>
-                                                    </select>
+                                                        <option value="User">Company User</option>                                                    </select>
                                                 
                                                    </div>
                                             </div>
