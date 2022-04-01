@@ -1,5 +1,16 @@
 <?php
-
+include("../connection/connect.php");
+error_reporting(0);
+session_start();
+if(empty($_SESSION["adm_id"]))
+{
+	header('location:index.php');
+}
+elseif($_SESSION['role'] == "User")
+{
+	header('location:index.php');
+}
+else{
 $get = $_GET['o_id'];
 // Connect to database
 $servername = "localhost";
@@ -17,7 +28,7 @@ $stmt = $conn->prepare($query);
 $result = $stmt->execute();
 
 $d_order = $stmt->fetch();
-
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,14 +67,26 @@ $d_order = $stmt->fetch();
                     </div>
                     </div>
 
-                    <div class="mb-2 row">
-                    <div class="form-group">                  
-                        <label for="quantity" class="fw-bold">Company Username :</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="c_name" name="c_name" value="<?=$d_order['c_name'];?>"readonly >
-                         </div>
-                        </div>
+                    <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Select Company User</label>
+                                                    <div class="col-sm-10">
+													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Company User" tabindex="1">
+                                                        <option value="<?=$d_order1['c_name'];?>" hidden><?=$d_order1['c_name'];?></option>
+                                                 <?php $ssql ="select * from admin where role='User'";
+													$res=mysqli_query($db, $ssql); 
+													while($row=mysqli_fetch_array($res))  
+													{
+                                                       echo' <option value="'.$row['username'].'">'.$row['username'].'</option>';;
+													}  
+                                                 
+													?> 
+													 </select>
+                                                </div>
+                                            </div>
                     </div>
+
+
 
                     <div class="mb-2 row">   
                     <div class="form-group">                  
@@ -177,7 +200,7 @@ $d_order = $stmt->fetch();
 
 
 
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-info">Submit</button>
                     <a href="http://localhost/project/admin/all_dealer_order.php" class="btn btn-danger">Cancel</a>
                     </form>
                 </div>

@@ -150,8 +150,9 @@ td, th {
       <td><b>Status</b></td>
       <td><select name="status" required="required" >
       <option value="">Select Status</option>
+      <option value="accepted & pay soon">Accepted & Pay Soon</option>
       <option value="in process">Paid & In Process</option>
-    <option value="closed">Completed</option>
+    <option value="completed">Completed</option>
 	 <option value="rejected">rejected</option>
         
       </select></td>

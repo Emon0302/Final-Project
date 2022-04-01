@@ -296,11 +296,17 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 																			<td>   <center><button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></center></td> 
 																			<?php
 																				}
-																			if($status=="closed")
+																			if($status=="completed")
 																				{
 																			?>
 																			<td>  <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></center></td> 
-																			<?php 
+																			<?php
+																				}
+																			if($status=="accepted & pay soon")
+																				{
+																			?>
+																			<td> <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Accepted & Pay Soon</button></center></td> 
+                                                                            <?php 
 																			} 
 																			?>
 																			<?php
@@ -321,8 +327,6 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 													   
                                                  <td><center>
 													<a href="admin_order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
-													<button type="button" class="btn btn-primary">Take Action</button></a>
-                                                    <a href="admin_order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
 													<button type="button" class="btn btn-primary">Take Action</button></a>
 													 </center></td>
                                             </tr>

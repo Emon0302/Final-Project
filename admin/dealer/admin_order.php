@@ -225,16 +225,19 @@ else
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Dealer Name</th>
+                                                <th>Package Name</th>
                                                 <th>Company User</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
+                                                <th>Total</th>
                                                 <th>Event-Shift</th>
                                                 <th>Open-Event</th>
                                                 <th>Close-Event</th>
                                                 <th>Event-Date</th>
                                                 <th>Event-Type</th>
 												<th>Reg-Date</th>
+												<th>Payment-method</th>
+												<th>Transaction-ID</th>
 												<th>Status</th>
                                                 <th>Action</th>
 												 
@@ -244,31 +247,34 @@ else
                                            
 											
 											<?php
-												$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id ";
-												$query=mysqli_query($db,$sql);
+						$query_res= mysqli_query($db,"select * from admin_order where de_id='".$_SESSION['de_id']."'");
+        
 												
-													if(!mysqli_num_rows($query) > 0 )
+													if(!mysqli_num_rows($query_res) > 0 )
 														{
-															echo '<td colspan="10"><center>No Orders-Data!</center></td>';
+															echo '<td colspan="16"><center>No Orders-Data!</center></td>';
 														}
 													else
 														{				
-																	while($rows=mysqli_fetch_array($query))
+																	while($rows=mysqli_fetch_array($query_res))
 																		{
 																																							
 																				?>
 																				<?php
 																					echo ' <tr>
-																					           <td>'.$rows['username'].'</td>
+																					           <td>'.$rows['package'].'</td>
                                                                                                <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
+																								<td>৳'.$rows['total'].'</td>
                                                                                                 <td>'.$rows['shift'].'</td>
                                                                                                 <td>'.$rows['o_hr'].'</td>
                                                                                                 <td>'.$rows['c_hr'].'</td>
                                                                                                 <td>'.$rows['edate'].'</td>
                                                                                                 <td>'.$rows['type'].'</td>
-																								<td>'.$rows['date'].'</td>';
+																								<td>'.$rows['date'].'</td>
+																								<td>'.$rows['payment'].'</td>
+																								<td>'.$rows['t_id'].'</td>';
 																								?>
 																								<?php 
 																			$status=$rows['status'];
@@ -281,7 +287,22 @@ else
 																			   if($status=="in process")
 																			 { ?>
 																			<td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></td> 
-																			<?php
+																			
+                                                                            <?php
+																				}
+																			if($status=="completed")
+																				{
+																			?>
+																			<td> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></td> 
+                                                                            <?php
+																				}
+																			if($status=="accepted & pay soon")
+																				{
+																			?>
+																			<td><center> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Accepted & Pay Soon</button></center></td> 
+																			
+
+                                                                            <?php
 																				}
 																			if($status=="closed")
 																				{

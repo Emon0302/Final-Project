@@ -305,7 +305,23 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 																			   if($status=="in process")
 																			 { ?>
 																			<td>   <center><button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></center></td> 
-																			<?php
+																			
+                                                                            <?php
+																				}
+																			if($status=="completed")
+																				{
+																			?>
+																			<td> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></td> 
+                                                                            <?php
+																				}
+																			if($status=="accepted & pay soon")
+																				{
+																			?>
+																			<td> <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Accepted & Pay Soon</button></center></td> 
+																			
+
+                                                                            
+                                                                            <?php
 																				}
 																			if($status=="closed")
 																				{

@@ -274,11 +274,18 @@ else
 																			<td> <button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></td> 
 																			<?php
 																				}
-																			if($status=="closed")
+																			if($status=="completed")
 																				{
 																			?>
 																			<td> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></td> 
-																			<?php 
+                                                                            <?php
+																				}
+																			if($status=="accepted & pay soon")
+																				{
+																			?>
+																			<td> <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Accepted & Pay Soon</button></center></td> 
+                                                                        
+                                                                        <?php 
 																			} 
 																			?>
 																			<?php
@@ -294,8 +301,8 @@ else
 																							?>
 																									 <td>
 																									 <a href="delete_dealer_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure to delet this order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
-                                                                                                     <a href="dealer/Inv/invoice.php?o_id=<?php echo $rows['o_id'];?>" onclick="return confirm('Do you want to see this order\'s invoice?');"class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-receipt" style="font-size:16px"></i></a>  
-                                                                                                     <a href="dealer/payment.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-settings" style="font-size:16px"></i></a>  
+                                                                                                     <a href="dealer/Inv/invoice.php?o_id=<?php echo $rows['o_id'];?>" onclick="return confirm('Do you want to see this order\'s invoice?');"class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-printer" style="font-size:16px"></i></a>  
+                                                                                                     <a href="dealer/payment.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="ti-money" style="font-size:16px"></i></a>  
 
 																								<?php
 																								// echo '<a href="view_order.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
