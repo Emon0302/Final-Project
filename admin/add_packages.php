@@ -230,6 +230,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Service Category</a></li>
                                 <li><a href="add_service.php">Add Service</a></li>
+                                <li><a href="all_dealer_service.php">All Dealer Services</a></li>
                                 
                             </ul>
                         </li>
@@ -244,6 +245,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 						 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_orders.php">All Orders</a></li>
+                                <li><a href="all_dealer_order.php">All Dealer Orders</a></li>
 								  
                             </ul>
                         </li>

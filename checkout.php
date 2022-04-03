@@ -20,7 +20,7 @@ else{
 													if($_POST['submit'])
 													{
 						
-													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate,type) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."','".$_POST['type']."')";
+													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate,type,payment,t_id) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."','".$_POST['type']."','".$_POST['payment']."','".$_POST['t_id']."')";
 						
 														mysqli_query($db,$SQL);
 														
@@ -146,14 +146,14 @@ else{
                                     </div>
                                     <!--cart summary-->
                                     <div class="payment-option">
-                                        <ul class=" list-unstyled">
+                                        <!-- <ul class=" list-unstyled">
                                             <li>
                                                 <label class="custom-control custom-radio  m-b-20">
                                                     <input name="mod" id="radioStacked1" checked value="COD" type="radio" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Payment on delivery</span>
                                                    
                                             </li>
                                         
-                                        </ul>
+                                        </ul> -->
                                         <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Event Shift</strong></label>
@@ -237,6 +237,25 @@ else{
                                                 
                                                    </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label"><strong>Paymeny Method</strong></label>
+                                                    <select class="form-control" name="payment" id="type"required>
+                                                        <option value="bKash">bkash</option>
+                                                        <option value="Nagad">Nagad</option>
+                                                        <option value="Rocket">Rocket</option>
+                                                    </select>
+                                                
+                                                   </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label"><strong>Transaction Id</strong></label>
+                                                    <input type="text" name="t_id" class="form-control"value=" "placeholder="transanction id"required>
+                                                
+                                                   </div>
+                                            </div>
+                                            
                                         <p class="text-xs-center"> <input type="submit" onclick="return confirm('Are you sure?');" name="submit"  class="btn btn-outline-success btn-block" value="Order now"> </p>
                                     </div>
 									</form>

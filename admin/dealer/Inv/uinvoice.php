@@ -63,7 +63,6 @@ $u_order1=$u_order['u_id'];
     <div class="toolbar hidden-print">
         <div class="text-right">
             <button id="printInvoice" class="btn btn-info">Print</button>
-            <button onclick="generatePDF()">Download as PDF</button>
         </div>
         <hr>
     </div>
@@ -170,6 +169,20 @@ $grand_total=($item_total+$new_width);
                         </tr> -->
                     </tfoot>
                 </table>
+                <div class="notices">
+                    <div>Payment-Method:</div>
+                    <div class="notice"><?=$u_order['payment'];?></div>
+                </div>
+                <?php
+                    echo'<br>';
+                    ?>
+                <div class="notices">
+                    <div>Trasaction-ID:</div>
+                    <div class="notice"><?=$u_order['t_id'];?></div>
+                </div>
+                    <?php
+                    echo'<hr>';
+                    ?>
                 <div class="thanks">Thank you!</div>
                 <div class="notices">
                     <div>NOTICE:</div>

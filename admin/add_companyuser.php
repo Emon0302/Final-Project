@@ -57,19 +57,10 @@ if(isset($_POST['submit1'] ))
 	else{
        $result = mysqli_query($db,"SELECT role FROM admin WHERE role =  '".$_POST['role']."'");  //query to select the id of the valid code enter by user! 
 					  
-                     if(mysqli_num_rows($result) == 0)     //if code is not valid
-						 {
-                            // row not found, do stuff...
-			                 $message = "invalid code!";
-                         } 
-                      
-                      else                                 //if code is valid 
-					     {
-	
 								$mql = "INSERT INTO admin (username,password,email,role) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['role']."')";
 								mysqli_query($db, $mql);
 									$success = "Company User Added successfully!";
-						 }
+						 
         }
 	}
 
@@ -201,7 +192,7 @@ if(isset($_POST['submit1'] ))
 								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Service Category</a></li>
                                 <li><a href="add_service.php">Add Service</a></li>
-                                
+                                <li><a href="all_dealer_service.php">All Dealer Services</a></li>
                             </ul>
                         </li>
                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Packages</span></a>
@@ -215,6 +206,7 @@ if(isset($_POST['submit1'] ))
 						 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_orders.php">All Orders</a></li>
+                                <li><a href="all_dealer_order.php">All Dealer Orders</a></li>
 								  
                             </ul>
                         </li>

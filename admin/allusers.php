@@ -143,6 +143,7 @@ else
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_services.php">All Services</a></li>
                                 <li><a href="add_service.php">Add Service</a></li>
+                                <li><a href="all_dealer_service.php">All Dealer Services</a></li>
                                 
                             </ul>
                         </li>

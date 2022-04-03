@@ -223,7 +223,7 @@ only screen and (max-width: 760px),
                             </div>
                     
                         </div>
-                        <div class="col-xs-12 col-sm-7 col-md-7 ">
+                        <div class="col-xs-12">
                             <div class="bg-gray restaurant-entry">
                                 <div class="row">
 								
@@ -239,6 +239,8 @@ only screen and (max-width: 760px),
 							  <th>Close Event</th>
 							  <th>Event Date</th>
 							  <th>Event Type</th>
+							  <th>Payment Method</th>
+							  <th>Transaction Id</th>
 							  <th>status</th>
 						      <th>Date</th>
 							  <th>Action</th>
@@ -271,6 +273,8 @@ only screen and (max-width: 760px),
 														  <td data-column="c_hr"><?php echo $row['c_hr']; ?></td>
 														  <td data-column="edate"><?php echo $row['edate']; ?></td>
 														  <td data-column="type"><?php echo $row['type']; ?></td>
+														  <td data-column="type"><?php echo $row['payment']; ?></td>
+														  <td data-column="type"><?php echo $row['t_id']; ?></td>
 														   <td data-column="status"> 
 														   <?php 
 																			$status=$row['status'];
