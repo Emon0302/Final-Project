@@ -252,7 +252,7 @@ only screen and (max-width: 760px),
 						  
 							<?php 
 						// displaying current session user login orders 
-						$query_res= mysqli_query($db,"select * from users_orders where u_id='".$_SESSION['user_id']."'");
+						$query_res= mysqli_query($db,"select * from users_orders where u_id='".$_SESSION['user_id']."'order by o_id desc");
 												if(!mysqli_num_rows($query_res) > 0 )
 														{
 															echo '<td colspan="16"><center>You have No orders Placed yet. </center></td>';

@@ -24,7 +24,7 @@ else{
 						
 														mysqli_query($db,$SQL);
 														
-														$success = "Thank you! Your Order Placed successfully!";
+														$success = "<div class=\"mt-2\">Thank you! Your Order Placed successfully.</div>";
 
 														
 														
@@ -160,7 +160,8 @@ else{
                                         <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Event Shift</strong></label>
-                                                    <select class="form-control" name="shift" id="shift">
+                                                    <select class="form-control" name="shift" id="shift"required>
+                                                    <option value="">--Select Your Event Shift--</option>
                                                         <option value="Morning">Morning</option>
                                                         <option value="Evening">Evening</option>
                                                         <option value="Night">Night</option>
@@ -172,8 +173,8 @@ else{
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Open Hours</strong></label>
-                                                    <select name="o_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
-                                                     <option>--Select your Hours--</option>
+                                                    <select name="o_hr" class="form-control custom-select" data-placeholder="Choose a Category"required>
+                                                     <option value="">--Select your Hours--</option>
                                                         <option value="6am">6am</option>
                                                         <option value="7am">7am</option> 
 														<option value="8am">8am</option>
@@ -199,8 +200,8 @@ else{
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Close Hours</strong></label>
-                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
-                                                     <option>--Select your Hours--</option>
+                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category"required>
+                                                     <option value="">--Select your Hours--</option>
                                                      <option value="6am">6am</option>
                                                         <option value="7am">7am</option> 
 														<option value="8am">8am</option>
@@ -226,13 +227,14 @@ else{
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label for=""><strong>Select your Event Date</strong></label>
-                                                    <input type="date" name="edate" class="form-control">
+                                                    <input type="date" name="edate" class="form-control"required>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Event Type</strong></label>
-                                                    <select class="form-control" name="type" id="type">
+                                                    <select class="form-control" name="type" id="type"required>
+                                                    <option value="">--Select Your Event Type</option>
                                                         <option value="Wedding">Wedding</option>
                                                         <option value="Birthday">Birthday</option>
                                                         <option value="Party">Party</option>
@@ -244,6 +246,7 @@ else{
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Paymeny Method</strong></label>
                                                     <select class="form-control" name="payment" id="type"required>
+                                                    <option value="">--Select Your Payment Method--</option>
                                                         <option value="bKash">bkash</option>
                                                         <option value="Nagad">Nagad</option>
                                                         <option value="Rocket">Rocket</option>

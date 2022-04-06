@@ -213,6 +213,7 @@ else
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Package Details</th>
                                                 <th>Dealer Name</th>
                                                 <th>Company User Name</th>
                                                 <th>Quantity</th>
@@ -235,7 +236,7 @@ else
                                            
 											
 											<?php
-												$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id ";
+												$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id order by o_id desc";
 												$query=mysqli_query($db,$sql);
 												
 													if(!mysqli_num_rows($query) > 0 )
@@ -250,7 +251,8 @@ else
 																				?>
 																				<?php
 																					echo ' <tr>
-																					           <td>'.$rows['username'].'</td>
+                                                                                                <td>'.$rows['package'].'</td>
+                                                                                                <td>'.$rows['username'].'</td>
                                                                                                <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
