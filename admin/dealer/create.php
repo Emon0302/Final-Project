@@ -75,8 +75,8 @@ $d_order = $stmt->fetch();
                     <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Select Company User</label>
-													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Company User" tabindex="1">
-                                                        <option>--Select Company User--</option>
+													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Company User" tabindex="1"required>
+                                                        <option value="">--Select Company User--</option>
                                                  <?php $ssql ="select * from admin where role='User'";
 													$res=mysqli_query($db, $ssql); 
 													while($row=mysqli_fetch_array($res))  
@@ -92,7 +92,7 @@ $d_order = $stmt->fetch();
                     <div class="form-group">                  
                         <label for="quantity" class="col-sm-2 col-form-label fw-bold">Package :</label>
                         
-                         <input type="text" min="0" class="form-control" id="package_detail" name="package_detail" value="">
+                         <input type="text" min="0" class="form-control" id="package_detail" name="package_detail" value=""required>
                          </div>
                     
                     </div>
@@ -102,7 +102,7 @@ $d_order = $stmt->fetch();
                         <div class="form-group">                  
                             <label for="quantity" class="col-sm-2 col-form-label fw-bold">Quantity :</label>
                             
-                             <input type="number" min="0" class="form-control" id="quantity" name="quantity" value="">
+                             <input type="number" min="0" class="form-control" id="quantity" name="quantity" value=""required>
                              </div>
                         
                         </div>';
@@ -118,14 +118,15 @@ $d_order = $stmt->fetch();
                     <div class="form-group">                   
                         <label for="price" class="col-sm-2 col-form-label fw-bold">price :</label>
                         
-                         <input type="number" min="0" class="form-control" id="price" name="price" value="">
+                         <input type="number" min="0" class="form-control" id="price" name="price" value=""required>
                          
                     </div>
                   </div>
                          <div class="mb-3 row">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Event Shift</strong></label>
-                                                    <select class="form-control" name="shift" id="shift">
+                                                    <select class="form-control" name="shift" id="shift"required>
+                                                    <option value="">--Select Your Event Shift--</option>
                                                         <option value="Morning">Morning</option>
                                                         <option value="Evening">Evening</option>
                                                         <option value="Night">Night</option>
@@ -137,8 +138,8 @@ $d_order = $stmt->fetch();
                                             <div class="mb-3 row">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Starting Hours</strong></label>
-                                                    <select name="o_hr" class="form-control custom-select" data-placeholder="" >
-                                                     <option>--Select your Hours--</option>
+                                                    <select name="o_hr" class="form-control custom-select" data-placeholder=""required>
+                                                     <option value="">--Select your Hours--</option>
                                                         <option value="6am">6am</option>
                                                         <option value="7am">7am</option> 
 														<option value="8am">8am</option>
@@ -164,8 +165,8 @@ $d_order = $stmt->fetch();
                                             <div class="mb-3 row">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Closing Hours</strong></label>
-                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category" >
-                                                     <option>--Select your Hours--</option>
+                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose a Category"required>
+                                                     <option value="">--Select your Hours--</option>
                                                      <option value="6am">6am</option>
                                                         <option value="7am">7am</option> 
 														<option value="8am">8am</option>
@@ -191,13 +192,14 @@ $d_order = $stmt->fetch();
                                             <div class="mb-3 row">
                                                 <div class="form-group mb-3">
                                                     <label for=""><strong>Select your Event Date</strong></label>
-                                                    <input type="date" name="edate" class="form-control">
+                                                    <input type="date" name="edate" class="form-control"required>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Event Type</strong></label>
-                                                    <select class="form-control" name="type" id="type">
+                                                    <select class="form-control" name="type" id="type"required>
+                                                    <option value="">--Select Your Event Type</option>
                                                         <option value="Wedding">Wedding</option>
                                                         <option value="Birthday">Birthday</option>
                                                         <option value="Party">Party</option>

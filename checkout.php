@@ -20,11 +20,11 @@ else{
 													if($_POST['submit'])
 													{
 						
-													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate,type,payment,t_id) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."','".$_POST['type']."','".$_POST['payment']."','".$_POST['t_id']."')";
+													$SQL="insert into users_orders(u_id,title,quantity,price,shift,o_hr,c_hr,edate,type,payment,t_id,item_total) values('".$_SESSION["user_id"]."','".$item["title"]."','".$item["quantity"]."','".$item["price"]."','".$_POST["shift"]."','".$_POST['o_hr']."','".$_POST['c_hr']."','".$_POST['edate']."','".$_POST['type']."','".$_POST['payment']."','".$_POST['t_id']."','".$_POST['item_total']."')";
 						
 														mysqli_query($db,$SQL);
 														
-														$success = "Thankyou! Your Order Placed successfully!";
+														$success = "Thank you! Your Order Placed successfully!";
 
 														
 														
@@ -126,7 +126,8 @@ else{
 											   
                                                     <tr>
                                                         <td>Cart Subtotal</td>
-                                                        <td> <?php echo "৳".$item_total; ?></td>
+                                                        <td> <?php echo "৳".$item_total; ?>
+                                                    </td>
                                                     </tr>
                                                     <tr>
                                                         <td>Shipping &amp; Handling</td>
@@ -134,7 +135,9 @@ else{
                                                     </tr>
                                                     <tr>
                                                         <td class="text-color"><strong>Total</strong></td>
-                                                        <td class="text-color"><strong> <?php echo "৳".$item_total; ?></strong></td>
+                                                        <td class="text-color"><strong> <?php echo "৳".$item_total; ?></strong>
+                                                        <input type="hidden" class="form-control" id="item_total" name="item_total" value="<?=$item_total;?>"readonly>
+                                                    </td>
                                                     </tr>
                                                 </tbody>
 												
@@ -251,7 +254,7 @@ else{
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>Transaction Id</strong></label>
-                                                    <input type="text" name="t_id" class="form-control"value=" "placeholder="transanction id"required>
+                                                    <input type="text" name="t_id" class="form-control"value=""placeholder="transanction id"required>
                                                 
                                                    </div>
                                             </div>

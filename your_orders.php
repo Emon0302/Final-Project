@@ -255,7 +255,7 @@ only screen and (max-width: 760px),
 						$query_res= mysqli_query($db,"select * from users_orders where u_id='".$_SESSION['user_id']."'");
 												if(!mysqli_num_rows($query_res) > 0 )
 														{
-															echo '<td colspan="6"><center>You have No orders Placed yet. </center></td>';
+															echo '<td colspan="16"><center>You have No orders Placed yet. </center></td>';
 														}
 													else
 														{			      
@@ -313,7 +313,7 @@ only screen and (max-width: 760px),
 														   </td>
 														  <td data-column="Date"> <?php echo $row['date']; ?></td>
 														   <td data-column="Action"> <a href="delete_orders.php?order_del=<?php echo $row['o_id'];?>" onclick="return confirm('Are you sure you want to cancel your order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
-														   <a href="admin/dealer/Inv/uinvoice.php?o_id=<?php echo $row['o_id'];?>" onclick="return confirm('Are you sure you want to print your order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa solid fa-print" style="font-size:16px"></i></a> 
+														   <a href="admin/dealer/Inv/uinvoice.php?t_id=<?php echo $row['t_id'];?>" onclick="return confirm('Are you sure you want to print your order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa solid fa-print" style="font-size:16px"></i></a> 
 	
 														</td>
 														 

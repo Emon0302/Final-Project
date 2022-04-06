@@ -158,11 +158,11 @@ include_once 'product-action.php'; //including controller
                                                 $stmt2->execute();
                                                 $data = $stmt2->get_result();
                                                foreach ($data as $row) {
-                                                  if($row['title'] != "Music"){
+                                                  if($row['title'] != "Music"||$row['title'] != "Chef"){
                                                       ?>
                                                      <input class="b-r-0" type="text" name="quantity"  style="margin-left:30px;" value="1" size="2" />
                                                       <?php
-                                                  } if($row['title'] == "Music"){?>
+                                                  } if($row['title'] == "Music"||$row['title'] == "Chef"){?>
                                                     <input class="b-r-0" type="hidden" name="quantity"  style="margin-left:30px;" value="1"/>
                                                     <?php
                                                   }

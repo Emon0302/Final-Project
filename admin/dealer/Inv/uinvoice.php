@@ -1,7 +1,12 @@
 
 <?php
+include("connection/connect.php");
+error_reporting(0);
+session_start();
 
-$get = $_GET['o_id'];
+$get = $_GET['t_id'];
+
+
 
 // Connect to database
 $servername = "localhost";
@@ -13,15 +18,15 @@ $conn = new PDO("mysql:host=$servername;dbname=event", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-$query = "SELECT * FROM `users_orders` where `o_id`=$get"; 
+$query = "SELECT * FROM `users_orders` where `t_id`=$get"; 
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
 
 $u_order = $stmt->fetch();
 $u_order1=$u_order['u_id'];
-// print_r($page);
-// var_dump($banner);
+
+
 
 ?>
 
@@ -106,7 +111,7 @@ $u_order1=$u_order['u_id'];
                         <div class="email"><a href="mailto:john@example.com"><?=$u_order2['email'];?></a></div>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id"><?=$u_order['o_id'];?></h1>
+                        <h1 class="invoice-id"><?=$u_order['t_id'];?></h1>
                         <div class="date">Date of Invoice: <?=$u_order['date'];?></div>
                         <div class="date">Due Date: <?=$u_order['edate'];?>
                     </div>
@@ -126,36 +131,55 @@ $u_order1=$u_order['u_id'];
                         </tr>
                     </thead>
                     <tbody>
+
+                    <?php 
+						// displaying current session user login orders 
+						$query_res= mysqli_query($db,"select * from users_orders where t_id='".$_GET['t_id']."'");
+                        
+                        
+												if(!mysqli_num_rows($query_res) > 0 )
+														{
+															echo '<td colspan="9"><center>You have No orders Placed yet. </center></td>';
+														}
+													else
+														{			      
+										  
+										  while($row=mysqli_fetch_array($query_res))
+										  {
+						
+							?>
                         <tr>
                            
                             <td class="text-left"><h3>
-                            <?=$u_order['title'];?>
+                            <?=$row['title'];?>
                                 </h3>
                               
                             </td>
-                            <td class="qty"><?=$u_order['shift'];?></td>
-                            <td class="unit"><?=$u_order['o_hr'];?></td>
-                            <td class="qty"><?=$u_order['c_hr'];?></td>
-                            <td class="unit"><?=$u_order['edate'];?></td>
-                            <td class="qty"><?=$u_order['type'];?></td>
-                            <td class="unit"><?=$u_order['quantity'];?></td>
-                            <td class="total">$<?=$u_order['price'];?></td>
+                            <td class="qty"><?=$row['shift'];?></td>
+                            <td class="unit"><?=$row['o_hr'];?></td>
+                            <td class="qty"><?=$row['c_hr'];?></td>
+                            <td class="unit"><?=$row['edate'];?></td>
+                            <td class="qty"><?=$row['type'];?></td>
+                            <td class="unit"><?=$row['quantity'];?></td>
+                            <td class="total">$<?=$row['price'];?></td>
                         </tr>
+                        <?php
+                        }}?>
                     </tbody>
                     <?php
-$item_total=0;
- $item_total += ($u_order['quantity']*$u_order['price']); // calculating current price into cart
+// $item_total=0;
+//  $item_total += ($u_order['quantity']*$u_order['price']); // calculating current price into cart
 
-$totalWidth= $item_total;
-$percentage=25;
-$new_width = ($percentage / 100) * $totalWidth;
-$grand_total=($item_total+$new_width);
+// $totalWidth= $item_total;
+// $percentage=25;
+// $new_width = ($percentage / 100) * $totalWidth;
+// $grand_total=($item_total+$new_width);
 ?>	
                     <tfoot class= >
                         <tr>
                         
                             <td colspan="7">TOTAL</td>
-                            <td><?=$item_total;?></td>
+                            <td><?=$u_order['item_total'];?></td>
                         </tr>
                         <!-- <tr>
                         
