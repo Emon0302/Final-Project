@@ -253,9 +253,10 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 												
 																		
 												?>
+                                              
 											
 											<tr>
-													<td><strong>username:</strong></td>
+													<td><strong>Dealer Name:</strong></td>
 												     <td><center><?php echo $rows['username']; ?></center></td>
 													  <!-- <td><center>
 													   <a href="javascript:void(0);" onClick="popUpWindow('order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
@@ -265,12 +266,20 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 												  
 																																					
 											</tr>	
-											<tr>
-												<td><strong>Title:</strong></td>
+                                            <tr>
+												<td><strong>Company User Name:</strong></td>
+												    <td><center><?php echo $rows['c_name']; ?></center></td>
+													  
+												   																								
+											</tr>
+                                            <tr>
+												<td><strong>Package Details:</strong></td>
 												    <td><center><?php echo $rows['package']; ?></center></td>
 													  
 												   																								
-											</tr>	
+											</tr>
+									
+                                            
 											<tr>
 													<td><strong>Quantity:</strong></td>
 												    <td><center><?php echo $rows['quantity']; ?></center></td>

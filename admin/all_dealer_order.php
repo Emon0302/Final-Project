@@ -218,13 +218,6 @@ else
                                                 <th>Company User Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
-                                                <th>Total</th>
-                                                <th>Event-Shift</th>
-                                                <th>Open-Event</th>
-                                                <th>Close-Event</th>
-                                                <th>Event-Date</th>
-                                                <th>Event-Type</th>
-												<th>Reg-Date</th>
                                                 <th>Payment Method</th>
 												<th>Transaction ID</th>
 												<th>Status</th>
@@ -256,13 +249,6 @@ else
                                                                                                <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
-																								<td>৳'.$rows['total'].'</td>
-                                                                                                <td>'.$rows['shift'].'</td>
-                                                                                                <td>'.$rows['o_hr'].'</td>
-                                                                                                <td>'.$rows['c_hr'].'</td>
-                                                                                                <td>'.$rows['edate'].'</td>
-                                                                                                <td>'.$rows['type'].'</td>
-																								<td>'.$rows['date'].'</td>
 																								<td>'.$rows['payment'].'</td>
 																								<td>'.$rows['t_id'].'</td>'
 																								?>
