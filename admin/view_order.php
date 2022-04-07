@@ -246,6 +246,9 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 											$sql="SELECT users.*, users_orders.* FROM users INNER JOIN users_orders ON users.u_id=users_orders.u_id where o_id='".$_GET['user_upd']."'";
 												$query=mysqli_query($db,$sql);
 												$rows=mysqli_fetch_array($query);
+
+                                                $item_total = ($rows['quantity']*$rows['price']);
+
 												
 												
 																		
@@ -278,6 +281,54 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 													<td><strong>Price:</strong></td>
 												    <td><center>৳<?php echo $rows['price']; ?></center></td>
 													   
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Total:</strong></td>
+												    <td><center>৳<?php echo $item_total; ?></center></td>
+													   
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Event Shift:</strong></td>
+												    <td><center><?php echo $rows['shift']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Open Hour:</strong></td>
+												    <td><center><?php echo $rows['o_hr']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Close Hour:</strong></td>
+												    <td><center><?php echo $rows['c_hr']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Event Date:</strong></td>
+												    <td><center><?php echo $rows['edate']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Event Type:</strong></td>
+												    <td><center><?php echo $rows['type']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Payment Method:</strong></td>
+												    <td><center><?php echo $rows['payment']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Transaction Id:</strong></td>
+												    <td><center><?php echo $rows['t_id']; ?></center></td>
+													  
 												   																							
 											</tr>
 											<tr>

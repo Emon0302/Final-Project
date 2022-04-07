@@ -213,19 +213,18 @@ else
                                         <thead>
                                             <tr>
                                                 <th>Username</th>		
-                                                <th>Title</th>
+                                                <th>Package Name</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
-                                                <th>Event-Shift</th>
+                                                <!-- <th>Event-Shift</th>
                                                 <th>Open-Event</th>
                                                 <th>Close-Event</th>
                                                 <th>Event-Date</th>
                                                 <th>Event-Type</th>
-												<th>Address</th>
+												<th>Address</th> -->
                                                 <th>Payment Method</th>
                                                 <th>Transaction Id</th>
 												<th>status</th>												
-												<th>Reg-Date</th>
 												<th>Action</th>
 												 
                                             </tr>
@@ -253,12 +252,6 @@ else
 																								<td>'.$rows['title'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
-                                                                                                <td>'.$rows['shift'].'</td>
-                                                                                                <td>'.$rows['o_hr'].'</td>
-                                                                                                <td>'.$rows['c_hr'].'</td>
-                                                                                                <td>'.$rows['edate'].'</td>
-                                                                                                <td>'.$rows['type'].'</td>
-																								<td>'.$rows['address'].'</td>
                                                                                                 <td>'.$rows['payment'].'</td>
                                                                                                 <td>'.$rows['t_id'].'</td>';
 																								?>
@@ -291,7 +284,7 @@ else
 																			} 
 																			?>
 																						<?php																									
-																							echo '	<td>'.$rows['date'].'</td>';
+																							
 																							?>
 																									 <td>
 																									 <a href="delete_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
