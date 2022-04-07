@@ -8,10 +8,6 @@ if(empty($_SESSION["adm_id"]))
 {
 	header('location:index.php');
 }
-elseif($_SESSION['role'] == "User")
-{
-	header('location:index.php');
-}
 else
 {
 
@@ -25,25 +21,30 @@ else
     <meta name="author" content="">
     <!-- Favicon icon -->
     <title>Dashboard-Online Event Management</title>
-    <!-- Custom css for content -->
-    
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/helper.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css1/bootstrap.min.css" rel="stylesheet">
-    <link href="css1/font-awesome.min.css" rel="stylesheet">
-    <link href="css1/animsition.min.css" rel="stylesheet">
-    <link href="css1/animate.css" rel="stylesheet">
-    <link href="css1/style1.css" rel="stylesheet">
-    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<script language="javascript" type="text/javascript">
+var popUpWin=0;
+function popUpWindow(URLStr, left, top, width, height)
+{
+ if(popUpWin)
+{
+if(!popUpWin.closed) popUpWin.close();
+}
+popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+600+',height='+600+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+}
+
+</script>
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -55,13 +56,13 @@ else
     <!-- Main wrapper  -->
     <div id="main-wrapper">
         <!-- header header  -->
-         <div class="header">
+        <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="dashboard.php">
+                    <a class="navbar-brand" href="http://localhost/project/admin/dashboard.php">
                         <!-- Logo icon -->
-                        <h4 class="h4">Event Management</h4>   
+                        <h4>Event Management</h4>
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -133,8 +134,38 @@ else
                             </ul>
                         </li>
                         <li class="nav-label">Log</li>
-                        
+
+                        <?php
+                        if($_SESSION['role'] == "User"){
+                            echo'
+                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_orders.php">All Orders</a></li>
+								  
+                            </ul>
+                        </li>
+                            ';
+                        }
+                        elseif($_SESSION['de_id']){
+                        echo'
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_services.php">All Services</a></li>
+                                <li><a href="add_service.php">Add Service</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="hide-menu">Orders</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="admin_order.php">All Orders</a></li>
+								  
+                            </ul>
+                        </li>
+                        ';
+                        }
+                        else{
+                            echo'
+                            <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Services</span></a>
                             <ul aria-expanded="false" class="collapse">
 								<li><a href="all_services.php">All Services</a></li>
 								<li><a href="add_category.php">Add Service Category</a></li>
@@ -172,6 +203,13 @@ else
                                
                             </ul>
                         </li>
+                            
+                            ';
+                        }
+                        
+                        ?>
+                        
+                       
                          
                     </ul>
                 </nav>
@@ -186,66 +224,207 @@ else
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-primary">Dashboard</h3> </div>
-               
+                
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
             <div class="container-fluid">
+                <!-- Start Page Content -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-2 col-md-1 col-lg-3">
+                    <div class="col-12">
+                        
+                       
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">View user Orders</h4>
+                             
+                                <div class="table-responsive m-t-20">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                       
+                                        <tbody>
+                                           <?php
+											$sql="SELECT dealer.*, admin_order.* FROM dealer INNER JOIN admin_order ON dealer.de_id=admin_order.de_id where o_id='".$_GET['user_upd']."'";
+												$query=mysqli_query($db,$sql);
+												$rows=mysqli_fetch_array($query);
 
-                        </div>
-                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-5">
-                        <div class="bg-gray service-entry">
-                            <div class="row">
-                                <?php $ress = mysqli_query($db, "select * from dealer");
-                                while ($rows = mysqli_fetch_array($ress)) {
+                                                $item_total = ($rows['quantity']*$rows['price']);
 
-
-                                    echo ' <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
-                                  
-															
-															<div class="entry-dscr">
-																<h5><a href="dealer/create.php?de_id=' . $rows['de_id'] . '" >' . $rows['dc_name'] . '</a></h5> <span>' . $rows['username'] . ' </span>
-															
-															</div>
-															<!-- end:Entry description -->
-														</div>
-														
-														 <div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
-																<div class="right-content bg-white">
-																	<div class="right-review">
+												
+												
 																		
-                                                                      <a href="dealer/create.php?de_id=' . $rows['de_id'] . '" class="btn theme-btn-dash">Order now</a> 
-                                                                    </div>
-																</div>
-																<!-- end:right info -->
-															</div>';
-                                }
+												?>
+											
+											<tr>
+													<td><strong>username:</strong></td>
+												     <td><center><?php echo $rows['username']; ?></center></td>
+													  <!-- <td><center>
+													   <a href="javascript:void(0);" onClick="popUpWindow('order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
+															 <button type="button" class="btn btn-primary">Take Action</button></a>
+															 </center>
+											 </td> -->
+												  
+																																					
+											</tr>	
+											<tr>
+												<td><strong>Title:</strong></td>
+												    <td><center><?php echo $rows['package']; ?></center></td>
+													  
+												   																								
+											</tr>	
+											<tr>
+													<td><strong>Quantity:</strong></td>
+												    <td><center><?php echo $rows['quantity']; ?></center></td>
+													  
+												   																							
+											</tr>
+											<tr>
+													<td><strong>Price:</strong></td>
+												    <td><center>৳<?php echo $rows['price']; ?></center></td>
+													   
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Total:</strong></td>
+												    <td><center>৳<?php echo $item_total; ?></center></td>
+													   
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Event Shift:</strong></td>
+												    <td><center><?php echo $rows['shift']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Open Hour:</strong></td>
+												    <td><center><?php echo $rows['o_hr']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Close Hour:</strong></td>
+												    <td><center><?php echo $rows['c_hr']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Event Date:</strong></td>
+												    <td><center><?php echo $rows['edate']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Event Type:</strong></td>
+												    <td><center><?php echo $rows['type']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Payment Method:</strong></td>
+												    <td><center><?php echo $rows['payment']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            <tr>
+													<td><strong>Transaction Id:</strong></td>
+												    <td><center><?php echo $rows['t_id']; ?></center></td>
+													  
+												   																							
+											</tr>
+											<tr>
+													<td><strong>Address:</strong></td>
+												    <td><center><?php echo $rows['address']; ?></center></td>
+													  
+												   																							
+											</tr>
+											<tr>
+													<td><strong>Date:</strong></td>
+												     <td><center><?php echo $rows['date']; ?></center></td>
+													  
+												   																							
+											</tr>
+											<tr>
+													<td><strong>status:</strong></td>
+													<?php 
+																			$status=$rows['status'];
+																			if($status=="" or $status=="NULL")
+																			{
+																			?>
+																			<td> <center><button type="button" class="btn btn-info" style="font-weight:bold;"><span class="fa fa-bars"  aria-hidden="true" >Pending</button></center></td>
+																		   <?php 
+																			  }
+																			   if($status=="in process")
+																			 { ?>
+																			<td>   <center><button type="button" class="btn btn-warning"><span class="fa fa-cog fa-spin"  aria-hidden="true" ></span>Paid & In Process</button></center></td> 
+																			
+                                                                            <?php
+																				}
+																			if($status=="completed")
+																				{
+																			?>
+																			<td> <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></td> 
+                                                                            <?php
+																				}
+																			if($status=="accepted & pay soon")
+																				{
+																			?>
+																			<td> <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Accepted & Pay Soon</button></center></td> 
+																			
 
-
-                                ?>
-
+                                                                            
+                                                                            <?php
+																				}
+																			if($status=="closed")
+																				{
+																			?>
+																			<td>  <center><button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true">Completed</button></center></td> 
+																			<?php 
+																			} 
+																			?>
+																			<?php
+																			if($status=="rejected")
+																				{
+																			?>
+																			<td>  <center><button type="button" class="btn btn-danger"> <i class="fa fa-close"></i>rejected</button> </center></td> 
+																			<?php 
+																			} 
+																			?>
+													  
+												   																							
+											</tr>
+                                            
+                                            <tr>
+												<td><center></center></td>	   
+                                                 <td><center>
+                                                 <a href="http://localhost/project/admin/all_dealer_order.php" class="btn btn-inverse">Cancel</a>
+													<!-- <button type="button" class="btn btn-primary">Take Action</button></a> -->
+													 </center></td>
+                                            </tr>
+											
+																				
+																															
+																						
+									
+                                            
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <!--end:row -->
                         </div>
-
-
-
+						 </div>
+                      
+                            </div>
+                        </div>
                     </div>
-
-
-
                 </div>
-            </div>
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
 			
 			
 			
-			
-
+		
         </div>
         <!-- End Page wrapper  -->
     </div>
