@@ -409,7 +409,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                             <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">payment</label>
+                                                    <label class="control-label">Payment</label>
                                                     <select class="form-control" name="payment" id="payment"required>
                                                         
                                                         <option value="">Select Your Payment Method</option>
@@ -423,7 +423,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                             <!--/span-->
                                              <div class="col-md-6">
                                              <label class="control-label">Transaction ID:</label>
-                                                    <input type="text" name="t_id" value="<?=$d_order['t_id'];?>" class="form-control" placeholder="<?=$d_order['t-id'];?>">
+                                                    <input type="text" name="t_id" value="<?=$d_order['t_id'];?>" class="form-control" placeholder="<?=$d_order['t-id'];?>"required>
                                                    
                                             </div>
                                             </div>
