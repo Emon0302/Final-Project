@@ -330,13 +330,27 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 											</tr>
                                             <tr>
 													<td><strong>Payment Method:</strong></td>
-												    <td><center><?php echo $rows['payment']; ?></center></td>
+												    <?php if ($rows["payment"]==NULL){
+                                                            echo '<td><center>No payment yet</center></td>';
+                                                            }
+                                                            else
+                                                            {
+                                                                echo '<td><center>'.$rows["payment"].'</center></td>'; 
+                                                            }
+                                                                ?>
 													  
 												   																							
 											</tr>
                                             <tr>
 													<td><strong>Transaction Id:</strong></td>
-												    <td><center><?php echo $rows['t_id']; ?></center></td>
+												    <?php 
+                                                    if ($rows["t_id"]==NULL){
+                                                    echo '<td><center>No payment yet</center></td>';
+                                                    }
+                                                    else
+                                                    {
+                                                        echo '<td><center>'.$rows["t_id"].'</center></td>'; 
+                                                    } ?>
 													  
 												   																							
 											</tr>
