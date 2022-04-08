@@ -282,8 +282,26 @@ else
                             </div>
                         </div>
                     </div>
-					
-					<div class="col-md-3">
+
+                            <div class="col-md-3">
+                                <div class="card p-30">
+                                    <div class="media">
+                                        <div class="media-left meida media-middle"> 
+                                            <span><i class="fa fa-shopping-cart f-s-40" aria-hidden="true"></i></span>
+                                        </div>
+                                        <div class="media-body media-text-right">
+                                            <h2><?php $sql="select * from users_orders";
+                                                        $result=mysqli_query($db,$sql); 
+                                                            $rws=mysqli_num_rows($result);
+                                                            
+                                                            echo $rws;?></h2>
+                                            <p class="m-b-0">Orders</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                    <!-- <div class="col-md-3">
                         <div class="card p-30">
                             <div class="media">
                                 <div class="media-left meida media-middle"> 
@@ -299,7 +317,7 @@ else
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 					
 					
 					

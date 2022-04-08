@@ -60,7 +60,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="http://localhost/project/admin/dashboard.php">
+                    <a class="navbar-brand" href="admin_order.php">
                         <!-- Logo icon -->
                         <h4>Event Management</h4>
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
@@ -127,13 +127,13 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="dashboard.php">Dashboard</a></li>
                                 
                             </ul>
-                        </li>
-                        <li class="nav-label">Log</li>
+                        </li> -->
+                        <!-- <li class="nav-label">Log</li> -->
 
                         <?php
                         if($_SESSION['role'] == "User"){
@@ -230,7 +230,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">View user Orders</h4>
+                                <h4 class="card-title">View Admin Orders</h4>
                              
                                 <div class="table-responsive m-t-20">
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -245,19 +245,33 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 																		
 												?>
 											
-											<tr>
+											<!-- <tr>
 													<td><strong>username:</strong></td>
 												     <td><center><?php echo $rows['username']; ?></center></td>
-													  <!-- <td><center>
+													  <td><center>
 													   <a href="javascript:void(0);" onClick="popUpWindow('order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>');" title="Update order">
 															 <button type="button" class="btn btn-primary">Take Action</button></a>
 															 </center>
-											 </td> -->
+											 </td>
 												  
 																																					
-											</tr>	
+											</tr>	  -->
 											
 											<tr>
+													<td><strong>Package Details:</strong></td>
+												    <td><center><?php echo $rows['package']; ?></center></td>
+													  
+												   																							
+											</tr>
+                                            
+                                            <tr>
+													<td><strong>Company User Name:</strong></td>
+												    <td><center><?php echo $rows['c_name']; ?></center></td>
+													  
+												   																							
+											</tr>
+
+                                            <tr>
 													<td><strong>Quantity:</strong></td>
 												    <td><center><?php echo $rows['quantity']; ?></center></td>
 													  
@@ -270,17 +284,62 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 												   																							
 											</tr>
 											<tr>
-													<td><strong>Address:</strong></td>
-												    <td><center><?php echo $rows['address']; ?></center></td>
+													<td><strong>Event Shift:</strong></td>
+												    <td><center><?php echo $rows['shift']; ?></center></td>
 													  
 												   																							
 											</tr>
+
+                                            <tr>
+													<td><strong>Event Open Hour:</strong></td>
+												    <td><center><?php echo $rows['o_hr']; ?></center></td>
+													  
+												   																							
+											</tr>
+
+                                            <tr>
+													<td><strong>Event Close Hour:</strong></td>
+												    <td><center><?php echo $rows['c_hr']; ?></center></td>
+													  
+												   																							
+											</tr>
+
 											<tr>
-													<td><strong>Date:</strong></td>
-												     <td><center><?php echo $rows['date']; ?></center></td>
+													<td><strong>Event Date:</strong></td>
+												     <td><center><?php echo $rows['edate']; ?></center></td>
 													  
 												   																							
 											</tr>
+
+                                            <tr>
+													<td><strong>Event Type:</strong></td>
+												    <td><center><?php echo $rows['type']; ?></center></td>
+													  
+												   																							
+											</tr>
+
+
+                                            <tr>
+													<td><strong>Payment Method:</strong></td>
+												    <td><center><?php echo $rows['payment']; ?></center></td>
+													  
+												   																							
+											</tr>
+
+                                            <tr>
+													<td><strong>Transaction Id:</strong></td>
+												    <td><center><?php echo $rows['t_id']; ?></center></td>
+													  
+												   																							
+											</tr>
+
+                                            <tr>
+													<td><strong>Date:</strong></td>
+												    <td><center><?php echo $rows['date']; ?></center></td>
+													  
+												   																							
+											</tr>
+
 											<tr>
 													<td><strong>status:</strong></td>
 													<?php 

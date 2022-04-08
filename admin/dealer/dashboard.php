@@ -99,7 +99,7 @@ else
                             echo'
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="logout2.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                             ';
@@ -128,14 +128,14 @@ else
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
-                        <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <!-- <li class="nav-label">Home</li> -->
+                        <!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="dashboard.php">Dashboard</a></li>
                                 
                             </ul>
-                        </li>
-                        <li class="nav-label">Log</li>
+                        </li> -->
+                        <!-- <li class="nav-label">Log</li> -->
 
                         <?php
                         if($_SESSION['role'] == "User"){
@@ -282,7 +282,53 @@ else
                         </div>
                     </div> -->
 					
-					<div class="col-md-3">
+					<?php
+                        if($_SESSION['de_id']){
+                            echo'
+                            <div class="col-md-3">
+                        <div class="card p-30">
+                            <div class="media">
+                                <div class="media-left meida media-middle"> 
+                                    <span><i class="fa fa-shopping-cart f-s-40" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="media-body media-text-right">
+                                    <?php $sql="select * from admin_order";
+												$result=mysqli_query($db,$sql); 
+													$rws=mysqli_num_rows($result);
+													
+													echo $rws;?></h2>
+                                    <p class="m-b-0">Orders</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            ';
+                            }
+                            else{
+                                echo'
+                                <div class="col-md-3">
+                                <div class="card p-30">
+                                    <div class="media">
+                                        <div class="media-left meida media-middle"> 
+                                            <span><i class="fa fa-shopping-cart f-s-40" aria-hidden="true"></i></span>
+                                        </div>
+                                        <div class="media-body media-text-right">
+                                            <h2><?php $sql="select * from users_orders";
+                                                        $result=mysqli_query($db,$sql); 
+                                                            $rws=mysqli_num_rows($result);
+                                                            
+                                                            echo $rws;?></h2>
+                                            <p class="m-b-0">Orders</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            ';
+                            }
+                            ?>
+                    
+                    
+                    <!-- <div class="col-md-3">
                         <div class="card p-30">
                             <div class="media">
                                 <div class="media-left meida media-middle"> 
@@ -298,7 +344,7 @@ else
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 					
 					
 					

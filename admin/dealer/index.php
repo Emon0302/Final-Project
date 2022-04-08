@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
 	                        if(is_array($row))
 								{
                                     	$_SESSION["de_id"] = $row['de_id'];
-										 header("refresh:1;url=dashboard.php");
+										 header("refresh:1;url=admin_order.php");
 	                            } 
 							else
 							    {

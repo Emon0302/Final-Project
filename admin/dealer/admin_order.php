@@ -49,7 +49,7 @@ else
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="dashboard.php">
+                    <a class="navbar-brand" href="admin_order.php">
                         <!-- Logo icon -->
                         <h4>Event Management</h4>   
                         <!-- <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b> -->
@@ -116,13 +116,13 @@ else
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <!-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="dashboard.php">Dashboard</a></li>
                                 
                             </ul>
-                        </li>
-                        <li class="nav-label">Log</li>
+                        </li> -->
+                        <!-- <li class="nav-label">Log</li> -->
 
                         <?php
                         if($_SESSION['role'] == "User"){
@@ -219,25 +219,18 @@ else
                        
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">All user Orders</h4>
+                                <h4 class="card-title">All Admin Orders</h4>
                              
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Package Name</th>
+                                                <th>Package Details</th>
                                                 <th>Company User</th>
                                                 <th>Quantity</th>
                                                 <th>price</th>
-                                                <th>Total</th>
-                                                <th>Event-Shift</th>
-                                                <th>Open-Event</th>
-                                                <th>Close-Event</th>
-                                                <th>Event-Date</th>
-                                                <th>Event-Type</th>
-												<th>Reg-Date</th>
-												<th>Payment-method</th>
-												<th>Transaction-ID</th>
+                                                <th>Payment Method</th>
+                                                <th>Transaction Id</th>
 												<th>Status</th>
                                                 <th>Action</th>
 												 
@@ -266,13 +259,6 @@ else
                                                                                                <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
 																								<td>৳'.$rows['price'].'</td>
-																								<td>৳'.$rows['total'].'</td>
-                                                                                                <td>'.$rows['shift'].'</td>
-                                                                                                <td>'.$rows['o_hr'].'</td>
-                                                                                                <td>'.$rows['c_hr'].'</td>
-                                                                                                <td>'.$rows['edate'].'</td>
-                                                                                                <td>'.$rows['type'].'</td>
-																								<td>'.$rows['date'].'</td>
 																								<td>'.$rows['payment'].'</td>
 																								<td>'.$rows['t_id'].'</td>';
 																								?>
