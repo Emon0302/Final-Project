@@ -52,7 +52,7 @@ $d_order1=$d_order['de_id'];
 
     <div class="toolbar hidden-print">
         <div class="text-right">
-            <button id="printInvoice" class="btn btn-info">Print</button>
+            <button id="printInvoice" class="mt-2 btn btn-info" style="margin-right:40px">Print</button>
         </div>
         <hr>
     </div>
