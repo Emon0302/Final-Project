@@ -293,7 +293,7 @@ else
 																									 <td>
 																									 <a href="delete_dealer_orders.php?order_del=<?php echo $rows['o_id'];?>" onclick="return confirm('Are you sure to delet this order?');" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a>
                                                                                                      <a href="dealer/Inv/invoice.php?o_id=<?php echo $rows['o_id'];?>" onclick="return confirm('Do you want to see this order\'s invoice?');"class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-print" style="font-size:16px"></i></a>  
-                                                                                                     <a href="dealer/payment.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-usd" style="font-size:16px"></i></a>
+                                                                                                     <a href="payment.php?o_id=<?php echo $rows['o_id'];?>" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-usd" style="font-size:16px"></i></a>
                                                                                                      <a href="view_d_order.php?user_upd=<?php echo $rows['o_id'];?>" class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-info-circle"></i></a>  
 
                                                                                                     </td>

@@ -10,21 +10,7 @@ if(empty($_SESSION["adm_id"]))
 }
 else
 {
-    include("../connection/connect.php");
-    error_reporting(0);
-    session_start();
-    if(empty($_SESSION["adm_id"]))
-    {
-        header('location:index.php');
-    }
-    elseif($_SESSION['role'] == "User")
-    {
-        header('location:index.php');
-    }
-    else{
-    $get = $_GET['de_id'];
-    // $get1 =$_GET['dc_name'];
-    // echo $get1;
+    $get = $_GET['o_id'];
     // Connect to database
     $servername = "localhost";
     $username = "root";
@@ -35,22 +21,12 @@ else
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     
-    $query = "SELECT * FROM `admin_order` where `de_id`=$get"; 
+    $query = "SELECT * FROM `admin_order` where `o_id`=$get"; 
     
     $stmt = $conn->prepare($query);
     $result = $stmt->execute();
     
     $d_order = $stmt->fetch();
-
-    $query1 = "SELECT * FROM `dealer` where `de_id`=$get"; 
-
-                            $stmt1 = $conn->prepare($query1);
-                            $result1 = $stmt1->execute();
-                            
-                            $d_order1= $stmt1->fetch();
-    // print_r($page);
-    // var_dump($banner);
-    }
 
     //query for username & dealer_id
     // $query1 = "SELECT * FROM `admin_order` where `o_id`=$get"; 
@@ -304,44 +280,31 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white"> Add a Dealer's  Order </h4>
+                                <h4 class="m-b-0 text-white"> Payment to Dealer</h4>
                             </div>
                             <div class="card-body">
-                                <form action='store.php?de_id=<?=$d_order['de_id'];?>' method='post' >
+                                <form action='payment_datastore.php?o_id=<?=$d_order['o_id'];?>' method='post' >
                                     <div class="form-body">
                                         <hr>
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Dealer Name</label>
-                                                    <input type="text" name="username" value="<?=$d_order1['username'];?>" class="form-control" placeholder="<?=$d_order1['username'];?>"readonly>
-                                                    <input type="hidden" class="form-control" id="de_id" name="de_id" value="<?=$d_order1['de_id'];?>">
+                                                    <input type="text" name="username" value="<?=$d_order['username'];?>" class="form-control" placeholder="<?=$d_order['username'];?>"readonly>
+                                                    <input type="hidden" class="form-control" id="de_id" name="de_id" value="<?=$d_order['de_id'];?>">
    
                                                 </div>
                                             </div>
                                             <!--/span-->
                                             <div class="col-md-6">
-                                            <div class="form-group">
-                                                    <label class="control-label">Select Company User</label>
-													<select name="c_name" class="form-control custom-select" data-placeholder="Choose a Company User" tabindex="1"required>
-                                                        <option value="">--Select Company User--</option>
-                                                 <?php $ssql ="select * from admin where role='User'";
-													$res=mysqli_query($db, $ssql); 
-													while($row=mysqli_fetch_array($res))  
-													{
-                                                       echo' <option value="'.$row['username'].'">'.$row['username'].'</option>';;
-													}  
-                                                 
-													?> 
-													 </select>
-                                                </div>
+                                               
                                             </div>
                                             </div>
                                             <div class="row p-t-20">
                                             <div class="col-md-12">
                                             <div class="form-group">
                                                     <label class="control-label">Package </label>
-                                                    <input type="text" name="package_detail" value=""  class="form-control" placeholder="Add your packages."required>
+                                                    <input type="text" name="package" value="<?php echo $d_order['package'];?>"  class="form-control" placeholder="$ <?=$d_order['package'];?>"readonly>
                                                    </div>
                                             </div>
                                             </div>
@@ -349,28 +312,29 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                         <!--/row-->
                                         <div class="row p-t-20">
                                         
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Price </label>
-                                                    <input type="text" name="price" value=""  class="form-control" placeholder="$"required>
+                                                    <input type="text" name="price" value="<?php echo $d_order['price'];?>"  class="form-control" placeholder="$ <?=$d_order['price'];?>"readonly>
                                                    </div>
                                             </div>
                                             <!--/span-->
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group has-danger">
                                                     <label class="control-label">Quantity</label>
-                                                    <?php
-                                                        if ($d_order1['dc_name']!= "Music"){
-                                                        echo' 
-                                                                <input type="number" min="0" class="form-control" id="quantity" name="quantity" value=""required>
-                                                                ';
-                                                    }else{
-                                                        echo'<input type="hidden" min="0" class="form-control" id="quantity" name="quantity" value="1">';
-                                                    }
-                                                    ?>
-                                                        </div>
-                                                        </div>
+                                                    <input type="text" name="quantity" value="<?php echo $d_order['quantity'];?>"  class="form-control" placeholder="<?=$d_order['price'];?>"readonly>
                                                     </div>
+                                            </div>
+                                            <?php
+                                            $total=$d_order['price']*$d_order['quantity'];
+                                            ?>
+                                            <div class="col-md-4">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Total</label>
+                                                    <input type="text" name="total" value="<?php echo $total;?>"  class="form-control" placeholder="<?=$total;?>"readonly>
+                                                    </div>
+                                            </div>
+                                        </div>
                                         <!--/row-->
 										
                                             <!--/span-->
@@ -380,20 +344,15 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Event Date</label>
-                                                    <input type="date" name="edate" value="" class="form-control" placeholder=""required>
+                                                    <input type="text" name="edate" value="<?=$d_order['edate'];?>" class="form-control" placeholder="<?=$d_order['edate'];?>"readonly>
                                                    </div>
                                             </div>
                                             <!--/span-->
                                              <div class="col-md-6">
                                                 <div class="form-group has-danger">
                                                     <label class="control-label">Event Shift</label>
-                                                    <select class="form-control" name="shift" id="shift"required>
-                                                    <option value="">--Select Your Event Shift--</option>
-                                                        <option value="Morning">Morning</option>
-                                                        <option value="Evening">Evening</option>
-                                                        <option value="Night">Night</option>
-                                                    </select>                                                   
-                                                 </div>
+                                                    <input type="text" name="shift" value="<?php echo $d_order['shift'];?>"  class="form-control" placeholder="<?=$d_order['shift'];?>"readonly>
+                                                    </div>
                                             </div>
                                             </div>
                                               <!-- 
@@ -408,56 +367,15 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Starting Hour</label>
-                                                    <select name="o_hr" class="form-control custom-select" data-placeholder=""required>
-                                                     <option value="">--Select your Hours--</option>
-                                                        <option value="6am">6am</option>
-                                                        <option value="7am">7am</option> 
-														<option value="8am">8am</option>
-														<option value="9am">9am</option>
-														<option value="10am">10am</option>
-														<option value="11am">11am</option>
-                                                        <option value="12am">12pm</option>
-                                                        <option value="1pm">1pm</option>
-                                                        <option value="2pm">2pm</option>
-                                                        <option value="3pm">3pm</option>
-                                                        <option value="4pm">4pm</option> 
-														<option value="5pm">5pm</option>
-														<option value="6pm">6pm</option>
-														<option value="7pm">7pm</option>
-														<option value="8pm">8pm</option>
-                                                        <option value="9pm">9pm</option>
-                                                        <option value="10pm">10pm</option>
-                                                        <option value="11pm">11pm</option>
-                                                        <option value="12pm">12pm</option>
-                                                    </select>                                                   </div>
+                                                    <input type="text" name="o_hr" value="<?=$d_order['o_hr'];?>" class="form-control" placeholder="<?=$d_order['o_hr'];?>"readonly>
+                                                   </div>
                                             </div>
                                             <!--/span-->
                                              <div class="col-md-6">
                                                 <div class="form-group has-danger">
                                                     <label class="control-label">Closing Hour</label>
-                                                    <select name="c_hr" class="form-control custom-select" data-placeholder="Choose closing hour"required>
-                                                     <option value="">--Select your Hours--</option>
-                                                     <option value="6am">6am</option>
-                                                        <option value="7am">7am</option> 
-														<option value="8am">8am</option>
-														<option value="9am">9am</option>
-														<option value="10am">10am</option>
-														<option value="11am">11am</option>
-                                                        <option value="12am">12pm</option>
-                                                        <option value="1pm">1pm</option>
-                                                        <option value="2pm">2pm</option>
-                                                        <option value="3pm">3pm</option>
-                                                        <option value="4pm">4pm</option> 
-														<option value="5pm">5pm</option>
-														<option value="6pm">6pm</option>
-														<option value="7pm">7pm</option>
-														<option value="8pm">8pm</option>
-                                                        <option value="9pm">9pm</option>
-                                                        <option value="10pm">10pm</option>
-                                                        <option value="11pm">11pm</option>
-                                                        <option value="12pm">12pm</option>
-                                                    </select>                                                   
-                                                </div>
+                                                    <input type="text" name="c_hr" value="<?php echo $d_order['c_hr'];?>"  class="form-control" placeholder="<?=$d_order['c_hr'];?>"readonly>
+                                                    </div>
                                             </div>
                                             </div>
 
@@ -465,17 +383,50 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Event type</label>
-                                                    <select class="form-control" name="type" id="type"required>
-                                                    <option value="">--Select Your Event Type</option>
-                                                        <option value="Wedding">Wedding</option>
-                                                        <option value="Birthday">Birthday</option>
-                                                        <option value="Party">Party</option>
-                                                    </select>                                                  
-                                                 </div>
+                                                    <input type="text" name="type" value="<?=$d_order['type'];?>" class="form-control" placeholder="<?=$d_order['type'];?>"readonly>
+                                                   </div>
+                                            </div>
+                                            <!--/span-->
+                                             <div class="col-md-6">
+                                             <div class="form-group has-danger">
+                                                    <label class="control-label">Company User</label>
+                                                    <select name="c_name" class="form-control " data-placeholder="Choose a Company User" tabindex="1">
+                                                    
+                                                        <option value="<?=$d_order['c_name'];?>" selected><?=$d_order['c_name'];?></option>
+                                                 <?php $ssql ="select * from admin where role='User'";
+													$res=mysqli_query($db, $ssql); 
+													while($row=mysqli_fetch_array($res))  
+													{
+                                                       echo' <option value="'.$row['username'].'">'.$row['username'].'</option>';;
+													}  
+                                                 
+													?> 
+													 </select>
+                                                    </div>
                                             </div>
                                             </div>
 
-                                           
+                                            <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">payment</label>
+                                                    <select class="form-control" name="payment" id="payment"required>
+                                                        
+                                                        <option value="">Select Your Payment Method</option>
+                                                        <!-- <option value="pay on delivery">pay on delivery</option> -->
+                                                         <option value="bkash">Bkash</option>
+                                                            <option value="nagad">Nagad</option>
+                                                            <option value="rocket">Rocket</option>
+                                                        </select>                                                  
+                                                    </div>
+                                            </div>
+                                            <!--/span-->
+                                             <div class="col-md-6">
+                                             <label class="control-label">Transaction ID:</label>
+                                                    <input type="text" name="t_id" value="<?=$d_order['t_id'];?>" class="form-control" placeholder="<?=$d_order['t-id'];?>">
+                                                   
+                                            </div>
+                                            </div>
 
 
 											
@@ -487,7 +438,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                     </div>
                                     <div class="form-actions">
                                         <input type="submit" name="submit" class="btn btn-success" value="save"> 
-                                        <a href="http://localhost/project/admin/all_dealer_service.php" class="btn btn-inverse">Cancel</a>
+                                        <a href="dashboard.php" class="btn btn-inverse">Cancel</a>
                                     </div>
                                 </form>
                             </div>

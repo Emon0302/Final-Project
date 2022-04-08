@@ -3,6 +3,8 @@ $web='http://localhost/project/admin';
 $get = $_REQUEST['o_id'];
 
 $de_id=$_POST['de_id'];
+
+
 $_username=$_POST['username'];
 $_c_name=$_POST['c_name'];
 $_package=$_POST['package'];
@@ -30,12 +32,13 @@ $conn = new PDO("mysql:host=$servername;dbname=event", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$query = "UPDATE `admin_order` SET `o_id`=:o_id,`de_id`=:de_id,`username`=:username,`c_name`=:c_name,`quantity`=:quantity ,`price`=:price ,`shift`=:shift ,`o_hr`=:o_hr ,`c_hr`=:c_hr ,`edate`=:edate ,`type`=:type ,`total`=:total ,`payment`=:payment,`t_id`=:t_id  WHERE `o_id`=$get";
+$query = "UPDATE `admin_order` SET `o_id`=:o_id,`de_id`=:de_id,`package`=:package,`username`=:username,`c_name`=:c_name,`quantity`=:quantity ,`price`=:price ,`shift`=:shift ,`o_hr`=:o_hr ,`c_hr`=:c_hr ,`edate`=:edate ,`type`=:type ,`total`=:total ,`payment`=:payment,`t_id`=:t_id  WHERE `o_id`=$get";
 
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':o_id',$get);
 $stmt->bindParam(':de_id',$de_id);
+$stmt->bindParam(':package',$_package);
 $stmt->bindParam(':username',$_username);
 $stmt->bindParam(':c_name',$_c_name);
 $stmt->bindParam(':quantity',$_quantity);
