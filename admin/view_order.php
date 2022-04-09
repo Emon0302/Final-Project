@@ -398,14 +398,62 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                                      </center></td> 
 													   
                                                  <td><center>
-													<a href="order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
-													<button type="button" class="btn btn-primary">Take Action</button></a>
+                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                                                Take action
+                                                                </button>
+
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                                        <button type="button" onclick="javascript:window.location.reload()"class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                    
+                                                                    <form action='order_update.php?form_id=<?=$rows['o_id'];?>' method="post"> 
+ 
+                                                                                        <table  border="0" cellspacing="0" cellpadding="0">
+                                                                                        <tr >
+                                                                                            <td><b>form Number</b></td>
+                                                                                            <td><?php echo htmlentities($_GET['user_upd']); ?></td>
+                                                                                            </tr>
+                                                                                        
+                                                                                        <tr >
+                                                                                            <td><b>Status</b></td>
+                                                                                            <td><select name="status" required="required" >
+                                                                                            <option value="">Select Status</option>
+                                                                                            <option value="in process">Paid & In Process</option>
+                                                                                            <option value="closed">Completed</option>
+                                                                                            <option value="rejected">rejected</option>
+                                                                                                
+                                                                                            </select></td>
+                                                                                            </tr>
+                                                                                           
+                                                                                        
+                                                                                        
+                                                                                        </table>
+  
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"onclick="javascript:window.location.reload()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                       
+                                                                        <input type="submit" name="update"  class="btn btn-primary" value="Submit">
+                                                                    </div>
+                                                                    </form>
+                                                                    </div>
+                                                                </div>
+</div>
 													 </center></td>
                                             </tr>
 											
 																				
 																															
-																						
+														<!-- <a href="order_update.php?form_id=<?php echo htmlentities($rows['o_id']);?>"  title="Update order">
+													<button type="button" class="btn btn-primary">Take Action</button></a> -->											
 									
                                             
                                            

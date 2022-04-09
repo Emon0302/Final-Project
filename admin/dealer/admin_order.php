@@ -258,9 +258,21 @@ else
 																					           <td>'.$rows['package'].'</td>
                                                                                                <td>'.$rows['c_name'].'</td>
 																								<td>'.$rows['quantity'].'</td>
-																								<td>৳'.$rows['price'].'</td>
-																								<td>'.$rows['payment'].'</td>
-																								<td>'.$rows['t_id'].'</td>';
+																								<td>৳'.$rows['price'].'</td>';
+																								if ($rows["payment"]==NULL){
+                                                                                                    echo '<td>No payment yet</td>';
+                                                                                                    }
+                                                                                                    else
+                                                                                                    {
+                                                                                                        echo '<td>'.$rows["payment"].'</td>'; 
+                                                                                                    }
+                                                                                                    if ($rows["t_id"]==NULL){
+                                                                                                        echo '<td>No payment yet</td>';
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            echo '<td>'.$rows["t_id"].'</td>'; 
+                                                                                                        }
 																								?>
 																								<?php 
 																			$status=$rows['status'];
