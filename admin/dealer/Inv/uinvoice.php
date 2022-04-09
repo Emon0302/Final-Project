@@ -67,7 +67,7 @@ $u_order1=$u_order['u_id'];
 
     <div class="toolbar hidden-print">
         <div class="text-right">
-            <button id="printInvoice" class="btn btn-info">Print</button>
+            <button id="printInvoice" class="btn btn-info" style="margin-right:40px">Print</button>
         </div>
         <hr>
     </div>
