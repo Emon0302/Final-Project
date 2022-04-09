@@ -87,7 +87,7 @@ if(isset($_POST['submit1'] ))
     <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<meta charset="UTF-8">
+<!-- <meta charset="UTF-8">
   <title>Flat Login Form</title>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -96,7 +96,7 @@ if(isset($_POST['submit1'] ))
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
-      <link rel="stylesheet" href="css/login.css">
+      <link rel="stylesheet" href="css/login.css"> -->
 </head>
 
 <body class="fix-header">
@@ -247,18 +247,7 @@ if(isset($_POST['submit1'] ))
             <div class="container-fluid">
                 <!-- Start Page Content -->
                      <div class="row">
-                     
-          
-          
-                   
-                   
-					
-
-									
-									
-								
-								
-					    <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <span style="color:red"><?php echo $message; ?></span>
                         <span style="color:green"><?php echo $success; ?></span>
                         <div class="card card-outline-primary">
@@ -349,10 +338,10 @@ if(isset($_POST['submit1'] ))
 					
                 </div>
                 <!-- End PAge Content -->
-            <!-- </div>
-            <!-- End Container fluid  >
+            </div>
+            <!-- End Container fluid -->
     
-        </div--> 
+</div> 
         <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->
